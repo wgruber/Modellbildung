@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Statistische Modellbildung</title>
+  <meta name="description" content="Einführung in die statistische Modellbildung">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Statistische Modellbildung" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Images/Cover.PNG" />
+  <meta property="og:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="github-repo" content="wgruber/Modellbildung" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statistische Modellbildung" />
+  
+  <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="twitter:image" content="Images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-02">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
+<li class="chapter" data-level="0.1" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i><b>0.1</b> Modellbildung</a></li>
+<li class="chapter" data-level="0.2" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i><b>0.2</b> Kennzeichen eines statistischen Modelles</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Modellbildung</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistisches-modell" class="section level1 unnumbered">
+<h1>Statistisches Modell</h1>
+<p>Unter statistischer Modellbildung versteht man den Prozess, ein passendes Modell für die Daten einer Beobachtungsreihe zu finden.</p>
+<ul>
+<li>Als <em>Prozess</em> wird die strukturierte und gesteuerte Reihe von Arbeitsschritten bezeichnet, konzipiert, um eine bestimmtes Ergebnis hervorzubringen.</li>
+<li><em>Daten</em> sind Werte und Beobachtungen, die im Lauf einer (statistischen) Erhebung gesammelt werden.</li>
+<li>Eine <em>Erhebung</em> ist die Sammlung von Daten einer bestimmten Grundgesamtheit zum Zweck der Untersuchung eines speziellen Aspektes. Die Daten werden oft nur von einer Stichprobe der Grundgesamtheit erhoben. Erhebungen sind in der Forschung weit verbreitet.</li>
+<li>Eine <em>Stichprobe</em> ist die Teilmenge einer Grundgesamtheit bei einer statistischen Untersuchung, zusammengestellt, um ausgewählte Eigenschaften der Gesamtpopulation zu untersuchen.</li>
+</ul>
+<div id="modellbildung" class="section level2">
+<h2><span class="header-section-number">0.1</span> Modellbildung</h2>
+<p>Die Modellbildung abstrahiert mit dem Erstellen eines Modells von der Realität, weil diese meist zu komplex ist, um sie vollständig abzubilden. Man unterscheidet dabei:</p>
+<ul>
+<li><p><strong>Strukturelle Modellbildung</strong>: Bei struktureller Modellbildung ist die innere Struktur des Systems bekannt, es wird jedoch bewusst abstrahiert, modifiziert und reduziert. Man spricht hier von einem <strong>Whitebox-Modell</strong>.</p></li>
+<li><p><strong>Pragmatische Modellbildung</strong>: Bei pragmatischer Modellbildung ist die innere Struktur des Systems unbekannt, es lässt sich nur das Verhalten bzw. die Interaktion des Systems beobachten und modellieren. Die Hintergründe lassen sich meist nicht oder nur zum Teil verstehen - hier spricht man von einem <strong>Blackbox-Modell</strong>.</p></li>
+<li><p><strong>Mischformen</strong>: Bei Mischformen sind Teile des Systems bekannt, andere wiederum nicht. Nicht alle Wechselwirkungen und Interaktionen zwischen Teilkomponenten lassen sich nachvollziehen - hier spricht man vom <strong>Greybox-Modell</strong>. Diese Mischform ist die häufigste, weil es aufgrund von Kosten-Nutzen-Überlegungen meist ausreichend ist, das System auf diese Weise abzubilden.</p></li>
+</ul>
+</div>
+<div id="kennzeichen-eines-statistischen-modelles" class="section level2">
+<h2><span class="header-section-number">0.2</span> Kennzeichen eines statistischen Modelles</h2>
+<p>Ein Modell ist im Wesentlichen durch drei Merkmale gekennzeichnet:</p>
+<ul>
+<li><p><strong>Abbildung</strong>: eines natürlichen oder eines künstlichen Originals, wobei dieses Original selbst auch wiederum ein Modell sein kann.</p></li>
+<li><strong>Verkürzung</strong>: es erfasst im Allgemeinen nicht alle Eigenschaften (Attribute) des Originals, sondern nur diejenigen, die dem Modellschaffer bzw. Modellnutzer relevant erscheinen. Diese werden häufig in Form von aggregierenden Maßzahlen (Parameter) beschrieben.</li>
+<li><strong>Pragmatismus</strong>: sind ihren Originalen nicht eindeutig zugeordnet. Sie erfüllen ihre Ersetzungsfunktion:
+<ul>
+<li>für bestimmte Subjekte (für wen?)</li>
+<li>innerhalb bestimmter Zeitintervalle (wann?)</li>
+<li>unter Einschränkung auf bestimmte gedankliche oder tatsächliche Operationen (wozu?).</li>
+</ul></li>
+</ul>
+<p>Statistische Modelle sind somit:</p>
+<ul>
+<li>eine vereinfachte mathematisch-formalisierte Methode, sich der Realität anzunähern.</li>
+<li>Beschreiben den Zustand eines Systems vor und nach Änderungen äußerer Relationen, nicht jedoch während einer Änderung.</li>
+<li>Das Ziel ist es herauszufinden, ob man in der Natur auftretende Phänomene auf allgemein gültige Gesetzmäßigkeiten zurückführen kann.</li>
+<li>In der Regel werden Beobachtungen durchgeführt und diese als Daten aufgezeichnet.</li>
+<li>In diesen Daten gilt es Muster zu finden, die Rückschlüsse auf die Mechanismen zulassen, welche dem Phänomen zugrunde liegen.</li>
+<li>Auf diese Weise wird ein Modell von der Funktionsweise eines Phänomens erstellt.</li>
+</ul>
+
+<div id="refs" class="references">
+<div>
+<p>Mahr, Bernd. 2008. “Ein Modell Des Modellseins – Ein Beitrag Zur Aufklärung Des Modellbegriffs.” <em>Peter Lang Verlag</em>, 187–220.</p>
+</div>
+<div>
+<p>Upmeier, D., A. und Krüger. 2010. “Modellkompetenz Im Biologieunterricht.” <em>Zeitschrift Für Didaktik Der Naturwissenschaften</em>.</p>
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

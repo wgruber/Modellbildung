@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mittelwerts-Modell | Statistische Modellbildung</title>
+  <meta name="description" content="Einführung in die statistische Modellbildung">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Mittelwerts-Modell | Statistische Modellbildung />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Images/Cover.PNG" />
+  <meta property="og:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="github-repo" content="wgruber/Modellbildung" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mittelwerts-Modell | Statistische Modellbildung />
+  
+  <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="twitter:image" content="Images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="deskriptive-statistik-1.html">
+<link rel="next" href="codebook-cps85.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i>Kennzeichen eines statistischen Modelles</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#zyklus-der-modellbildung"><i class="fa fa-check"></i>Zyklus der Modellbildung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#grundlagen-der-statistischen-modellbildung"><i class="fa fa-check"></i>Grundlagen der statistischen Modellbildung</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#explorative-datenanalyse-eda"><i class="fa fa-check"></i>Explorative Datenanalyse (EDA)</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#inferenzstatistik"><i class="fa fa-check"></i>Inferenzstatistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#pradiktive-statistik"><i class="fa fa-check"></i>Prädiktive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#mechanististische-statistik"><i class="fa fa-check"></i>Mechanististische Statistik</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Teil II: Modelle mit einer Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="datenbeschreibung.html"><a href="datenbeschreibung.html"><i class="fa fa-check"></i>Datenbeschreibung</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html"><i class="fa fa-check"></i>Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#tabellen"><i class="fa fa-check"></i>Tabellen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html"><i class="fa fa-check"></i>Mittelwerts-Modell</a><ul>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#konfidenzintervall-um-den-mittelwert"><i class="fa fa-check"></i>Konfidenzintervall um den Mittelwert</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="codebook-cps85.html"><a href="codebook-cps85.html"><i class="fa fa-check"></i>Codebook CPS85</a></li>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html#aufgabe_1"><i class="fa fa-check"></i>Aufgabe_1</a></li>
+</ul></li>
+<li class="part"><span><b>Teil III: Modelle mit mehr Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html"><i class="fa fa-check"></i>Korrelationen</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#kausalitat"><i class="fa fa-check"></i>Kausalität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#linearitat"><i class="fa fa-check"></i>Linearität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#korrelationskoeffizienten"><i class="fa fa-check"></i>Korrelationskoeffizienten</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#modell"><i class="fa fa-check"></i>Modell</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#beispiel"><i class="fa fa-check"></i>Beispiel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html"><i class="fa fa-check"></i>Einfache Regression</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definition"><i class="fa fa-check"></i>Definition</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#berechnung-der-koeffizienten"><i class="fa fa-check"></i>Berechnung der Koeffizienten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Modellbildung</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mittelwerts-modell" class="section level1 unnumbered">
+<h1>Mittelwerts-Modell</h1>
+<p>Eine gute Schätzung wäre daher unter bestimmten Voraussetzungen (Verteilungseigenschaften) der Mittelwert, da dieser die folgende Eigenschaft besitzt:</p>
+<ul>
+<li>Die Summe der quadrierten Abweichungen der Beobachtungswerte <span class="math inline">\(x_i\)</span> von einem beliebigen Punkt <span class="math inline">\(m\)</span> wird minimal, wenn dieser Punkt <span class="math inline">\(m = \bar{x}\)</span>, also der arithmetische Mittelwert ist!</li>
+</ul>
+<p>Damit diese Schätzung inhaltlich auch Sinn ergibt, ist jedoch eine (halbwegs) symmetrische Verteilung in Form einer Glockenkurve erforderlich. Weicht diese Verteilung stark davon ab, so wird der Mittelwert nur ein schlechtes Modell für die Population sein.</p>
+<p>Zur Veranschaulichung von Verteilungseigenschaften einer Variablen eignen sich vor allem Histogramme, Boxplots und Q-Q-Plots. Kopiere den folgenden Code ins RStudio und führe diesen dann aus. Diskutiere die Ergebnisse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Histogramme und Density-Plots</span>
+  p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> wage)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()
+  p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> age)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">4</span>)
+  p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> exper)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()
+  <span class="co"># Boxplots</span>
+  x1 &lt;-<span class="st"> </span>mosaic<span class="op">::</span><span class="kw">mean_</span>(wage <span class="op">~</span><span class="st"> </span>sex, <span class="dt">data =</span> CPS85)
+  x2 &lt;-<span class="st"> </span>mosaic<span class="op">::</span><span class="kw">sd</span>(wage <span class="op">~</span><span class="st"> </span>sex, <span class="dt">data =</span> CPS85)
+  x3 &lt;-<span class="st"> </span>mosaic<span class="op">::</span><span class="kw">quantile</span>(wage <span class="op">~</span><span class="st"> </span>sex, <span class="dt">data =</span> CPS85)
+  x4 &lt;-<span class="st"> </span>mosaic<span class="op">::</span><span class="kw">favstats</span>(wage <span class="op">~</span><span class="st"> </span>sex, <span class="dt">data =</span> CPS85)
+  x5 &lt;-<span class="st"> </span><span class="kw">gf_boxplot</span>(wage <span class="op">~</span><span class="st"> </span>sex, <span class="dt">data =</span> CPS85)
+  x6 &lt;-<span class="st"> </span><span class="kw">gf_point</span>(wage <span class="op">~</span><span class="st"> </span>sex, <span class="dt">data =</span> CPS85)
+  <span class="co"># Q-Q Plots</span>
+  <span class="kw">qqnorm</span>(CPS85<span class="op">$</span>wage, <span class="dt">pch =</span> <span class="dv">1</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>)
+  <span class="kw">qqline</span>(CPS85<span class="op">$</span>wage, <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</code></pre></div>
+<p>Eine der häufigsten Ursachen für Verzerrungen in den Verteilungseigenschaften einer Variablen sind Ausreißer. Die Behandlung von Ausreißern ist ein eigenes und heftig diskutiertes Thema in der Statistik. Wir wollen uns im Rahmen dieser LV nicht weiter damit auseinandersetzen. Eine (wenngleich nicht unbedenkliche) Methode ist das sogenannte <em>Trimmen</em> der Daten. Nachfolgendes Beispiel zeigt eine weitere Möglichkeit<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>, Ausreißer aus einer Analyse zu entfernen. Es sei an dieser Stelle nochmals explizit darauf hingewiesen, dass ein beliebiges Weglassen von <em>störenden</em> Werten durchaus bedenklich ist und eigentlich nur im Sinne einer explorativen Analyse von Daten (was wäre, wenn die Daten keine Ausreißer hätten<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>?) gerechtfertigt werden kann! Kopiere den folgenden Code ins RStudio und führe diesen dann aus. Diskutiere die Ergebnisse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># panderOptions(&quot;table.split.table&quot;, 120)</span>
+  <span class="co"># pander(head(CPS85), style = &quot;rmarkdown&quot;)</span>
+  MW_Wage    &lt;-<span class="st"> </span><span class="kw">mean</span>(CPS85<span class="op">$</span>wage, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+  Med_Wage   &lt;-<span class="st"> </span><span class="kw">median</span>(CPS85<span class="op">$</span>wage, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+  SD_Wage    &lt;-<span class="st"> </span><span class="kw">sd</span>(CPS85<span class="op">$</span>wage, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+  CPS85_<span class="dv">1</span>    &lt;-<span class="st"> </span>CPS85[<span class="op">!</span>CPS85<span class="op">$</span>wage <span class="op">%in%</span><span class="st"> </span><span class="kw">boxplot.stats</span>(CPS85<span class="op">$</span>wage)<span class="op">$</span>out,]
+  MW_Wage_<span class="dv">1</span>  &lt;-<span class="st"> </span><span class="kw">mean</span>(CPS85_<span class="dv">1</span><span class="op">$</span>wage, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+  Med_Wage_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">median</span>(CPS85_<span class="dv">1</span><span class="op">$</span>wage, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+  SD_Wage_<span class="dv">1</span>  &lt;-<span class="st"> </span><span class="kw">sd</span>(CPS85_<span class="dv">1</span><span class="op">$</span>wage, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+  <span class="co"># Modell0_Graph_1 ----</span>
+  <span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> wage)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y    =</span> ..density..),
+                   <span class="dt">binwidth =</span> .<span class="dv">5</span>,
+                   <span class="dt">colour   =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> .<span class="dv">2</span>, <span class="dt">fill =</span> <span class="st">&quot;#FF6666&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(wage, <span class="dt">na.rm =</span> T)),
+               <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept=</span><span class="kw">median</span>(wage, <span class="dt">na.rm=</span>T)),
+               <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dotted&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_bw</span>()
+  <span class="co"># Modell0_Graph_2</span>
+  <span class="kw">ggplot</span>(CPS85_<span class="dv">1</span>, <span class="kw">aes</span>(<span class="dt">x =</span> wage)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y    =</span> ..density..),
+                   <span class="dt">binwidth =</span> .<span class="dv">5</span>,
+                   <span class="dt">colour   =</span> <span class="st">&quot;black&quot;</span>, 
+                   <span class="dt">fill     =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> .<span class="dv">2</span>,
+                 <span class="dt">fill  =</span> <span class="st">&quot;#FF6666&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(wage, <span class="dt">na.rm =</span> T)),
+               <span class="dt">color    =</span> <span class="st">&quot;red&quot;</span>,
+               <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>,
+               <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(wage, <span class="dt">na.rm =</span> T)),
+               <span class="dt">color    =</span> <span class="st">&quot;blue&quot;</span>,
+               <span class="dt">linetype =</span> <span class="st">&quot;dotted&quot;</span>,
+               <span class="dt">size     =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_bw</span>()
+  
+  <span class="kw">pander</span>(<span class="kw">shapiro.test</span>(CPS85_<span class="dv">1</span><span class="op">$</span>wage), <span class="dt">style =</span> <span class="st">&quot;rmarkdown&quot;</span>)</code></pre></div>
+<div id="guteschatzung-des-mittelwertsmodells" class="section level2 unnumbered">
+<h2>Güteschätzung des Mittelwertsmodells</h2>
+<p>Ein wichtiger Bestandteil einer Modellbildung ist die Abschätzung der Güte des jeweilig erstellten Modells. Für das Mittelwertsmodell eignet sich der Standardfehler (siehe Eq. <a href="mittelwerts-modell.html#eq:SE">(1)</a>) als Kennwert zu Abschätzung der Genauigkeit des Modells.</p>
+<span class="math display" id="eq:SE">\[\begin{eqnarray} 
+  SE &amp;=&amp; \frac{s}{\sqrt{N}} \\
+  s  &amp;=&amp; \frac{\sum_{i = 1}^{N} (x_i - \bar{x})^2}{N-1} \\
+  \tag{1}
+\end{eqnarray}\]</span>
+<p>Der Standardfehler (englisch: standard error, meist <span class="math inline">\(SE\)</span> abgekürzt) ist die Standardabweichung der Stichprobenverteilung einer Stichprobenfunktion. In der Regel bezieht sich der Standardfehler dabei auf den Mittelwert und wird meistens dann als standard error of the mean (<span class="math inline">\(SEM\)</span> abgekürzt) bezeichnet.</p>
+<p>Erläuterung zum <span class="math inline">\(SE\)</span>:</p>
+<p>Wenn wir viele zufällige Stichproben aus derselben Grundgesamtheit ziehen und jeweils den Mittelwert berechnen, würden diese Mittelwerte in der Regel unterschiedlich sein.</p>
+<p>Die Mittelwerte haben ihre eigene Verteilung (die wiederum ihren eigenen Mittelwert und ihre eigene Standardabweichung hat). Der Standardfehler des Mittelwerts (also der SEM und damit die Schätzung des Mittelwerts der Grundgesamtheit aus dem Mittelwert der Stichprobe) ist die Standardabweichung der Mittelwerte für alle möglichen Stichproben (mit jeder möglichen Stichprobengröße) die aus der Grundgesamtheit gezogen werden können.</p>
+<p>Offenbar spielt bei der Berechnung dieser Kennwerte die Stichprobengröße <span class="math inline">\(N\)</span> eine Rolle. Welche Werte nimmt <span class="math inline">\(s\)</span> und respektive <span class="math inline">\(SE\)</span> ein, wenn <span class="math inline">\(N \rightarrow \infty\)</span> geht?</p>
+<p>Wir halten fest, dass die Stichprobenstreuung <span class="math inline">\(s\)</span> abhängig ist von:</p>
+<ul>
+<li>der Streuung <span class="math inline">\(\sigma\)</span> in der Grundgesamtheit</li>
+<li>der Stichprobengröße <span class="math inline">\(N\)</span></li>
+</ul>
+<p>Die Streuung in der Grundgesamtheit ist (auch wenn meist unbekannt) ein fixer Wert. Wird <span class="math inline">\(N\)</span> sehr groß nähert sich die Standardabweichung diesem Wert. Im Extremfall, also wenn <span class="math inline">\(N = N_{Pop}\)</span>, streuen die Werte genau mit <span class="math inline">\(\sigma\)</span>!</p>
+<p>Beim Standardfehler hingegen nähert sich mit zunehmenden <span class="math inline">\(N\)</span> der Wert von <span class="math inline">\(SE\)</span> der Null! Im Extremfall, also wenn <span class="math inline">\(N = N_{Pop}\)</span>, gibt es nur mehr einen Mittelwert (und der ist gleich <span class="math inline">\(\mu\)</span>), welcher auch nicht mehr streut <span class="math inline">\(\Rightarrow\)</span> die Streuung <span class="math inline">\(SE = 0\)</span>.</p>
+</div>
+<div id="konfidenzintervall-um-den-mittelwert" class="section level2 unnumbered">
+<h2>Konfidenzintervall um den Mittelwert</h2>
+<p>Aus Stichproben errechnen wir einen oder mehrere verschiedene Werte, die Schätzwerte für die Grundgesamtheit darstellen sollen. Man spricht hier von <em>Punktschätzer</em>, da eben jeweils genau ein Wert (Anteils-, Mittelwert oder andere Größe, z. B. Regressionskoeffizient) geschätzt wird.</p>
+<p>Wünschenswerte Eigenschaften von Schätzern sind:</p>
+<ul>
+<li><em>Erwartungstreue</em>: Der Erwartungswert (Mittelwert) der Kennwerteverteilung soll dem wahren Parameter in der Grundgesamtheit entsprechen.</li>
+<li><em>Effizienz</em>: Die Streuung des Schätzers soll möglichst klein sein (d. h., die Schätzwerte sollen möglichst häufig möglichst nahe am wahren Wert liegen)</li>
+<li><em>Konsistenz</em>: Mit zunehmendem Stichprobenumfang sollen Abweichungen vom wahren Wert geringer werden.</li>
+</ul>
+<p>Der Punktschätzer ist der beste Schätzer für den (unbekannte) Parameter der Grundgesamtheit. Dennoch ist es recht unwahrscheinlich, dass der Punktschätzer genau dem Parameter entspricht<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>. Daher sollte man die Punktschätzung durch eine Intervallschätzung ergänzen, die eine größere Wahrscheinlichkeit aufweist – um den Preis einer größeren Bandbreite.</p>
+<p>Die Intervallschätzung zielt nun darauf ab, einen Bereich anzugeben, der mit einer gewissen (von der Forscherin gewählten) Wahrscheinlichkeit den wahren Wert enthält (überdeckt). Dieser Bereich heißt <a href="https://de.wikipedia.org/wiki/Konfidenzintervall"><em>Konfidenzintervall</em></a>. Die Wahrscheinlichkeit, mit der das Intervall den wahren Wert enthält, sollte in der Regel möglichst hoch sein. Der trade-off: Je größer die gewählte Wahrscheinlichkeit, desto breiter das resultierende Intervall.</p>
+<p>Das Konfidenzintervall berechnet sich aus:</p>
+<span class="math display" id="eq:KI">\[\begin{equation} 
+  KI = \bar{x} \pm SE \cdot t_{1 - \frac{\alpha}{2}; n - 1}
+  \tag{2}
+\end{equation}\]</span>
+<p>Die Eigenschaften des Konfidenzintervalls lassen sich sehr schön in einer Simulation von <a href="https://thenewstatistics.com/itns/esci/">Geoff Cumming</a> veranschaulichen.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>wir haben bereits bei der Mittelwertsfunktion <em>mean()</em> das Argument <em>trim</em> kennengelernt.<a href="mittelwerts-modell.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>liegen z.B. Kenntnisse der Verteilungseigenschaften in der Population vor, aber die vorliegende Stichprobe ist sehr klein, könnte man eventuell<a href="mittelwerts-modell.html#fnref4">↩</a></p></li>
+<li id="fn5"><p>siehe <a href="https://www.uni-siegen.de/phil/sozialwissenschaften/soziologie/mitarbeiter/ludwig-mayerhofer/statistik/statistik_downloads/statistik_ii_4.pdf">Prof. Dr. Wolfgang Ludwig-Mayerhofer, Uni Siegen, Punkt- und Intervallschätzungen</a>, oder <a href="https://link.springer.com/content/pdf/10.1007/978-3-642-41995-9_8.pdf">Springer</a><a href="mittelwerts-modell.html#fnref5">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="deskriptive-statistik-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="codebook-cps85.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

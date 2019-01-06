@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Codebool NHANES | Statistische Modellbildung</title>
+  <meta name="description" content="Einführung in die statistische Modellbildung">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Codebool NHANES | Statistische Modellbildung />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Images/Cover.PNG" />
+  <meta property="og:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="github-repo" content="wgruber/Modellbildung" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Codebool NHANES | Statistische Modellbildung />
+  
+  <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="twitter:image" content="Images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="mittelwerts-modell.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.5/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i>Kennzeichen eines statistischen Modelles</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#zyklus-der-modellbildung"><i class="fa fa-check"></i>Zyklus der Modellbildung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#grundlagen-der-statistischen-modellbildung"><i class="fa fa-check"></i>Grundlagen der statistischen Modellbildung</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#explorative-datenanalyse-eda"><i class="fa fa-check"></i>Explorative Datenanalyse (EDA)</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#inferenzstatistik"><i class="fa fa-check"></i>Inferenzstatistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#pradiktive-statistik"><i class="fa fa-check"></i>Prädiktive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#mechanististische-statistik"><i class="fa fa-check"></i>Mechanististische Statistik</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Teil II: Einfache Modelle</b></span></li>
+<li class="chapter" data-level="" data-path="datenbeschreibung.html"><a href="datenbeschreibung.html"><i class="fa fa-check"></i>Datenbeschreibung</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html"><i class="fa fa-check"></i>Mittelwerts-Modell</a></li>
+<li class="chapter" data-level="" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html"><i class="fa fa-check"></i>Codebool NHANES</a><ul>
+<li class="chapter" data-level="0.0.1" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#metadata"><i class="fa fa-check"></i><b>0.0.1</b> Metadata</a></li>
+<li class="chapter" data-level="0.1" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#variables"><i class="fa fa-check"></i><b>0.1</b> Variables</a><ul>
+<li class="chapter" data-level="0.1.1" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#Age"><i class="fa fa-check"></i><b>0.1.1</b> Age</a></li>
+<li class="chapter" data-level="0.1.2" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#Education"><i class="fa fa-check"></i><b>0.1.2</b> Education</a></li>
+<li class="chapter" data-level="0.1.3" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#HHIncomeMid"><i class="fa fa-check"></i><b>0.1.3</b> HHIncomeMid</a></li>
+<li class="chapter" data-level="0.1.4" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#Poverty"><i class="fa fa-check"></i><b>0.1.4</b> Poverty</a></li>
+<li class="chapter" data-level="0.1.5" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#Weight"><i class="fa fa-check"></i><b>0.1.5</b> Weight</a></li>
+<li class="chapter" data-level="0.1.6" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#Length"><i class="fa fa-check"></i><b>0.1.6</b> Length</a></li>
+<li class="chapter" data-level="0.1.7" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#BMI"><i class="fa fa-check"></i><b>0.1.7</b> BMI</a></li>
+</ul></li>
+<li class="chapter" data-level="0.2" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#missingness-report"><i class="fa fa-check"></i><b>0.2</b> Missingness report</a></li>
+<li class="chapter" data-level="0.3" data-path="codebool-nhanes.html"><a href="codebool-nhanes.html#codebook-table"><i class="fa fa-check"></i><b>0.3</b> Codebook table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Modellbildung</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="codebool-nhanes" class="section level1 unnumbered">
+<h1>Codebool NHANES</h1>
+<div id="metadata" class="section level3">
+<h3><span class="header-section-number">0.0.1</span> Metadata</h3>
+<div id="description" class="section level4">
+<h4><span class="header-section-number">0.0.1.1</span> Description</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="kw">exists</span>(<span class="st">&quot;name&quot;</span>, meta)) {
+  glue<span class="op">::</span><span class="kw">glue</span>(
+    <span class="st">&quot;__Dataset name__: {name}&quot;</span>,
+    <span class="dt">.envir =</span> meta)
+}</code></pre></div>
+<p><strong>Dataset name</strong>: NHANES</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(description)</code></pre></div>
+<p>The dataset has N=10000 rows and 76 columns. 0 rows have no missing values on any column.</p>
+<ul>
+<li><strong>Date published</strong>: 2019-01-04</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">meta &lt;-<span class="st"> </span>meta[<span class="kw">setdiff</span>(<span class="kw">names</span>(meta),
+                     <span class="kw">c</span>(<span class="st">&quot;creator&quot;</span>, <span class="st">&quot;datePublished&quot;</span>, <span class="st">&quot;identifier&quot;</span>,
+                       <span class="st">&quot;url&quot;</span>, <span class="st">&quot;citation&quot;</span>, <span class="st">&quot;spatialCoverage&quot;</span>, 
+                       <span class="st">&quot;temporalCoverage&quot;</span>, <span class="st">&quot;description&quot;</span>, <span class="st">&quot;name&quot;</span>))]
+pander<span class="op">::</span><span class="kw">pander</span>(meta)</code></pre></div>
+<ul>
+<li><strong>keywords</strong>: <em>ID</em>, <em>SurveyYr</em>, <em>Gender</em>, <em>Age</em>, <em>AgeDecade</em>, <em>AgeMonths</em>, <em>Race1</em>, <em>Race3</em>, <em>Education</em>, <em>MaritalStatus</em>, <em>HHIncome</em>, <em>HHIncomeMid</em>, <em>Poverty</em>, <em>HomeRooms</em>, <em>HomeOwn</em>, <em>Work</em>, <em>Weight</em>, <em>Length</em>, <em>HeadCirc</em>, <em>Height</em>, <em>BMI</em>, <em>BMICatUnder20yrs</em>, <em>BMI_WHO</em>, <em>Pulse</em>, <em>BPSysAve</em>, <em>BPDiaAve</em>, <em>BPSys1</em>, <em>BPDia1</em>, <em>BPSys2</em>, <em>BPDia2</em>, <em>BPSys3</em>, <em>BPDia3</em>, <em>Testosterone</em>, <em>DirectChol</em>, <em>TotChol</em>, <em>UrineVol1</em>, <em>UrineFlow1</em>, <em>UrineVol2</em>, <em>UrineFlow2</em>, <em>Diabetes</em>, <em>DiabetesAge</em>, <em>HealthGen</em>, <em>DaysPhysHlthBad</em>, <em>DaysMentHlthBad</em>, <em>LittleInterest</em>, <em>Depressed</em>, <em>nPregnancies</em>, <em>nBabies</em>, <em>Age1stBaby</em>, <em>SleepHrsNight</em>, <em>SleepTrouble</em>, <em>PhysActive</em>, <em>PhysActiveDays</em>, <em>TVHrsDay</em>, <em>CompHrsDay</em>, <em>TVHrsDayChild</em>, <em>CompHrsDayChild</em>, <em>Alcohol12PlusYr</em>, <em>AlcoholDay</em>, <em>AlcoholYear</em>, <em>SmokeNow</em>, <em>Smoke100</em>, <em>Smoke100n</em>, <em>SmokeAge</em>, <em>Marijuana</em>, <em>AgeFirstMarij</em>, <em>RegularMarij</em>, <em>AgeRegMarij</em>, <em>HardDrugs</em>, <em>SexEver</em>, <em>SexAge</em>, <em>SexNumPartnLife</em>, <em>SexNumPartYear</em>, <em>SameSex</em>, <em>SexOrientation</em> and <em>PregnantNow</em></li>
+</ul>
+<!-- end of list -->
+</div>
+</div>
+<div id="variables" class="section level2">
+<h2><span class="header-section-number">0.1</span> Variables</h2>
+<div id="Age" class="section level3 tabset">
+<h3><span class="header-section-number">0.1.1</span> Age</h3>
+<div id="Age_distribution" class="section level4">
+<h4><span class="header-section-number">0.1.1.1</span> Distribution</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">show_missing_values &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+<span class="cf">if</span> (<span class="kw">has_labels</span>(item)) {
+  missing_values &lt;-<span class="st"> </span>item[<span class="kw">is.na</span>(haven<span class="op">::</span><span class="kw">zap_missing</span>(item))]
+  <span class="kw">attributes</span>(missing_values) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)) {
+    <span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels[<span class="kw">is.na</span>(<span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels)]
+    <span class="kw">attributes</span>(item)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)<span class="op">$</span>labels[<span class="op">!</span><span class="kw">is.na</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)]
+  }
+  <span class="cf">if</span> (<span class="kw">is.double</span>(item)) {
+    show_missing_values &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(haven<span class="op">::</span><span class="kw">na_tag</span>(missing_values))) <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_missing</span>(item)
+  }
+  <span class="cf">if</span> (<span class="kw">length</span>(item_attributes<span class="op">$</span>labels) <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">is.numeric</span>(item)) {
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_labels</span>(item)
+  }
+}
+item_nomiss &lt;-<span class="st"> </span>item[<span class="op">!</span><span class="kw">is.na</span>(item)]
+
+<span class="co"># unnest mc_multiple and so on</span>
+<span class="cf">if</span> (
+  <span class="kw">is.character</span>(item_nomiss) <span class="op">&amp;&amp;</span>
+<span class="st">  </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_nomiss, stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>))) <span class="op">&amp;&amp;</span>
+<span class="st">  </span>(<span class="kw">exists</span>(<span class="st">&quot;type&quot;</span>, item_info) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_info<span class="op">$</span>type, 
+                            <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;multiple&quot;</span>))))
+  ) {
+  item_nomiss &lt;-<span class="st"> </span><span class="kw">unlist</span>(stringr<span class="op">::</span><span class="kw">str_split</span>(item_nomiss, <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>)))
+}
+<span class="kw">attributes</span>(item_nomiss) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+
+old_height &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.height&quot;</span>)
+non_missing_choices &lt;-<span class="st"> </span>item_attributes[[<span class="st">&quot;labels&quot;</span>]]
+many_labels &lt;-<span class="st"> </span><span class="kw">length</span>(non_missing_choices) <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>
+go_vertical &lt;-<span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>many_labels
+<span class="cf">if</span> ( go_vertical ) {
+  <span class="co"># numeric items are plotted horizontally (because that&#39;s what usually expected)</span>
+  <span class="co"># categorical items are plotted vertically because we can use the screen real estate better this way</span>
+
+    <span class="cf">if</span> (<span class="kw">is.null</span>(choices) <span class="op">||</span><span class="st"> </span>
+<span class="st">        </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&gt;</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)) {
+        non_missing_choices &lt;-<span class="st"> </span><span class="kw">unique</span>(item_nomiss)
+        <span class="kw">names</span>(non_missing_choices) &lt;-<span class="st"> </span>non_missing_choices
+    }
+  choice_multiplier &lt;-<span class="st"> </span>old_height<span class="op">/</span><span class="fl">6.5</span>
+    new_height &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>choice_multiplier <span class="op">*</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>, <span class="dv">20</span>, new_height)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>, new_height)
+    knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> new_height)
+}
+
+wrap_at &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.width&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># todo: if there are free-text choices mingled in with the pre-defined ones, don&#39;t show</span>
+<span class="co"># todo: show rare items if they are pre-defined</span>
+<span class="co"># todo: bin rare responses into &quot;other category&quot;</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">length</span>(item_nomiss)) {
+  <span class="kw">cat</span>(<span class="st">&quot;No non-missing values to show.&quot;</span>)
+} <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>) {
+  <span class="kw">plot_labelled</span>(item_nomiss, item_name, wrap_at, go_vertical)
+} <span class="cf">else</span> {
+    <span class="kw">cat</span>(dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss), <span class="st">&quot; unique, categorical values, so not shown.&quot;</span>)
+}</code></pre></div>
+<p><img src="02_EinfacheModelle_files/figure-html/Age_distribution-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> old_height)</code></pre></div>
+<p>0 missing values.</p>
+</div>
+<div id="Age_summary" class="section level4">
+<h4><span class="header-section-number">0.1.1.2</span> Summary statistics</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(item) &lt;-<span class="st"> </span>item_attributes
+df =<span class="st"> </span><span class="kw">data.frame</span>(item, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">names</span>(df) =<span class="st"> </span>html_item_name
+<span class="kw">escaped_table</span>(<span class="kw">codebook_table</span>(df))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">data_type</th>
+<th align="left">missing</th>
+<th align="left">complete</th>
+<th align="left">n</th>
+<th align="left">mean</th>
+<th align="left">sd</th>
+<th align="left">p0</th>
+<th align="left">p25</th>
+<th align="left">p50</th>
+<th align="left">p75</th>
+<th align="left">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">integer</td>
+<td align="left">0</td>
+<td align="left">10000</td>
+<td align="left">10000</td>
+<td align="left">36.74</td>
+<td align="left">22.4</td>
+<td align="left">0</td>
+<td align="left">17</td>
+<td align="left">36</td>
+<td align="left">54</td>
+<td align="left">80</td>
+<td align="left">▇▇▇▇▇▇▅▅</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (show_missing_values) {
+  <span class="kw">plot_labelled</span>(missing_values, item_name, wrap_at)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(item_info)) {
+  <span class="co"># don&#39;t show choices again, if they&#39;re basically same thing as value labels</span>
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.null</span>(item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">names</span>(<span class="kw">na.omit</span>(choices)) <span class="op">==</span><span class="st"> </span>item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">na.omit</span>(choices) <span class="op">==</span><span class="st"> </span><span class="kw">names</span>(item_info<span class="op">$</span>choices))) {
+    item_info<span class="op">$</span>choices &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  }
+  item_info<span class="op">$</span>label_parsed &lt;-<span class="st"> </span>
+<span class="st">    </span>item_info<span class="op">$</span>choice_list &lt;-<span class="st"> </span>item_info<span class="op">$</span>study_id &lt;-<span class="st"> </span>item_info<span class="op">$</span>id &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  pander<span class="op">::</span><span class="kw">pander</span>(item_info)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>) {
+    pander<span class="op">::</span><span class="kw">pander</span>(<span class="kw">as.list</span>(choices))
+}</code></pre></div>
+</div>
+</div>
+<div id="Education" class="section level3 tabset">
+<h3><span class="header-section-number">0.1.2</span> Education</h3>
+<div id="Education_distribution" class="section level4">
+<h4><span class="header-section-number">0.1.2.1</span> Distribution</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">show_missing_values &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+<span class="cf">if</span> (<span class="kw">has_labels</span>(item)) {
+  missing_values &lt;-<span class="st"> </span>item[<span class="kw">is.na</span>(haven<span class="op">::</span><span class="kw">zap_missing</span>(item))]
+  <span class="kw">attributes</span>(missing_values) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)) {
+    <span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels[<span class="kw">is.na</span>(<span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels)]
+    <span class="kw">attributes</span>(item)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)<span class="op">$</span>labels[<span class="op">!</span><span class="kw">is.na</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)]
+  }
+  <span class="cf">if</span> (<span class="kw">is.double</span>(item)) {
+    show_missing_values &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(haven<span class="op">::</span><span class="kw">na_tag</span>(missing_values))) <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_missing</span>(item)
+  }
+  <span class="cf">if</span> (<span class="kw">length</span>(item_attributes<span class="op">$</span>labels) <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">is.numeric</span>(item)) {
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_labels</span>(item)
+  }
+}
+item_nomiss &lt;-<span class="st"> </span>item[<span class="op">!</span><span class="kw">is.na</span>(item)]
+
+<span class="co"># unnest mc_multiple and so on</span>
+<span class="cf">if</span> (
+  <span class="kw">is.character</span>(item_nomiss) <span class="op">&amp;&amp;</span>
+<span class="st">  </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_nomiss, stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>))) <span class="op">&amp;&amp;</span>
+<span class="st">  </span>(<span class="kw">exists</span>(<span class="st">&quot;type&quot;</span>, item_info) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_info<span class="op">$</span>type, 
+                            <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;multiple&quot;</span>))))
+  ) {
+  item_nomiss &lt;-<span class="st"> </span><span class="kw">unlist</span>(stringr<span class="op">::</span><span class="kw">str_split</span>(item_nomiss, <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>)))
+}
+<span class="kw">attributes</span>(item_nomiss) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+
+old_height &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.height&quot;</span>)
+non_missing_choices &lt;-<span class="st"> </span>item_attributes[[<span class="st">&quot;labels&quot;</span>]]
+many_labels &lt;-<span class="st"> </span><span class="kw">length</span>(non_missing_choices) <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>
+go_vertical &lt;-<span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>many_labels
+<span class="cf">if</span> ( go_vertical ) {
+  <span class="co"># numeric items are plotted horizontally (because that&#39;s what usually expected)</span>
+  <span class="co"># categorical items are plotted vertically because we can use the screen real estate better this way</span>
+
+    <span class="cf">if</span> (<span class="kw">is.null</span>(choices) <span class="op">||</span><span class="st"> </span>
+<span class="st">        </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&gt;</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)) {
+        non_missing_choices &lt;-<span class="st"> </span><span class="kw">unique</span>(item_nomiss)
+        <span class="kw">names</span>(non_missing_choices) &lt;-<span class="st"> </span>non_missing_choices
+    }
+  choice_multiplier &lt;-<span class="st"> </span>old_height<span class="op">/</span><span class="fl">6.5</span>
+    new_height &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>choice_multiplier <span class="op">*</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>, <span class="dv">20</span>, new_height)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>, new_height)
+    knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> new_height)
+}
+
+wrap_at &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.width&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># todo: if there are free-text choices mingled in with the pre-defined ones, don&#39;t show</span>
+<span class="co"># todo: show rare items if they are pre-defined</span>
+<span class="co"># todo: bin rare responses into &quot;other category&quot;</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">length</span>(item_nomiss)) {
+  <span class="kw">cat</span>(<span class="st">&quot;No non-missing values to show.&quot;</span>)
+} <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>) {
+  <span class="kw">plot_labelled</span>(item_nomiss, item_name, wrap_at, go_vertical)
+} <span class="cf">else</span> {
+    <span class="kw">cat</span>(dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss), <span class="st">&quot; unique, categorical values, so not shown.&quot;</span>)
+}</code></pre></div>
+<p><img src="02_EinfacheModelle_files/figure-html/Education_distribution-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> old_height)</code></pre></div>
+<p>2779 missing values.</p>
+</div>
+<div id="Education_summary" class="section level4">
+<h4><span class="header-section-number">0.1.2.2</span> Summary statistics</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(item) &lt;-<span class="st"> </span>item_attributes
+df =<span class="st"> </span><span class="kw">data.frame</span>(item, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">names</span>(df) =<span class="st"> </span>html_item_name
+<span class="kw">escaped_table</span>(<span class="kw">codebook_table</span>(df))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">data_type</th>
+<th align="left">ordered</th>
+<th align="left">value_labels</th>
+<th align="left">missing</th>
+<th align="left">complete</th>
+<th align="left">n</th>
+<th align="left">n_unique</th>
+<th align="left">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Education</td>
+<td align="left">factor</td>
+<td align="left">FALSE</td>
+<td align="left">1. 8th Grade,<br>2. 9 - 11th Grade,<br>3. High School,<br>4. Some College,<br>5. College Grad</td>
+<td align="left">2779</td>
+<td align="left">7221</td>
+<td align="left">10000</td>
+<td align="left">5</td>
+<td align="left">NA: 2779, Som: 2267, Col: 2098, Hig: 1517</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (show_missing_values) {
+  <span class="kw">plot_labelled</span>(missing_values, item_name, wrap_at)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(item_info)) {
+  <span class="co"># don&#39;t show choices again, if they&#39;re basically same thing as value labels</span>
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.null</span>(item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">names</span>(<span class="kw">na.omit</span>(choices)) <span class="op">==</span><span class="st"> </span>item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">na.omit</span>(choices) <span class="op">==</span><span class="st"> </span><span class="kw">names</span>(item_info<span class="op">$</span>choices))) {
+    item_info<span class="op">$</span>choices &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  }
+  item_info<span class="op">$</span>label_parsed &lt;-<span class="st"> </span>
+<span class="st">    </span>item_info<span class="op">$</span>choice_list &lt;-<span class="st"> </span>item_info<span class="op">$</span>study_id &lt;-<span class="st"> </span>item_info<span class="op">$</span>id &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  pander<span class="op">::</span><span class="kw">pander</span>(item_info)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>) {
+    pander<span class="op">::</span><span class="kw">pander</span>(<span class="kw">as.list</span>(choices))
+}</code></pre></div>
+</div>
+</div>
+<div id="HHIncomeMid" class="section level3 tabset">
+<h3><span class="header-section-number">0.1.3</span> HHIncomeMid</h3>
+<div id="HHIncomeMid_distribution" class="section level4">
+<h4><span class="header-section-number">0.1.3.1</span> Distribution</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">show_missing_values &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+<span class="cf">if</span> (<span class="kw">has_labels</span>(item)) {
+  missing_values &lt;-<span class="st"> </span>item[<span class="kw">is.na</span>(haven<span class="op">::</span><span class="kw">zap_missing</span>(item))]
+  <span class="kw">attributes</span>(missing_values) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)) {
+    <span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels[<span class="kw">is.na</span>(<span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels)]
+    <span class="kw">attributes</span>(item)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)<span class="op">$</span>labels[<span class="op">!</span><span class="kw">is.na</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)]
+  }
+  <span class="cf">if</span> (<span class="kw">is.double</span>(item)) {
+    show_missing_values &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(haven<span class="op">::</span><span class="kw">na_tag</span>(missing_values))) <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_missing</span>(item)
+  }
+  <span class="cf">if</span> (<span class="kw">length</span>(item_attributes<span class="op">$</span>labels) <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">is.numeric</span>(item)) {
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_labels</span>(item)
+  }
+}
+item_nomiss &lt;-<span class="st"> </span>item[<span class="op">!</span><span class="kw">is.na</span>(item)]
+
+<span class="co"># unnest mc_multiple and so on</span>
+<span class="cf">if</span> (
+  <span class="kw">is.character</span>(item_nomiss) <span class="op">&amp;&amp;</span>
+<span class="st">  </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_nomiss, stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>))) <span class="op">&amp;&amp;</span>
+<span class="st">  </span>(<span class="kw">exists</span>(<span class="st">&quot;type&quot;</span>, item_info) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_info<span class="op">$</span>type, 
+                            <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;multiple&quot;</span>))))
+  ) {
+  item_nomiss &lt;-<span class="st"> </span><span class="kw">unlist</span>(stringr<span class="op">::</span><span class="kw">str_split</span>(item_nomiss, <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>)))
+}
+<span class="kw">attributes</span>(item_nomiss) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+
+old_height &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.height&quot;</span>)
+non_missing_choices &lt;-<span class="st"> </span>item_attributes[[<span class="st">&quot;labels&quot;</span>]]
+many_labels &lt;-<span class="st"> </span><span class="kw">length</span>(non_missing_choices) <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>
+go_vertical &lt;-<span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>many_labels
+<span class="cf">if</span> ( go_vertical ) {
+  <span class="co"># numeric items are plotted horizontally (because that&#39;s what usually expected)</span>
+  <span class="co"># categorical items are plotted vertically because we can use the screen real estate better this way</span>
+
+    <span class="cf">if</span> (<span class="kw">is.null</span>(choices) <span class="op">||</span><span class="st"> </span>
+<span class="st">        </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&gt;</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)) {
+        non_missing_choices &lt;-<span class="st"> </span><span class="kw">unique</span>(item_nomiss)
+        <span class="kw">names</span>(non_missing_choices) &lt;-<span class="st"> </span>non_missing_choices
+    }
+  choice_multiplier &lt;-<span class="st"> </span>old_height<span class="op">/</span><span class="fl">6.5</span>
+    new_height &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>choice_multiplier <span class="op">*</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>, <span class="dv">20</span>, new_height)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>, new_height)
+    knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> new_height)
+}
+
+wrap_at &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.width&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># todo: if there are free-text choices mingled in with the pre-defined ones, don&#39;t show</span>
+<span class="co"># todo: show rare items if they are pre-defined</span>
+<span class="co"># todo: bin rare responses into &quot;other category&quot;</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">length</span>(item_nomiss)) {
+  <span class="kw">cat</span>(<span class="st">&quot;No non-missing values to show.&quot;</span>)
+} <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>) {
+  <span class="kw">plot_labelled</span>(item_nomiss, item_name, wrap_at, go_vertical)
+} <span class="cf">else</span> {
+    <span class="kw">cat</span>(dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss), <span class="st">&quot; unique, categorical values, so not shown.&quot;</span>)
+}</code></pre></div>
+<p><img src="02_EinfacheModelle_files/figure-html/HHIncomeMid_distribution-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> old_height)</code></pre></div>
+<p>811 missing values.</p>
+</div>
+<div id="HHIncomeMid_summary" class="section level4">
+<h4><span class="header-section-number">0.1.3.2</span> Summary statistics</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(item) &lt;-<span class="st"> </span>item_attributes
+df =<span class="st"> </span><span class="kw">data.frame</span>(item, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">names</span>(df) =<span class="st"> </span>html_item_name
+<span class="kw">escaped_table</span>(<span class="kw">codebook_table</span>(df))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">data_type</th>
+<th align="left">missing</th>
+<th align="left">complete</th>
+<th align="left">n</th>
+<th align="left">mean</th>
+<th align="left">sd</th>
+<th align="left">p0</th>
+<th align="left">p25</th>
+<th align="left">p50</th>
+<th align="left">p75</th>
+<th align="left">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">HHIncomeMid</td>
+<td align="left">integer</td>
+<td align="left">811</td>
+<td align="left">9189</td>
+<td align="left">10000</td>
+<td align="left">57206.17</td>
+<td align="left">33020.28</td>
+<td align="left">2500</td>
+<td align="left">30000</td>
+<td align="left">50000</td>
+<td align="left">87500</td>
+<td align="left">1e+05</td>
+<td align="left">▃▅▃▆▂▂▃▇</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (show_missing_values) {
+  <span class="kw">plot_labelled</span>(missing_values, item_name, wrap_at)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(item_info)) {
+  <span class="co"># don&#39;t show choices again, if they&#39;re basically same thing as value labels</span>
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.null</span>(item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">names</span>(<span class="kw">na.omit</span>(choices)) <span class="op">==</span><span class="st"> </span>item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">na.omit</span>(choices) <span class="op">==</span><span class="st"> </span><span class="kw">names</span>(item_info<span class="op">$</span>choices))) {
+    item_info<span class="op">$</span>choices &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  }
+  item_info<span class="op">$</span>label_parsed &lt;-<span class="st"> </span>
+<span class="st">    </span>item_info<span class="op">$</span>choice_list &lt;-<span class="st"> </span>item_info<span class="op">$</span>study_id &lt;-<span class="st"> </span>item_info<span class="op">$</span>id &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  pander<span class="op">::</span><span class="kw">pander</span>(item_info)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>) {
+    pander<span class="op">::</span><span class="kw">pander</span>(<span class="kw">as.list</span>(choices))
+}</code></pre></div>
+</div>
+</div>
+<div id="Poverty" class="section level3 tabset">
+<h3><span class="header-section-number">0.1.4</span> Poverty</h3>
+<div id="Poverty_distribution" class="section level4">
+<h4><span class="header-section-number">0.1.4.1</span> Distribution</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">show_missing_values &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+<span class="cf">if</span> (<span class="kw">has_labels</span>(item)) {
+  missing_values &lt;-<span class="st"> </span>item[<span class="kw">is.na</span>(haven<span class="op">::</span><span class="kw">zap_missing</span>(item))]
+  <span class="kw">attributes</span>(missing_values) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)) {
+    <span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels[<span class="kw">is.na</span>(<span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels)]
+    <span class="kw">attributes</span>(item)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)<span class="op">$</span>labels[<span class="op">!</span><span class="kw">is.na</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)]
+  }
+  <span class="cf">if</span> (<span class="kw">is.double</span>(item)) {
+    show_missing_values &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(haven<span class="op">::</span><span class="kw">na_tag</span>(missing_values))) <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_missing</span>(item)
+  }
+  <span class="cf">if</span> (<span class="kw">length</span>(item_attributes<span class="op">$</span>labels) <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">is.numeric</span>(item)) {
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_labels</span>(item)
+  }
+}
+item_nomiss &lt;-<span class="st"> </span>item[<span class="op">!</span><span class="kw">is.na</span>(item)]
+
+<span class="co"># unnest mc_multiple and so on</span>
+<span class="cf">if</span> (
+  <span class="kw">is.character</span>(item_nomiss) <span class="op">&amp;&amp;</span>
+<span class="st">  </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_nomiss, stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>))) <span class="op">&amp;&amp;</span>
+<span class="st">  </span>(<span class="kw">exists</span>(<span class="st">&quot;type&quot;</span>, item_info) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_info<span class="op">$</span>type, 
+                            <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;multiple&quot;</span>))))
+  ) {
+  item_nomiss &lt;-<span class="st"> </span><span class="kw">unlist</span>(stringr<span class="op">::</span><span class="kw">str_split</span>(item_nomiss, <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>)))
+}
+<span class="kw">attributes</span>(item_nomiss) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+
+old_height &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.height&quot;</span>)
+non_missing_choices &lt;-<span class="st"> </span>item_attributes[[<span class="st">&quot;labels&quot;</span>]]
+many_labels &lt;-<span class="st"> </span><span class="kw">length</span>(non_missing_choices) <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>
+go_vertical &lt;-<span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>many_labels
+<span class="cf">if</span> ( go_vertical ) {
+  <span class="co"># numeric items are plotted horizontally (because that&#39;s what usually expected)</span>
+  <span class="co"># categorical items are plotted vertically because we can use the screen real estate better this way</span>
+
+    <span class="cf">if</span> (<span class="kw">is.null</span>(choices) <span class="op">||</span><span class="st"> </span>
+<span class="st">        </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&gt;</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)) {
+        non_missing_choices &lt;-<span class="st"> </span><span class="kw">unique</span>(item_nomiss)
+        <span class="kw">names</span>(non_missing_choices) &lt;-<span class="st"> </span>non_missing_choices
+    }
+  choice_multiplier &lt;-<span class="st"> </span>old_height<span class="op">/</span><span class="fl">6.5</span>
+    new_height &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>choice_multiplier <span class="op">*</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>, <span class="dv">20</span>, new_height)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>, new_height)
+    knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> new_height)
+}
+
+wrap_at &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.width&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># todo: if there are free-text choices mingled in with the pre-defined ones, don&#39;t show</span>
+<span class="co"># todo: show rare items if they are pre-defined</span>
+<span class="co"># todo: bin rare responses into &quot;other category&quot;</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">length</span>(item_nomiss)) {
+  <span class="kw">cat</span>(<span class="st">&quot;No non-missing values to show.&quot;</span>)
+} <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>) {
+  <span class="kw">plot_labelled</span>(item_nomiss, item_name, wrap_at, go_vertical)
+} <span class="cf">else</span> {
+    <span class="kw">cat</span>(dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss), <span class="st">&quot; unique, categorical values, so not shown.&quot;</span>)
+}</code></pre></div>
+<p><img src="02_EinfacheModelle_files/figure-html/Poverty_distribution-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> old_height)</code></pre></div>
+<p>726 missing values.</p>
+</div>
+<div id="Poverty_summary" class="section level4">
+<h4><span class="header-section-number">0.1.4.2</span> Summary statistics</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(item) &lt;-<span class="st"> </span>item_attributes
+df =<span class="st"> </span><span class="kw">data.frame</span>(item, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">names</span>(df) =<span class="st"> </span>html_item_name
+<span class="kw">escaped_table</span>(<span class="kw">codebook_table</span>(df))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">data_type</th>
+<th align="left">missing</th>
+<th align="left">complete</th>
+<th align="left">n</th>
+<th align="left">mean</th>
+<th align="left">sd</th>
+<th align="left">p0</th>
+<th align="left">p25</th>
+<th align="left">p50</th>
+<th align="left">p75</th>
+<th align="left">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Poverty</td>
+<td align="left">numeric</td>
+<td align="left">726</td>
+<td align="left">9274</td>
+<td align="left">10000</td>
+<td align="left">2.8</td>
+<td align="left">1.68</td>
+<td align="left">0</td>
+<td align="left">1.24</td>
+<td align="left">2.7</td>
+<td align="left">4.71</td>
+<td align="left">5</td>
+<td align="left">▂▅▃▂▂▂▂▇</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (show_missing_values) {
+  <span class="kw">plot_labelled</span>(missing_values, item_name, wrap_at)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(item_info)) {
+  <span class="co"># don&#39;t show choices again, if they&#39;re basically same thing as value labels</span>
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.null</span>(item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">names</span>(<span class="kw">na.omit</span>(choices)) <span class="op">==</span><span class="st"> </span>item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">na.omit</span>(choices) <span class="op">==</span><span class="st"> </span><span class="kw">names</span>(item_info<span class="op">$</span>choices))) {
+    item_info<span class="op">$</span>choices &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  }
+  item_info<span class="op">$</span>label_parsed &lt;-<span class="st"> </span>
+<span class="st">    </span>item_info<span class="op">$</span>choice_list &lt;-<span class="st"> </span>item_info<span class="op">$</span>study_id &lt;-<span class="st"> </span>item_info<span class="op">$</span>id &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  pander<span class="op">::</span><span class="kw">pander</span>(item_info)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>) {
+    pander<span class="op">::</span><span class="kw">pander</span>(<span class="kw">as.list</span>(choices))
+}</code></pre></div>
+</div>
+</div>
+<div id="Weight" class="section level3 tabset">
+<h3><span class="header-section-number">0.1.5</span> Weight</h3>
+<div id="Weight_distribution" class="section level4">
+<h4><span class="header-section-number">0.1.5.1</span> Distribution</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">show_missing_values &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+<span class="cf">if</span> (<span class="kw">has_labels</span>(item)) {
+  missing_values &lt;-<span class="st"> </span>item[<span class="kw">is.na</span>(haven<span class="op">::</span><span class="kw">zap_missing</span>(item))]
+  <span class="kw">attributes</span>(missing_values) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)) {
+    <span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels[<span class="kw">is.na</span>(<span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels)]
+    <span class="kw">attributes</span>(item)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)<span class="op">$</span>labels[<span class="op">!</span><span class="kw">is.na</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)]
+  }
+  <span class="cf">if</span> (<span class="kw">is.double</span>(item)) {
+    show_missing_values &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(haven<span class="op">::</span><span class="kw">na_tag</span>(missing_values))) <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_missing</span>(item)
+  }
+  <span class="cf">if</span> (<span class="kw">length</span>(item_attributes<span class="op">$</span>labels) <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">is.numeric</span>(item)) {
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_labels</span>(item)
+  }
+}
+item_nomiss &lt;-<span class="st"> </span>item[<span class="op">!</span><span class="kw">is.na</span>(item)]
+
+<span class="co"># unnest mc_multiple and so on</span>
+<span class="cf">if</span> (
+  <span class="kw">is.character</span>(item_nomiss) <span class="op">&amp;&amp;</span>
+<span class="st">  </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_nomiss, stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>))) <span class="op">&amp;&amp;</span>
+<span class="st">  </span>(<span class="kw">exists</span>(<span class="st">&quot;type&quot;</span>, item_info) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_info<span class="op">$</span>type, 
+                            <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;multiple&quot;</span>))))
+  ) {
+  item_nomiss &lt;-<span class="st"> </span><span class="kw">unlist</span>(stringr<span class="op">::</span><span class="kw">str_split</span>(item_nomiss, <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>)))
+}
+<span class="kw">attributes</span>(item_nomiss) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+
+old_height &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.height&quot;</span>)
+non_missing_choices &lt;-<span class="st"> </span>item_attributes[[<span class="st">&quot;labels&quot;</span>]]
+many_labels &lt;-<span class="st"> </span><span class="kw">length</span>(non_missing_choices) <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>
+go_vertical &lt;-<span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>many_labels
+<span class="cf">if</span> ( go_vertical ) {
+  <span class="co"># numeric items are plotted horizontally (because that&#39;s what usually expected)</span>
+  <span class="co"># categorical items are plotted vertically because we can use the screen real estate better this way</span>
+
+    <span class="cf">if</span> (<span class="kw">is.null</span>(choices) <span class="op">||</span><span class="st"> </span>
+<span class="st">        </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&gt;</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)) {
+        non_missing_choices &lt;-<span class="st"> </span><span class="kw">unique</span>(item_nomiss)
+        <span class="kw">names</span>(non_missing_choices) &lt;-<span class="st"> </span>non_missing_choices
+    }
+  choice_multiplier &lt;-<span class="st"> </span>old_height<span class="op">/</span><span class="fl">6.5</span>
+    new_height &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>choice_multiplier <span class="op">*</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>, <span class="dv">20</span>, new_height)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>, new_height)
+    knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> new_height)
+}
+
+wrap_at &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.width&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># todo: if there are free-text choices mingled in with the pre-defined ones, don&#39;t show</span>
+<span class="co"># todo: show rare items if they are pre-defined</span>
+<span class="co"># todo: bin rare responses into &quot;other category&quot;</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">length</span>(item_nomiss)) {
+  <span class="kw">cat</span>(<span class="st">&quot;No non-missing values to show.&quot;</span>)
+} <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>) {
+  <span class="kw">plot_labelled</span>(item_nomiss, item_name, wrap_at, go_vertical)
+} <span class="cf">else</span> {
+    <span class="kw">cat</span>(dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss), <span class="st">&quot; unique, categorical values, so not shown.&quot;</span>)
+}</code></pre></div>
+<p><img src="02_EinfacheModelle_files/figure-html/Weight_distribution-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> old_height)</code></pre></div>
+<p>78 missing values.</p>
+</div>
+<div id="Weight_summary" class="section level4">
+<h4><span class="header-section-number">0.1.5.2</span> Summary statistics</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(item) &lt;-<span class="st"> </span>item_attributes
+df =<span class="st"> </span><span class="kw">data.frame</span>(item, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">names</span>(df) =<span class="st"> </span>html_item_name
+<span class="kw">escaped_table</span>(<span class="kw">codebook_table</span>(df))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">data_type</th>
+<th align="left">missing</th>
+<th align="left">complete</th>
+<th align="left">n</th>
+<th align="left">mean</th>
+<th align="left">sd</th>
+<th align="left">p0</th>
+<th align="left">p25</th>
+<th align="left">p50</th>
+<th align="left">p75</th>
+<th align="left">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Weight</td>
+<td align="left">numeric</td>
+<td align="left">78</td>
+<td align="left">9922</td>
+<td align="left">10000</td>
+<td align="left">70.98</td>
+<td align="left">29.13</td>
+<td align="left">2.8</td>
+<td align="left">56.1</td>
+<td align="left">72.7</td>
+<td align="left">88.9</td>
+<td align="left">230.7</td>
+<td align="left">▂▃▇▃▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (show_missing_values) {
+  <span class="kw">plot_labelled</span>(missing_values, item_name, wrap_at)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(item_info)) {
+  <span class="co"># don&#39;t show choices again, if they&#39;re basically same thing as value labels</span>
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.null</span>(item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">names</span>(<span class="kw">na.omit</span>(choices)) <span class="op">==</span><span class="st"> </span>item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">na.omit</span>(choices) <span class="op">==</span><span class="st"> </span><span class="kw">names</span>(item_info<span class="op">$</span>choices))) {
+    item_info<span class="op">$</span>choices &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  }
+  item_info<span class="op">$</span>label_parsed &lt;-<span class="st"> </span>
+<span class="st">    </span>item_info<span class="op">$</span>choice_list &lt;-<span class="st"> </span>item_info<span class="op">$</span>study_id &lt;-<span class="st"> </span>item_info<span class="op">$</span>id &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  pander<span class="op">::</span><span class="kw">pander</span>(item_info)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>) {
+    pander<span class="op">::</span><span class="kw">pander</span>(<span class="kw">as.list</span>(choices))
+}</code></pre></div>
+</div>
+</div>
+<div id="Length" class="section level3 tabset">
+<h3><span class="header-section-number">0.1.6</span> Length</h3>
+<div id="Length_distribution" class="section level4">
+<h4><span class="header-section-number">0.1.6.1</span> Distribution</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">show_missing_values &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+<span class="cf">if</span> (<span class="kw">has_labels</span>(item)) {
+  missing_values &lt;-<span class="st"> </span>item[<span class="kw">is.na</span>(haven<span class="op">::</span><span class="kw">zap_missing</span>(item))]
+  <span class="kw">attributes</span>(missing_values) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)) {
+    <span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels[<span class="kw">is.na</span>(<span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels)]
+    <span class="kw">attributes</span>(item)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)<span class="op">$</span>labels[<span class="op">!</span><span class="kw">is.na</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)]
+  }
+  <span class="cf">if</span> (<span class="kw">is.double</span>(item)) {
+    show_missing_values &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(haven<span class="op">::</span><span class="kw">na_tag</span>(missing_values))) <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_missing</span>(item)
+  }
+  <span class="cf">if</span> (<span class="kw">length</span>(item_attributes<span class="op">$</span>labels) <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">is.numeric</span>(item)) {
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_labels</span>(item)
+  }
+}
+item_nomiss &lt;-<span class="st"> </span>item[<span class="op">!</span><span class="kw">is.na</span>(item)]
+
+<span class="co"># unnest mc_multiple and so on</span>
+<span class="cf">if</span> (
+  <span class="kw">is.character</span>(item_nomiss) <span class="op">&amp;&amp;</span>
+<span class="st">  </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_nomiss, stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>))) <span class="op">&amp;&amp;</span>
+<span class="st">  </span>(<span class="kw">exists</span>(<span class="st">&quot;type&quot;</span>, item_info) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_info<span class="op">$</span>type, 
+                            <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;multiple&quot;</span>))))
+  ) {
+  item_nomiss &lt;-<span class="st"> </span><span class="kw">unlist</span>(stringr<span class="op">::</span><span class="kw">str_split</span>(item_nomiss, <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>)))
+}
+<span class="kw">attributes</span>(item_nomiss) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+
+old_height &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.height&quot;</span>)
+non_missing_choices &lt;-<span class="st"> </span>item_attributes[[<span class="st">&quot;labels&quot;</span>]]
+many_labels &lt;-<span class="st"> </span><span class="kw">length</span>(non_missing_choices) <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>
+go_vertical &lt;-<span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>many_labels
+<span class="cf">if</span> ( go_vertical ) {
+  <span class="co"># numeric items are plotted horizontally (because that&#39;s what usually expected)</span>
+  <span class="co"># categorical items are plotted vertically because we can use the screen real estate better this way</span>
+
+    <span class="cf">if</span> (<span class="kw">is.null</span>(choices) <span class="op">||</span><span class="st"> </span>
+<span class="st">        </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&gt;</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)) {
+        non_missing_choices &lt;-<span class="st"> </span><span class="kw">unique</span>(item_nomiss)
+        <span class="kw">names</span>(non_missing_choices) &lt;-<span class="st"> </span>non_missing_choices
+    }
+  choice_multiplier &lt;-<span class="st"> </span>old_height<span class="op">/</span><span class="fl">6.5</span>
+    new_height &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>choice_multiplier <span class="op">*</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>, <span class="dv">20</span>, new_height)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>, new_height)
+    knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> new_height)
+}
+
+wrap_at &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.width&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># todo: if there are free-text choices mingled in with the pre-defined ones, don&#39;t show</span>
+<span class="co"># todo: show rare items if they are pre-defined</span>
+<span class="co"># todo: bin rare responses into &quot;other category&quot;</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">length</span>(item_nomiss)) {
+  <span class="kw">cat</span>(<span class="st">&quot;No non-missing values to show.&quot;</span>)
+} <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>) {
+  <span class="kw">plot_labelled</span>(item_nomiss, item_name, wrap_at, go_vertical)
+} <span class="cf">else</span> {
+    <span class="kw">cat</span>(dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss), <span class="st">&quot; unique, categorical values, so not shown.&quot;</span>)
+}</code></pre></div>
+<p><img src="02_EinfacheModelle_files/figure-html/Length_distribution-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> old_height)</code></pre></div>
+<p>9457 missing values.</p>
+</div>
+<div id="Length_summary" class="section level4">
+<h4><span class="header-section-number">0.1.6.2</span> Summary statistics</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(item) &lt;-<span class="st"> </span>item_attributes
+df =<span class="st"> </span><span class="kw">data.frame</span>(item, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">names</span>(df) =<span class="st"> </span>html_item_name
+<span class="kw">escaped_table</span>(<span class="kw">codebook_table</span>(df))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">data_type</th>
+<th align="left">missing</th>
+<th align="left">complete</th>
+<th align="left">n</th>
+<th align="left">mean</th>
+<th align="left">sd</th>
+<th align="left">p0</th>
+<th align="left">p25</th>
+<th align="left">p50</th>
+<th align="left">p75</th>
+<th align="left">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Length</td>
+<td align="left">numeric</td>
+<td align="left">9457</td>
+<td align="left">543</td>
+<td align="left">10000</td>
+<td align="left">85.02</td>
+<td align="left">13.71</td>
+<td align="left">47.1</td>
+<td align="left">75.7</td>
+<td align="left">87</td>
+<td align="left">96.1</td>
+<td align="left">112.2</td>
+<td align="left">▁▂▃▅▆▇▇▂</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (show_missing_values) {
+  <span class="kw">plot_labelled</span>(missing_values, item_name, wrap_at)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(item_info)) {
+  <span class="co"># don&#39;t show choices again, if they&#39;re basically same thing as value labels</span>
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.null</span>(item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">names</span>(<span class="kw">na.omit</span>(choices)) <span class="op">==</span><span class="st"> </span>item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">na.omit</span>(choices) <span class="op">==</span><span class="st"> </span><span class="kw">names</span>(item_info<span class="op">$</span>choices))) {
+    item_info<span class="op">$</span>choices &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  }
+  item_info<span class="op">$</span>label_parsed &lt;-<span class="st"> </span>
+<span class="st">    </span>item_info<span class="op">$</span>choice_list &lt;-<span class="st"> </span>item_info<span class="op">$</span>study_id &lt;-<span class="st"> </span>item_info<span class="op">$</span>id &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  pander<span class="op">::</span><span class="kw">pander</span>(item_info)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>) {
+    pander<span class="op">::</span><span class="kw">pander</span>(<span class="kw">as.list</span>(choices))
+}</code></pre></div>
+</div>
+</div>
+<div id="BMI" class="section level3 tabset">
+<h3><span class="header-section-number">0.1.7</span> BMI</h3>
+<div id="BMI_distribution" class="section level4">
+<h4><span class="header-section-number">0.1.7.1</span> Distribution</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">show_missing_values &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+<span class="cf">if</span> (<span class="kw">has_labels</span>(item)) {
+  missing_values &lt;-<span class="st"> </span>item[<span class="kw">is.na</span>(haven<span class="op">::</span><span class="kw">zap_missing</span>(item))]
+  <span class="kw">attributes</span>(missing_values) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)) {
+    <span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels[<span class="kw">is.na</span>(<span class="kw">attributes</span>(missing_values)<span class="op">$</span>labels)]
+    <span class="kw">attributes</span>(item)<span class="op">$</span>labels &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)<span class="op">$</span>labels[<span class="op">!</span><span class="kw">is.na</span>(<span class="kw">attributes</span>(item)<span class="op">$</span>labels)]
+  }
+  <span class="cf">if</span> (<span class="kw">is.double</span>(item)) {
+    show_missing_values &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(haven<span class="op">::</span><span class="kw">na_tag</span>(missing_values))) <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_missing</span>(item)
+  }
+  <span class="cf">if</span> (<span class="kw">length</span>(item_attributes<span class="op">$</span>labels) <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">is.numeric</span>(item)) {
+    item &lt;-<span class="st"> </span>haven<span class="op">::</span><span class="kw">zap_labels</span>(item)
+  }
+}
+item_nomiss &lt;-<span class="st"> </span>item[<span class="op">!</span><span class="kw">is.na</span>(item)]
+
+<span class="co"># unnest mc_multiple and so on</span>
+<span class="cf">if</span> (
+  <span class="kw">is.character</span>(item_nomiss) <span class="op">&amp;&amp;</span>
+<span class="st">  </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_nomiss, stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>))) <span class="op">&amp;&amp;</span>
+<span class="st">  </span>(<span class="kw">exists</span>(<span class="st">&quot;type&quot;</span>, item_info) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">any</span>(stringr<span class="op">::</span><span class="kw">str_detect</span>(item_info<span class="op">$</span>type, 
+                            <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;multiple&quot;</span>))))
+  ) {
+  item_nomiss &lt;-<span class="st"> </span><span class="kw">unlist</span>(stringr<span class="op">::</span><span class="kw">str_split</span>(item_nomiss, <span class="dt">pattern =</span> stringr<span class="op">::</span><span class="kw">fixed</span>(<span class="st">&quot;, &quot;</span>)))
+}
+<span class="kw">attributes</span>(item_nomiss) &lt;-<span class="st"> </span><span class="kw">attributes</span>(item)
+
+old_height &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.height&quot;</span>)
+non_missing_choices &lt;-<span class="st"> </span>item_attributes[[<span class="st">&quot;labels&quot;</span>]]
+many_labels &lt;-<span class="st"> </span><span class="kw">length</span>(non_missing_choices) <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>
+go_vertical &lt;-<span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>many_labels
+<span class="cf">if</span> ( go_vertical ) {
+  <span class="co"># numeric items are plotted horizontally (because that&#39;s what usually expected)</span>
+  <span class="co"># categorical items are plotted vertically because we can use the screen real estate better this way</span>
+
+    <span class="cf">if</span> (<span class="kw">is.null</span>(choices) <span class="op">||</span><span class="st"> </span>
+<span class="st">        </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&gt;</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)) {
+        non_missing_choices &lt;-<span class="st"> </span><span class="kw">unique</span>(item_nomiss)
+        <span class="kw">names</span>(non_missing_choices) &lt;-<span class="st"> </span>non_missing_choices
+    }
+  choice_multiplier &lt;-<span class="st"> </span>old_height<span class="op">/</span><span class="fl">6.5</span>
+    new_height &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>choice_multiplier <span class="op">*</span><span class="st"> </span><span class="kw">length</span>(non_missing_choices)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>, <span class="dv">20</span>, new_height)
+    new_height &lt;-<span class="st"> </span><span class="kw">ifelse</span>(new_height <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>, new_height)
+    knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> new_height)
+}
+
+wrap_at &lt;-<span class="st"> </span>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;fig.width&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># todo: if there are free-text choices mingled in with the pre-defined ones, don&#39;t show</span>
+<span class="co"># todo: show rare items if they are pre-defined</span>
+<span class="co"># todo: bin rare responses into &quot;other category&quot;</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">length</span>(item_nomiss)) {
+  <span class="kw">cat</span>(<span class="st">&quot;No non-missing values to show.&quot;</span>)
+} <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(item_nomiss) <span class="op">||</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>) {
+  <span class="kw">plot_labelled</span>(item_nomiss, item_name, wrap_at, go_vertical)
+} <span class="cf">else</span> {
+    <span class="kw">cat</span>(dplyr<span class="op">::</span><span class="kw">n_distinct</span>(item_nomiss), <span class="st">&quot; unique, categorical values, so not shown.&quot;</span>)
+}</code></pre></div>
+<p><img src="02_EinfacheModelle_files/figure-html/BMI_distribution-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.height =</span> old_height)</code></pre></div>
+<p>366 missing values.</p>
+</div>
+<div id="BMI_summary" class="section level4">
+<h4><span class="header-section-number">0.1.7.2</span> Summary statistics</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(item) &lt;-<span class="st"> </span>item_attributes
+df =<span class="st"> </span><span class="kw">data.frame</span>(item, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">names</span>(df) =<span class="st"> </span>html_item_name
+<span class="kw">escaped_table</span>(<span class="kw">codebook_table</span>(df))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">data_type</th>
+<th align="left">missing</th>
+<th align="left">complete</th>
+<th align="left">n</th>
+<th align="left">mean</th>
+<th align="left">sd</th>
+<th align="left">p0</th>
+<th align="left">p25</th>
+<th align="left">p50</th>
+<th align="left">p75</th>
+<th align="left">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">BMI</td>
+<td align="left">numeric</td>
+<td align="left">366</td>
+<td align="left">9634</td>
+<td align="left">10000</td>
+<td align="left">26.66</td>
+<td align="left">7.38</td>
+<td align="left">12.88</td>
+<td align="left">21.58</td>
+<td align="left">25.98</td>
+<td align="left">30.89</td>
+<td align="left">81.25</td>
+<td align="left">▅▇▃▁▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (show_missing_values) {
+  <span class="kw">plot_labelled</span>(missing_values, item_name, wrap_at)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(item_info)) {
+  <span class="co"># don&#39;t show choices again, if they&#39;re basically same thing as value labels</span>
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.null</span>(item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">names</span>(<span class="kw">na.omit</span>(choices)) <span class="op">==</span><span class="st"> </span>item_info<span class="op">$</span>choices) <span class="op">&amp;&amp;</span>
+<span class="st">    </span><span class="kw">all</span>(<span class="kw">na.omit</span>(choices) <span class="op">==</span><span class="st"> </span><span class="kw">names</span>(item_info<span class="op">$</span>choices))) {
+    item_info<span class="op">$</span>choices &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  }
+  item_info<span class="op">$</span>label_parsed &lt;-<span class="st"> </span>
+<span class="st">    </span>item_info<span class="op">$</span>choice_list &lt;-<span class="st"> </span>item_info<span class="op">$</span>study_id &lt;-<span class="st"> </span>item_info<span class="op">$</span>id &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  pander<span class="op">::</span><span class="kw">pander</span>(item_info)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.null</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&amp;&amp;</span><span class="st"> </span><span class="kw">length</span>(choices) <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>) {
+    pander<span class="op">::</span><span class="kw">pander</span>(<span class="kw">as.list</span>(choices))
+}</code></pre></div>
+</div>
+</div>
+</div>
+<div id="missingness-report" class="section level2">
+<h2><span class="header-section-number">0.2</span> Missingness report</h2>
+<p>Among those who finished the survey. Only variables that have missing values are shown.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">exists</span>(<span class="st">&quot;ended&quot;</span>, results) <span class="op">||</span>
+<span class="st">  </span><span class="op">!</span><span class="kw">exists</span>(<span class="st">&quot;expired&quot;</span>, results)) {
+  <span class="kw">warning</span>(<span class="st">&quot;Could not figure out who finished the surveys, because the &quot;</span>,
+          <span class="st">&quot;variables expired and ended were missing.&quot;</span>)
+}
+<span class="cf">if</span> (<span class="kw">length</span>(md_pattern)) {
+  <span class="cf">if</span> (knitr<span class="op">::</span><span class="kw">is_html_output</span>()) {
+    rmarkdown<span class="op">::</span><span class="kw">paged_table</span>(md_pattern, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">rows.print =</span> <span class="dv">10</span>))
+  } <span class="cf">else</span> {
+    knitr<span class="op">::</span><span class="kw">kable</span>(md_pattern)
+  }
+}</code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["description"],"name":[1],"type":["chr"],"align":["left"]},{"label":["HomeOwn"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["HomeRooms"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Weight"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Diabetes"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["AgeDecade"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Height"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["BMI"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BMI_WHO"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Poverty"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["HHIncome"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["HHIncomeMid"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["UrineVol1"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["Pulse"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["BPSysAve"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["BPDiaAve"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["DirectChol"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["TotChol"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["UrineFlow1"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["BPSys3"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["BPDia3"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["BPSys2"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["BPDia2"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["PhysActive"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["BPSys1"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["BPDia1"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["SleepTrouble"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Work"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["SleepHrsNight"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["HealthGen"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["DaysMentHlthBad"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["DaysPhysHlthBad"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["Smoke100"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["Smoke100n"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["MaritalStatus"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["Education"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["Depressed"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["LittleInterest"],"name":[38],"type":["dbl"],"align":["right"]},{"label":["Alcohol12PlusYr"],"name":[39],"type":["dbl"],"align":["right"]},{"label":["AlcoholYear"],"name":[40],"type":["dbl"],"align":["right"]},{"label":["SameSex"],"name":[41],"type":["dbl"],"align":["right"]},{"label":["SexEver"],"name":[42],"type":["dbl"],"align":["right"]},{"label":["HardDrugs"],"name":[43],"type":["dbl"],"align":["right"]},{"label":["SexNumPartnLife"],"name":[44],"type":["dbl"],"align":["right"]},{"label":["SexAge"],"name":[45],"type":["dbl"],"align":["right"]},{"label":["Race3"],"name":[46],"type":["dbl"],"align":["right"]},{"label":["AgeMonths"],"name":[47],"type":["dbl"],"align":["right"]},{"label":["Marijuana"],"name":[48],"type":["dbl"],"align":["right"]},{"label":["RegularMarij"],"name":[49],"type":["dbl"],"align":["right"]},{"label":["SexNumPartYear"],"name":[50],"type":["dbl"],"align":["right"]},{"label":["AlcoholDay"],"name":[51],"type":["dbl"],"align":["right"]},{"label":["CompHrsDay"],"name":[52],"type":["dbl"],"align":["right"]},{"label":["TVHrsDay"],"name":[53],"type":["dbl"],"align":["right"]},{"label":["SexOrientation"],"name":[54],"type":["dbl"],"align":["right"]},{"label":["PhysActiveDays"],"name":[55],"type":["dbl"],"align":["right"]},{"label":["Testosterone"],"name":[56],"type":["dbl"],"align":["right"]},{"label":["SmokeNow"],"name":[57],"type":["dbl"],"align":["right"]},{"label":["SmokeAge"],"name":[58],"type":["dbl"],"align":["right"]},{"label":["AgeFirstMarij"],"name":[59],"type":["dbl"],"align":["right"]},{"label":["nPregnancies"],"name":[60],"type":["dbl"],"align":["right"]},{"label":["nBabies"],"name":[61],"type":["dbl"],"align":["right"]},{"label":["Age1stBaby"],"name":[62],"type":["dbl"],"align":["right"]},{"label":["PregnantNow"],"name":[63],"type":["dbl"],"align":["right"]},{"label":["UrineVol2"],"name":[64],"type":["dbl"],"align":["right"]},{"label":["UrineFlow2"],"name":[65],"type":["dbl"],"align":["right"]},{"label":["AgeRegMarij"],"name":[66],"type":["dbl"],"align":["right"]},{"label":["BMICatUnder20yrs"],"name":[67],"type":["dbl"],"align":["right"]},{"label":["TVHrsDayChild"],"name":[68],"type":["dbl"],"align":["right"]},{"label":["CompHrsDayChild"],"name":[69],"type":["dbl"],"align":["right"]},{"label":["DiabetesAge"],"name":[70],"type":["dbl"],"align":["right"]},{"label":["Length"],"name":[71],"type":["dbl"],"align":["right"]},{"label":["HeadCirc"],"name":[72],"type":["dbl"],"align":["right"]},{"label":["var_miss"],"name":[73],"type":["dbl"],"align":["right"]},{"label":["n_miss"],"name":[74],"type":["dbl"],"align":["right"]}],"data":[{"1":"Missing values per variable","2":"63","3":"69","4":"78","5":"142","6":"333","7":"353","8":"366","9":"397","10":"726","11":"811","12":"811","13":"987","14":"1437","15":"1449","16":"1449","17":"1526","18":"1526","19":"1603","20":"1635","21":"1635","22":"1647","23":"1647","24":"1674","25":"1763","26":"1763","27":"2228","28":"2229","29":"2245","30":"2461","31":"2466","32":"2468","33":"2765","34":"2765","35":"2769","36":"2779","37":"3327","38":"3333","39":"3420","40":"4078","41":"4232","42":"4233","43":"4235","44":"4275","45":"4460","46":"5000","47":"5038","48":"5059","49":"5059","50":"5072","51":"5086","52":"5137","53":"5141","54":"5158","55":"5337","56":"5874","57":"6789","58":"6920","59":"7109","60":"7396","61":"7584","62":"8116","63":"8304","64":"8522","65":"8524","66":"8634","67":"8726","68":"9347","69":"9347","70":"9371","71":"9457","72":"9912","73":"277677","74":"277677"},{"1":"Missing values in 57 variables","2":"1","3":"1","4":"1","5":"1","6":"1","7":"1","8":"1","9":"1","10":"1","11":"1","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0","35":"0","36":"0","37":"0","38":"0","39":"0","40":"0","41":"0","42":"0","43":"0","44":"0","45":"0","46":"0","47":"1","48":"0","49":"0","50":"0","51":"0","52":"0","53":"0","54":"0","55":"0","56":"0","57":"0","58":"0","59":"0","60":"0","61":"0","62":"0","63":"0","64":"0","65":"0","66":"0","67":"0","68":"1","69":"1","70":"0","71":"0","72":"0","73":"57","74":"142"},{"1":"Missing values in 44 variables","2":"1","3":"1","4":"1","5":"1","6":"1","7":"1","8":"1","9":"1","10":"1","11":"1","12":"1","13":"1","14":"1","15":"1","16":"1","17":"1","18":"1","19":"1","20":"1","21":"1","22":"1","23":"1","24":"0","25":"1","26":"1","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0","35":"0","36":"0","37":"0","38":"0","39":"0","40":"0","41":"0","42":"0","43":"0","44":"0","45":"0","46":"0","47":"1","48":"0","49":"0","50":"0","51":"0","52":"0","53":"0","54":"0","55":"0","56":"0","57":"0","58":"0","59":"0","60":"0","61":"0","62":"0","63":"0","64":"0","65":"0","66":"0","67":"0","68":"1","69":"1","70":"0","71":"0","72":"0","73":"44","74":"121"},{"1":"Missing values in 20 variables","2":"1","3":"1","4":"1","5":"1","6":"1","7":"1","8":"1","9":"1","10":"1","11":"1","12":"1","13":"1","14":"1","15":"1","16":"1","17":"1","18":"1","19":"1","20":"1","21":"1","22":"1","23":"1","24":"1","25":"1","26":"1","27":"1","28":"1","29":"1","30":"1","31":"1","32":"1","33":"1","34":"1","35":"1","36":"1","37":"1","38":"1","39":"1","40":"1","41":"1","42":"1","43":"1","44":"1","45":"1","46":"0","47":"1","48":"1","49":"1","50":"1","51":"1","52":"0","53":"0","54":"1","55":"1","56":"0","57":"0","58":"0","59":"0","60":"0","61":"0","62":"0","63":"0","64":"0","65":"0","66":"0","67":"0","68":"0","69":"0","70":"0","71":"0","72":"0","73":"20","74":"118"},{"1":"Missing values in 56 variables","2":"1","3":"1","4":"1","5":"1","6":"1","7":"1","8":"1","9":"1","10":"1","11":"1","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0","35":"0","36":"0","37":"0","38":"0","39":"0","40":"0","41":"0","42":"0","43":"0","44":"0","45":"0","46":"0","47":"1","48":"0","49":"0","50":"0","51":"0","52":"0","53":"0","54":"0","55":"0","56":"0","57":"0","58":"0","59":"0","60":"0","61":"0","62":"0","63":"0","64":"0","65":"0","66":"0","67":"0","68":"1","69":"1","70":"0","71":"1","72":"0","73":"56","74":"107"},{"1":"Missing values in 16 variables","2":"1","3":"1","4":"1","5":"1","6":"1","7":"1","8":"1","9":"1","10":"1","11":"1","12":"1","13":"1","14":"1","15":"1","16":"1","17":"1","18":"1","19":"1","20":"1","21":"1","22":"1","23":"1","24":"1","25":"1","26":"1","27":"1","28":"1","29":"1","30":"1","31":"1","32":"1","33":"1","34":"1","35":"1","36":"1","37":"1","38":"1","39":"1","40":"1","41":"1","42":"1","43":"1","44":"1","45":"1","46":"0","47":"1","48":"1","49":"1","50":"1","51":"1","52":"0","53":"0","54":"1","55":"1","56":"0","57":"1","58":"1","59":"1","60":"0","61":"0","62":"0","63":"0","64":"0","65":"0","66":"1","67":"0","68":"0","69":"0","70":"0","71":"0","72":"0","73":"16","74":"106"},{"1":"2798 other, less frequent patterns","2":"2753","3":"2749","4":"2740","5":"2782","6":"2605","7":"2714","8":"2706","9":"2680","10":"2367","11":"2301","12":"2301","13":"2652","14":"2527","15":"2517","16":"2517","17":"2395","18":"2395","19":"2336","20":"2378","21":"2378","22":"2379","23":"2379","24":"2617","25":"2306","26":"2306","27":"2537","28":"2536","29":"2524","30":"2335","31":"2330","32":"2328","33":"2359","34":"2359","35":"2355","36":"2350","37":"2167","38":"2165","39":"2145","40":"1806","41":"1716","42":"1716","43":"1716","44":"1685","45":"1586","46":"1490","47":"1234","48":"1422","49":"1422","50":"1412","51":"1311","52":"1461","53":"1457","54":"1349","55":"1303","56":"1194","57":"1077","58":"1002","59":"760","60":"1088","61":"978","62":"727","63":"619","64":"615","65":"614","66":"364","67":"228","68":"54","69":"54","70":"378","71":"35","72":"6","73":"71509","74":"9406"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="codebook-table" class="section level2">
+<h2><span class="header-section-number">0.3</span> Codebook table</h2>
+<div id="htmlwidget-c32862525c78299d24b0" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c32862525c78299d24b0">{"x":{"filter":"top","filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[["<a href=\"#Age\">Age<\/a>","<a href=\"#Education\">Education<\/a>","<a href=\"#HHIncomeMid\">HHIncomeMid<\/a>","<a href=\"#Poverty\">Poverty<\/a>","<a href=\"#Weight\">Weight<\/a>","<a href=\"#Length\">Length<\/a>","<a href=\"#BMI\">BMI<\/a>"],["integer","factor","integer","numeric","numeric","numeric","numeric"],[null,"FALSE",null,null,null,null,null],[null,"1. 8th Grade,<br>2. 9 - 11th Grade,<br>3. High School,<br>4. Some College,<br>5. College Grad",null,null,null,null,null],["0","2779","811","726","78","9457","366"],["10000","7221","9189","9274","9922","543","9634"],["10000","10000","10000","10000","10000","10000","10000"],[null,"5",null,null,null,null,null],[null,"NA: 2779, Som: 2267, Col: 2098, Hig: 1517",null,null,null,null,null],["   36.74",null,"57206.17"," 2.8 ","70.98","85.02","26.66"],["   22.4 ",null,"33020.28"," 1.68","29.13","13.71"," 7.38"],["0",null,"2500"," 0   "," 2.8 ","47.1 ","12.88"],["17",null,"30000"," 1.24","56.1 ","75.7 ","21.58"],["36",null,"50000"," 2.7 ","72.7 ","87   ","25.98"],["54",null,"87500"," 4.71","88.9 ","96.1 ","30.89"],["80",null,"1e+05","  5   ","230.7 ","112.2 "," 81.25"],["▇▇▇▇▇▇▅▅",null,"▃▅▃▆▂▂▃▇","▂▅▃▂▂▂▂▇","▂▃▇▃▁▁▁▁","▁▂▃▅▆▇▇▂","▅▇▃▁▁▁▁▁"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>name<\/th>\n      <th>data_type<\/th>\n      <th>ordered<\/th>\n      <th>value_labels<\/th>\n      <th>missing<\/th>\n      <th>complete<\/th>\n      <th>n<\/th>\n      <th>n_unique<\/th>\n      <th>top_counts<\/th>\n      <th>mean<\/th>\n      <th>sd<\/th>\n      <th>p0<\/th>\n      <th>p25<\/th>\n      <th>p50<\/th>\n      <th>p75<\/th>\n      <th>p100<\/th>\n      <th>hist<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["copy","csv","excel","pdf","print"],"pageLength":200,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[10,25,50,100,200]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/ld+json">
+{
+  "name": "NHANES[, c(4, 9, 12, 13, 17, 18, 21)]",
+  "datePublished": "2019-01-04",
+  "description": "The dataset has N=10000 rows and 7 columns.\n0 rows have no missing values on any column.\n\n\n## Table of variables\nThis table contains variable names, labels, their central tendencies and other attributes.\n\n|name        |data_type |ordered |value_labels                                                                      |missing |complete |n     |n_unique |top_counts                                |mean     |sd       |p0    |p25   |p50   |p75   |p100  |hist     |\n|:-----------|:---------|:-------|:---------------------------------------------------------------------------------|:-------|:--------|:-----|:--------|:-----------------------------------------|:--------|:--------|:-----|:-----|:-----|:-----|:-----|:--------|\n|Age         |integer   |NA      |NA                                                                                |0       |10000    |10000 |NA       |NA                                        |36.74    |22.4     |0     |17    |36    |54    |80    |▇▇▇▇▇▇▅▅ |\n|Education   |factor    |FALSE   |1. 8th Grade, - 2. 9 - 11th Grade, - 3. High School, - 4. Some College, - 5. College Grad |2779    |7221     |10000 |5        |NA: 2779, Som: 2267, Col: 2098, Hig: 1517 |NA       |NA       |NA    |NA    |NA    |NA    |NA    |NA       |\n|HHIncomeMid |integer   |NA      |NA                                                                                |811     |9189     |10000 |NA       |NA                                        |57206.17 |33020.28 |2500  |30000 |50000 |87500 |1e+05 |▃▅▃▆▂▂▃▇ |\n|Poverty     |numeric   |NA      |NA                                                                                |726     |9274     |10000 |NA       |NA                                        |2.8      |1.68     |0     |1.24  |2.7   |4.71  |5     |▂▅▃▂▂▂▂▇ |\n|Weight      |numeric   |NA      |NA                                                                                |78      |9922     |10000 |NA       |NA                                        |70.98    |29.13    |2.8   |56.1  |72.7  |88.9  |230.7 |▂▃▇▃▁▁▁▁ |\n|Length      |numeric   |NA      |NA                                                                                |9457    |543      |10000 |NA       |NA                                        |85.02    |13.71    |47.1  |75.7  |87    |96.1  |112.2 |▁▂▃▅▆▇▇▂ |\n|BMI         |numeric   |NA      |NA                                                                                |366     |9634     |10000 |NA       |NA                                        |26.66    |7.38     |12.88 |21.58 |25.98 |30.89 |81.25 |▅▇▃▁▁▁▁▁ |\n\n### Note\nThis dataset was automatically described using the [codebook R package](https://rubenarslan.github.io/codebook/).",
+  "keywords": ["Age", "Education", "HHIncomeMid", "Poverty", "Weight", "Length", "BMI"],
+  "@context": "http://schema.org/",
+  "@type": "Dataset",
+  "variableMeasured": [
+    {
+      "name": "Age",
+      "@type": "propertyValue"
+    },
+    {
+      "name": "Education",
+      "value": "1. 8th Grade,\n2. 9 - 11th Grade,\n3. High School,\n4. Some College,\n5. College Grad",
+      "@type": "propertyValue"
+    },
+    {
+      "name": "HHIncomeMid",
+      "@type": "propertyValue"
+    },
+    {
+      "name": "Poverty",
+      "@type": "propertyValue"
+    },
+    {
+      "name": "Weight",
+      "@type": "propertyValue"
+    },
+    {
+      "name": "Length",
+      "@type": "propertyValue"
+    },
+    {
+      "name": "BMI",
+      "@type": "propertyValue"
+    }
+  ]
+}
+</script>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mittelwerts-modell.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

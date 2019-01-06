@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Statistische Modellbildung</title>
+  <meta name="description" content="Einführung in die statistische Modellbildung">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Statistische Modellbildung" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Images/Cover.PNG" />
+  <meta property="og:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="github-repo" content="wgruber/Modellbildung" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statistische Modellbildung" />
+  
+  <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="twitter:image" content="Images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="vorbereitung-fur-r-studio.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i>Kennzeichen eines statistischen Modelles</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#zyklus-der-modellbildung"><i class="fa fa-check"></i>Zyklus der Modellbildung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#grundlagen-der-statistischen-modellbildung"><i class="fa fa-check"></i>Grundlagen der statistischen Modellbildung</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#explorative-datenanalyse-eda"><i class="fa fa-check"></i>Explorative Datenanalyse (EDA)</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#inferenzstatistik"><i class="fa fa-check"></i>Inferenzstatistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#pradiktive-statistik"><i class="fa fa-check"></i>Prädiktive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#mechanististische-statistik"><i class="fa fa-check"></i>Mechanististische Statistik</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Teil II: Modelle mit einer Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="datenbeschreibung.html"><a href="datenbeschreibung.html"><i class="fa fa-check"></i>Datenbeschreibung</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html"><i class="fa fa-check"></i>Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#tabellen"><i class="fa fa-check"></i>Tabellen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html"><i class="fa fa-check"></i>Mittelwerts-Modell</a><ul>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#konfidenzintervall-um-den-mittelwert"><i class="fa fa-check"></i>Konfidenzintervall um den Mittelwert</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="codebook-cps85.html"><a href="codebook-cps85.html"><i class="fa fa-check"></i>Codebook CPS85</a></li>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html#aufgabe_1"><i class="fa fa-check"></i>Aufgabe_1</a></li>
+</ul></li>
+<li class="part"><span><b>Teil III: Modelle mit mehr Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html"><i class="fa fa-check"></i>Korrelationen</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#kausalitat"><i class="fa fa-check"></i>Kausalität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#linearitat"><i class="fa fa-check"></i>Linearität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#korrelationskoeffizienten"><i class="fa fa-check"></i>Korrelationskoeffizienten</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#modell"><i class="fa fa-check"></i>Modell</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#beispiel"><i class="fa fa-check"></i>Beispiel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html"><i class="fa fa-check"></i>Einfache Regression</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definition"><i class="fa fa-check"></i>Definition</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#berechnung-der-koeffizienten"><i class="fa fa-check"></i>Berechnung der Koeffizienten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Modellbildung</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Statistische Modellbildung</h1>
+<p class="author"><em>Walter Gruber</em></p>
+<p class="date"><em>2019-01-06</em></p>
+</div>
+<div id="einleitung" class="section level1 unnumbered">
+<h1>Einleitung</h1>
+<p>Allgemein versteht man unter <a href="https://de.wikipedia.org/wiki/Modellbau">Modellbau</a> die Herstellung eines konkreten, dreidimensionalen, physischen Objektes. Der Prozess der <a href="https://de.wikipedia.org/wiki/Modell#Modellbildung">Modellbildung</a> abstrahiert dabei mit dem Erstellen eines Modells von der Realität, weil diese meist zu komplex ist, um sie vollständig abzubilden.</p>
+<p>Diese Vollständigkeit wird aber auch gar nicht beabsichtigt, vielmehr sollen lediglich die wesentlichen Einflussfaktoren identifiziert und dargestellt werden, die für den realen Prozess und im Modellkontext bedeutsam sind.</p>
+<p>Der Begriff Modell entstand im Italien der Renaissance (italienisch <em>modello</em>), hervorgegangen aus lateinischesn <em>modulus</em>, einem Maßstab in der Architektur. Es wurde bis ins 18. Jahrhundert vorwiegend in der bildenden Kunst als Fachbegriff verwendet.</p>
+<p>In der Umgangssprache wird das Wort <em>Modell</em> für unterschiedliche Sachverhalte verwendet. Im naturwissenschaftlichen Erkenntnisprozess haben Modelle verschiedene Bedeutungen und Funktionen. Merkmale und Charakteristika, an denen ein Modell eindeutig als Modell definiert werden kann, existieren nicht <span class="citation">(Upmeier <a href="#ref-Upmeier-Krueger-2010">2010</a>)</span>. Die Bedeutung ist zudem vom Kontext abhängig. Beim <em>Modellsein</em> werden folgende Aspekte unterschieden <span class="citation">(Mahr <a href="#ref-Mahr-Bernd-2008">2008</a>)</span>:</p>
+<ul>
+<li><em>Modell für etwas sein</em></li>
+<li><em>Modell von etwas sein</em></li>
+</ul>
+<p>Dies muss auch bei der Beurteilung eines Modells, also der Frage, ob ein Modell ein gutes Modell ist, berücksichtigen werden. Hier ist die Frage des Zwecks des Modells entscheidend. Mahr benennt drei allgemeine Kriterien zur Beurteilung von Modellen:</p>
+<ol style="list-style-type: decimal">
+<li>Das Modell muss die Funktion erfüllen,</li>
+<li>durch seine Anwendung etwas von dem, wovon es ein Modell ist, zudem wofür es ein Modell ist, transportieren.</li>
+<li>Das Modell muss ein Garant von Konsistenz sein.</li>
+</ol>
+<p>D.h., dass das Modell garantieren muss, dass es keine Widersprüche enthält, so dass seine Anwendung nicht notwendig zu Widersprüchen führen muss. Das Modell muss über eine ausreichende pragmatische Eignung verfügen und demnach das, wofür oder wovon es ein Modell ist, ausreichend und angemessen repräsentieren.</p>
+<p>Die Hauptfunktion in den Naturwissenschaften ist die Untersuchung und Interpretation von Phänomenen. Ziel ist die Reduzierung von Komplexität und somit die Erzeugung eines fokussierten Bildes des zu untersuchenden Objekts. Man kann sagen, dass Modelle den Blick auf das Wesentliche eines Phänomens oder Gegenstandes lenken sollen. Das Modell ist somit ein Repräsentant des Originals. Modell und Original können sich aber im Material, der Dimensionierung und der Abstraktion unterscheiden. Sie können gegenständlich, bildhaft, schematisch oder formelhaft sein.</p>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Upmeier-Krueger-2010">
+<p>Upmeier, D., A. und Krüger. 2010. “Modellkompetenz Im Biologieunterricht.” <em>Zeitschrift Für Didaktik Der Naturwissenschaften</em>.</p>
+</div>
+<div id="ref-Mahr-Bernd-2008">
+<p>Mahr, Bernd. 2008. “Ein Modell Des Modellseins – Ein Beitrag Zur Aufklärung Des Modellbegriffs.” <em>Peter Lang Verlag</em>, 187–220.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="vorbereitung-fur-r-studio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

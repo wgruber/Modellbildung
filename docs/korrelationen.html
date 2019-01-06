@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Korrelationen | Statistische Modellbildung</title>
+  <meta name="description" content="Einführung in die statistische Modellbildung">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Korrelationen | Statistische Modellbildung />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Images/Cover.PNG" />
+  <meta property="og:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="github-repo" content="wgruber/Modellbildung" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Korrelationen | Statistische Modellbildung />
+  
+  <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="twitter:image" content="Images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="losungen.html">
+<link rel="next" href="einfache-regression.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i>Kennzeichen eines statistischen Modelles</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#zyklus-der-modellbildung"><i class="fa fa-check"></i>Zyklus der Modellbildung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#grundlagen-der-statistischen-modellbildung"><i class="fa fa-check"></i>Grundlagen der statistischen Modellbildung</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#explorative-datenanalyse-eda"><i class="fa fa-check"></i>Explorative Datenanalyse (EDA)</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#inferenzstatistik"><i class="fa fa-check"></i>Inferenzstatistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#pradiktive-statistik"><i class="fa fa-check"></i>Prädiktive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#mechanististische-statistik"><i class="fa fa-check"></i>Mechanististische Statistik</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Teil II: Modelle mit einer Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="datenbeschreibung.html"><a href="datenbeschreibung.html"><i class="fa fa-check"></i>Datenbeschreibung</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html"><i class="fa fa-check"></i>Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#tabellen"><i class="fa fa-check"></i>Tabellen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html"><i class="fa fa-check"></i>Mittelwerts-Modell</a><ul>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#konfidenzintervall-um-den-mittelwert"><i class="fa fa-check"></i>Konfidenzintervall um den Mittelwert</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="codebook-cps85.html"><a href="codebook-cps85.html"><i class="fa fa-check"></i>Codebook CPS85</a></li>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html#aufgabe_1"><i class="fa fa-check"></i>Aufgabe_1</a></li>
+</ul></li>
+<li class="part"><span><b>Teil III: Modelle mit mehr Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html"><i class="fa fa-check"></i>Korrelationen</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#kausalitat"><i class="fa fa-check"></i>Kausalität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#linearitat"><i class="fa fa-check"></i>Linearität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#korrelationskoeffizienten"><i class="fa fa-check"></i>Korrelationskoeffizienten</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#modell"><i class="fa fa-check"></i>Modell</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#beispiel"><i class="fa fa-check"></i>Beispiel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html"><i class="fa fa-check"></i>Einfache Regression</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definition"><i class="fa fa-check"></i>Definition</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#berechnung-der-koeffizienten"><i class="fa fa-check"></i>Berechnung der Koeffizienten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Modellbildung</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="korrelationen" class="section level1 unnumbered">
+<h1>Korrelationen</h1>
+<p>Korrelation ist ein Maß für den statistischen Zusammenhang zwischen zwei Datensätzen. Unabhängige Variablen sind daher stets unkorreliert. Korrelation impliziert daher auch stochastische Abhängigkeit. Durch Korrelation wird die lineare Abhängigkeit zwischen zwei Variablen quantifiziert.</p>
+<p>Auch wenn Korrelation eine <em>deskriptive Statistik</em> ist, wird sie durch eine Reihe von Verfahren, wie z.B. partielle Korrelation, multiple Korrelation oder Faktorenanalyse, verfeinert. Es ist ein absolut unverzichtbares Werkzeug für viele Forschungsgebiete.</p>
+<div id="kausalitat" class="section level2 unnumbered">
+<h2>Kausalität</h2>
+<p>Eine relevante (statistisch signifikante) Korrelation liefert keinen Beleg für Kausalität. Vor allem in der Medizin und Psychologie suchen Forscher nach Kriterien für Kausalität. Es existieren mehrere Ansätze, nachfolgend seien hier die neun Kriterien von Hill (1965) angeführt:</p>
+<ol style="list-style-type: decimal">
+<li><em>Stärke der Assoziation (Effektstärke)</em>: Eine geringe Effektsstärke bedeutet nicht, dass keine Beziehung zwischen den Variablen existiert, aber bei einer größeren Effektstärke ist eine kausale Beziehung wahrscheinlicher.</li>
+<li><em>Konsistenz (Reproduzierbarkeit)</em>: Übereinstimmende Befunde, festgestellt durch verschiedene Personen an verschiedenen Orten mit verschiedenen Stichproben, verstärkt die Wahrscheinlichkeit eines Effekts.</li>
+<li><em>Spezifität</em>: Kausalität ist wahrscheinlich, wenn es keine andere bessere Erklärung für das Auftreten des Ereignisses gibt. Je spezifischer die Beziehung zwischen einem Faktor und einem Effekt ist, desto höher die Wahrscheinlichkeit eines kausalen Zusammenhangs.</li>
+<li><em>Zeitbedingtheit</em>: Die Ursache muss der Wirkung vorausgehen (wenn erwartet wird, dass es eine Verzögerung nach der Ursache und dem erwarteten Effekt gibt, dann muss der Effekt nach der Verzögerung eintreten).</li>
+<li><em>Dosis-Wirkungs-Beziehung</em>: Größere Exposition sollte gewöhnlich auch zu einer größeren Auftretenshäufigkeit des Effekts führen. In einigen Fällen jedoch kann bereits die bloße Anwesenheit eines Faktors einen Effekt auslösen. In anderen Fällen wird der umgekehrte Fall beobachtet: die Anwesenheit eines Faktors reduziert die Auftretenshäufigkeit.</li>
+<li><em>(Biologische) Plausibilität</em>: Ein plausibler Mechanismus zwischen Ursache und Wirkung ist hilfreich (allerdings fügte Hill auch hinzu, dass das Verständnis von Ursache und Wirkung durch unseren aktuellen Wissensstand begrenzt sein kann).</li>
+<li><em>Koheränz</em>: Die Stimmigkeit zwischen epidemiologischen- und Laborbefunden erhöht die Wahrscheinlichkeit eines Effekts. Hill fügte allerdings hinzu, dass das Fehlen eines Laborbefundes nicht einen epidemiologischen Effekt auf die Beziehung ungültig machen kann.</li>
+<li><em>Experiment</em>: Es ist wahrscheinlicher, dass eine Beziehung kausal ist, wenn sie experimentell verifiziert werden kann.</li>
+<li><em>Analogie</em>: Der Effekt ähnlicher Faktoren darf berücksichtigt werden.</li>
+</ol>
+</div>
+<div id="linearitat" class="section level2 unnumbered">
+<h2>Linearität</h2>
+<p>Ein Korrelationskoeffizient zeigt die Stärke eines <em>linearen Zusammenhangs</em> zwischen zwei Variablen. Aber der Wert von <span class="math inline">\(r\)</span> charakterisiert nicht die genaue Art des Zusammenhangs oder das Aussehen des Punktdiagramms beider Variablen<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</p>
+<center>
+<div class="figure">
+<img src="Images/03_LinearitaetKorrelation.JPG" alt="Abbildung 2: Korrelation und Linearität" style="width:80.0%" />
+<p class="caption"><strong>Abbildung 2</strong>: Korrelation und Linearität</p>
+</div>
+</center>
+</div>
+<div id="korrelationskoeffizienten" class="section level2 unnumbered">
+<h2>Korrelationskoeffizienten</h2>
+<p>Neben dem Pearson-Produkt-Moment-Korrelationskoeffizienten <span class="math inline">\(r\)</span> existieren noch etliche weitere Korrelationskoeffizienten und Zusammenhangsmaße. Die meisten hiervon sind Sonderfälle der Pearson-Produkt-Moment-Korrelation. Die Tabelle (unten) zeigt, wann welcher Koeffizient berechnet werden soll, abhängig von dem Skalenniveau der beteiligten Variablen.</p>
+<center>
+<div class="figure">
+<img src="Images/Korrelationskoeffizienten.JPG" alt="Abbildung 3: verschiedene Korrelationskoeffizienten" style="width:100.0%" />
+<p class="caption"><strong>Abbildung 3</strong>: verschiedene Korrelationskoeffizienten</p>
+</div>
+</center>
+<p>Weiter Infos zu den einzelnen Korrelationskoeffizienten sind der Literatur zu entnehmen. Eine übersichtliche Darstellung findet man auch unter folgendem <a href="https://matheguru.com/stochastik/korrelation-korrelationskoeffizient.html">Link</a>.</p>
+</div>
+<div id="modell" class="section level2 unnumbered">
+<h2>Modell</h2>
+<p>Bereits bei der deskriptiven Statistik haben wir mit dem Maß der Varianz (<span class="math inline">\(s^2\)</span>) einen Kennwert definiert, der die Schwankungen bezüglich des entsprechenden Mittelwertes beschreibt. Per Definition ist die Varianz die durchschnittliche Summe der quadrierten Abweichungen zum Mittelwert, also:</p>
+<span class="math display" id="eq:Var">\[\begin{equation} 
+  s^2 = \frac{\sum_{i=1}^{N} (x_i - \bar{x})^2}{N-1}
+  \tag{3}
+\end{equation}\]</span>
+<p>Betrachtet man zwei (normalverteilte) intervallskalierte Variablen <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span>, dann lässt sich diese Idee auch als ein Kennwert der gemeinsamen Variablität der beiden Variablen definieren:</p>
+<span class="math display" id="eq:Cov">\[\begin{equation} 
+  cov(x,y) = \frac{\sum_{i=1}^{N} (x_i - \bar{x}) \cdot (y_i - \bar{y})}{N-1}
+  \tag{4}
+\end{equation}\]</span>
+<p>Dieser Kennwert nennt sich <em>Kovarianz</em> (<span class="math inline">\(cov\)</span>). Da dieser Kennwert an die entsprechenden Einheiten der Variablen gebunden ist, normiert man i.A. dieses Maß durch das Produkt der jeweiligen Standardabweichung <span class="math inline">\(s_x\)</span> und <span class="math inline">\(s_y\)</span>. Dieses normierte Maß bezeichnet man als <em>Korrelationskoeffizient</em> (<span class="math inline">\(r\)</span>):</p>
+<span class="math display" id="eq:Korr">\[\begin{equation} 
+  r(x,y) = \frac{cov(x,y)}{s_x \cdot s_y}
+  \tag{5}
+\end{equation}\]</span>
+<div id="beispiel" class="section level3 unnumbered">
+<h3>Beispiel</h3>
+<p>Anhand des bereits verwendeten Datensatzes (<em>CPS85</em>) wollen wir die Beziehung der Variablen Gehalt (<em>wage</em>), Ausbildung (<em>educ</em>) und Berufserfahrung (<em>exper</em>) berechnen und graphisch darstellen. Kopiere den folgenden Code ins RStudio und führe diesen dann aus. Diskutiere die Ergebnisse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  M      &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wage =</span> CPS85<span class="op">$</span>wage, <span class="dt">educ =</span> CPS85<span class="op">$</span>educ, <span class="dt">exper =</span> CPS85<span class="op">$</span>exper)
+  Korr_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">cor</span>(M)
+  <span class="kw">pander</span>(Korr_<span class="dv">1</span>, <span class="dt">style =</span> <span class="st">&quot;rmarkdown&quot;</span>)
+  <span class="co"># DT::datatable(round(Korr_1,2))</span>
+  <span class="kw">corrplot</span>(<span class="kw">cor</span>(M), <span class="dt">method =</span> <span class="st">&quot;ellipse&quot;</span>)</code></pre></div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p><a href="https://matheguru.com/stochastik/korrelation-korrelationskoeffizient.html">Abbildungen aus Matheguru</a><a href="korrelationen.html#fnref6">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="losungen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="einfache-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Statistisches Modell | Statistische Modellbildung</title>
+  <meta name="description" content="Einführung in die statistische Modellbildung">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Statistisches Modell | Statistische Modellbildung />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Images/Cover.PNG" />
+  <meta property="og:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="github-repo" content="wgruber/Modellbildung" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statistisches Modell | Statistische Modellbildung />
+  
+  <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="twitter:image" content="Images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="vorbereitung-fur-r-studio.html">
+<link rel="next" href="datenbeschreibung.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i>Kennzeichen eines statistischen Modelles</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#zyklus-der-modellbildung"><i class="fa fa-check"></i>Zyklus der Modellbildung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#grundlagen-der-statistischen-modellbildung"><i class="fa fa-check"></i>Grundlagen der statistischen Modellbildung</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#explorative-datenanalyse-eda"><i class="fa fa-check"></i>Explorative Datenanalyse (EDA)</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#inferenzstatistik"><i class="fa fa-check"></i>Inferenzstatistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#pradiktive-statistik"><i class="fa fa-check"></i>Prädiktive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#mechanististische-statistik"><i class="fa fa-check"></i>Mechanististische Statistik</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Teil II: Modelle mit einer Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="datenbeschreibung.html"><a href="datenbeschreibung.html"><i class="fa fa-check"></i>Datenbeschreibung</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html"><i class="fa fa-check"></i>Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#tabellen"><i class="fa fa-check"></i>Tabellen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html"><i class="fa fa-check"></i>Mittelwerts-Modell</a><ul>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#konfidenzintervall-um-den-mittelwert"><i class="fa fa-check"></i>Konfidenzintervall um den Mittelwert</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="codebook-cps85.html"><a href="codebook-cps85.html"><i class="fa fa-check"></i>Codebook CPS85</a></li>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html#aufgabe_1"><i class="fa fa-check"></i>Aufgabe_1</a></li>
+</ul></li>
+<li class="part"><span><b>Teil III: Modelle mit mehr Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html"><i class="fa fa-check"></i>Korrelationen</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#kausalitat"><i class="fa fa-check"></i>Kausalität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#linearitat"><i class="fa fa-check"></i>Linearität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#korrelationskoeffizienten"><i class="fa fa-check"></i>Korrelationskoeffizienten</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#modell"><i class="fa fa-check"></i>Modell</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#beispiel"><i class="fa fa-check"></i>Beispiel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html"><i class="fa fa-check"></i>Einfache Regression</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definition"><i class="fa fa-check"></i>Definition</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#berechnung-der-koeffizienten"><i class="fa fa-check"></i>Berechnung der Koeffizienten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Modellbildung</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistisches-modell" class="section level1 unnumbered">
+<h1>Statistisches Modell</h1>
+<p>Unter statistischer Modellbildung versteht man den Prozess, ein passendes Modell für die Daten einer Beobachtungsreihe zu finden.</p>
+<ul>
+<li>Als <em>Prozess</em> wird die strukturierte und gesteuerte Reihe von Arbeitsschritten bezeichnet, konzipiert, um eine bestimmtes Ergebnis hervorzubringen.</li>
+<li><em>Daten</em> sind Werte und Beobachtungen, die im Lauf einer (statistischen) Erhebung gesammelt werden.</li>
+<li>Eine <em>Erhebung</em> ist die Sammlung von Daten einer bestimmten Grundgesamtheit zum Zweck der Untersuchung eines speziellen Aspektes. Die Daten werden oft nur von einer Stichprobe der Grundgesamtheit erhoben. Erhebungen sind in der Forschung weit verbreitet.</li>
+<li>Eine <em>Stichprobe</em> ist die Teilmenge einer Grundgesamtheit bei einer statistischen Untersuchung, zusammengestellt, um ausgewählte Eigenschaften der Gesamtpopulation zu untersuchen.</li>
+</ul>
+<div id="modellbildung" class="section level2 unnumbered">
+<h2>Modellbildung</h2>
+<p>Die Modellbildung abstrahiert mit dem Erstellen eines Modells von der Realität, weil diese meist zu komplex ist, um sie vollständig abzubilden. Man unterscheidet dabei:</p>
+<ul>
+<li><p><strong>Strukturelle Modellbildung</strong>: Bei struktureller Modellbildung ist die innere Struktur des Systems bekannt, es wird jedoch bewusst abstrahiert, modifiziert und reduziert. Man spricht hier von einem <strong>Whitebox-Modell</strong>.</p></li>
+<li><p><strong>Pragmatische Modellbildung</strong>: Bei pragmatischer Modellbildung ist die innere Struktur des Systems unbekannt, es lässt sich nur das Verhalten bzw. die Interaktion des Systems beobachten und modellieren. Die Hintergründe lassen sich meist nicht oder nur zum Teil verstehen - hier spricht man von einem <strong>Blackbox-Modell</strong>.</p></li>
+<li><p><strong>Mischformen</strong>: Bei Mischformen sind Teile des Systems bekannt, andere wiederum nicht. Nicht alle Wechselwirkungen und Interaktionen zwischen Teilkomponenten lassen sich nachvollziehen - hier spricht man vom <strong>Greybox-Modell</strong>. Diese Mischform ist die häufigste, weil es aufgrund von Kosten-Nutzen-Überlegungen meist ausreichend ist, das System auf diese Weise abzubilden.</p></li>
+</ul>
+</div>
+<div id="kennzeichen-eines-statistischen-modelles" class="section level2 unnumbered">
+<h2>Kennzeichen eines statistischen Modelles</h2>
+<p>Ein Modell ist im Wesentlichen durch drei Merkmale gekennzeichnet:</p>
+<ul>
+<li><p><strong>Abbildung</strong>: eines natürlichen oder eines künstlichen Originals, wobei dieses Original selbst auch wiederum ein Modell sein kann.</p></li>
+<li><strong>Verkürzung</strong>: es erfasst im Allgemeinen nicht alle Eigenschaften (Attribute) des Originals, sondern nur diejenigen, die dem Modellschaffer bzw. Modellnutzer relevant erscheinen. Diese werden häufig in Form von aggregierenden Maßzahlen (Parameter) beschrieben.</li>
+<li><strong>Pragmatismus</strong>: sind ihren Originalen nicht eindeutig zugeordnet. Sie erfüllen ihre Ersetzungsfunktion:
+<ul>
+<li>für bestimmte Subjekte (für wen?)</li>
+<li>innerhalb bestimmter Zeitintervalle (wann?)</li>
+<li>unter Einschränkung auf bestimmte gedankliche oder tatsächliche Operationen (wozu?).</li>
+</ul></li>
+</ul>
+<p>Statistische Modelle sind somit:</p>
+<ul>
+<li>eine vereinfachte mathematisch-formalisierte Methode, sich der Realität anzunähern.</li>
+<li>Beschreiben den Zustand eines Systems vor und nach Änderungen äußerer Relationen, nicht jedoch während einer Änderung.</li>
+<li>Das Ziel ist es herauszufinden, ob man in der Natur auftretende Phänomene auf allgemein gültige Gesetzmäßigkeiten zurückführen kann.</li>
+<li>In der Regel werden Beobachtungen durchgeführt und diese als Daten aufgezeichnet.</li>
+<li>In diesen Daten gilt es Muster zu finden, die Rückschlüsse auf die Mechanismen zulassen, welche dem Phänomen zugrunde liegen.</li>
+<li>Auf diese Weise wird ein Modell von der Funktionsweise eines Phänomens erstellt.</li>
+</ul>
+<p>Statistische Modelle finden Verwendung für:</p>
+<ul>
+<li>Annäherung (Approximation)</li>
+<li>Erklärung</li>
+<li>Vorhersage</li>
+</ul>
+<div id="zyklus-der-modellbildung" class="section level3 unnumbered">
+<h3>Zyklus der Modellbildung</h3>
+<p>Das Bilden von statistischen Modellen ist ein iterativer Vorgang, welcher durchaus mehrere zyklische Entwicklungsschritte beinhalten kann.</p>
+<center>
+<div class="figure">
+<img src="Images/ZyklusModellbildung.PNG" alt="Abbildung 1: Zyklus der Modellbildung" style="width:50.0%" />
+<p class="caption"><strong>Abbildung 1</strong>: Zyklus der Modellbildung</p>
+</div>
+</center>
+</div>
+</div>
+<div id="grundlagen-der-statistischen-modellbildung" class="section level2 unnumbered">
+<h2>Grundlagen der statistischen Modellbildung</h2>
+<p>Grundlage ist eine entsprechende Fragestellung, die auf theoretischen Grundlagen basiert und möglichst präzise formuliert werden soll. Bei den Daten, die zur Beantwortung der Fragestellung geeignet sind, sollte man speziell achten auf:</p>
+<ul>
+<li>woher Sie kommen.</li>
+<li>was und wie Sie ein erhobenes/gemessenes Objekt abbilden.</li>
+</ul>
+<p>Charakteristiken von guten Fragen sind:</p>
+<ul>
+<li><strong>Interessant für andere</strong>: wie z.B. für Mitarbeiter, wissenschaftliche Gemeinschaft, Geldgeber, Allgemeinheit?</li>
+<li><strong>Noch nicht beantwortet</strong>: wurde die Fragestellung bereits bearbeitet/beantwortet? Literaturrecherche, Kongressbeiträge, etc.</li>
+<li><strong>Sinnvoll</strong>: kann durch die Beantwortung eine Erklärung gefunden werden, wie etwas funktioniert? Beantwortbarkeit: kann die Fragestellung überhaupt beantwortet werden?</li>
+<li><strong>Spezifisch</strong>: wie präzise ist die Fragestellung? Gesundes Essen führt zu besserer Gesundheit ist weniger präzise wie z.B. 5 Mal am Tag Früchte und Gemüse führt zu einer geringeren Wahrscheinlichkeit an Atemwegserkrankungen zu erkranken.</li>
+</ul>
+<p>Bei den Qualitätskriterien für Daten ist folgendes zu beachten:</p>
+<ul>
+<li><strong>Korrektheit</strong>: müssen mit der Realität übereinstimmen.</li>
+<li><strong>Konsistenz</strong>: dürfen in sich und zu anderen Datensätzen keine Widersprüche aufweisen.</li>
+<li><strong>Zuverlässigkeit</strong>: Entstehung der Daten muss nachvollziehbar sein.</li>
+<li><strong>Vollständigkeit</strong>: muss alle notwendigen Attribute enthalten.</li>
+<li><strong>Genauigkeit</strong>: müssen in der jeweils geforderten Exaktheit vorliegen (Beispiel: Nachkommastellen).</li>
+<li><strong>Aktualität</strong>: müssen jeweils dem aktuellen Zustand der abgebildeten Realität entsprechen.</li>
+<li><strong>Relevanz</strong>: Der Informationsgehalt muss den jeweiligen Informationsbedarf erfüllen.</li>
+<li><strong>Einheitlichkeit</strong>: Die Informationen müssen einheitlich strukturiert sein.</li>
+<li><strong>Eindeutigkeit</strong>: muss eindeutig interpretierbar sein.</li>
+<li><strong>Verständlichkeit</strong>: müssen in ihrer Begrifflichkeit und Struktur mit den Vorstellungen der Fachbereiche übereinstimmen.</li>
+<li><strong>Redundanzfreiheit</strong>: Innerhalb der Datensätze sollen/dürfen keine Dubletten vorkommen.</li>
+</ul>
+<p>Aus der Testtheorie sind in auch die Gütekriterien (Testgütekriterien) der empirischen Forschung für die statistische Modellbildung anzuwenden. Diese sind:</p>
+<ul>
+<li><strong>Reliabilität</strong>: Indikator für die Replizierbarkeit der Ergebnisse. Fragen müssen z.B. so eindeutig formuliert sein, dass sie nicht höchst unterschiedlich verstanden werden können.</li>
+<li><strong>Validität</strong>: wenn die gewählten Indikatoren, Fragen und Antwortmöglichkeiten wirklich und präzise das messen, was gemessen werden soll.</li>
+<li><strong>Objektivität</strong>: wenn die Wahl der Messenden, InterviewerInnen, PrüferInnen keinen Einfluss auf die Ergebnisse hat.</li>
+</ul>
+<p>Bei der Analyse und Interpretation der Daten unterscheidet man:</p>
+<ul>
+<li><strong>Deskriptiv</strong>: beschreibend (innerhalb Daten)</li>
+<li><strong>Explorativ</strong>: Hypothesen generierend (innerhalb Daten)</li>
+<li><strong>Inferentiell</strong>: Statement über etwas, was nicht beobachtet wird, also aus den erhobenen Daten auf die Ursachen zu schliessen, die die Daten erzeugt haben könnten (außerhalb der Daten).</li>
+<li><strong>Prädiktiv</strong>: Vorhersage für Werte die noch nicht beobachtet wurden (außerhalb der Daten)</li>
+<li><strong>Korrelativ</strong>: Beschreibung der Zusammenhäng zwischen Beobachtungen (innerhalb und außerhalb der Daten).</li>
+<li><strong>Mechanistisch</strong>: nicht nur die Frage ob ein Zusammenhang besteht, sondern wie und warum der Zusammenhang besteht ist von Interesse.</li>
+</ul>
+<div id="deskriptive-statistik" class="section level3 unnumbered">
+<h3>Deskriptive Statistik</h3>
+<p>Methoden der deskriptiven Statistik umfassen:</p>
+<ul>
+<li>Tabellen</li>
+<li>Diagramme</li>
+<li>Parameter (Maßzahlen, Kennzahlen, Kennwerte)
+<ul>
+<li>Lagemaßen: Maße der zentralen Tendenz, wie z.B. Mittelwerte, Median, Modus.</li>
+<li>Streuungsmaße: für die Variabilität (Dispersion), wie z.B. Range, Varianz, Standardabweichung, Standardfehler.</li>
+<li>Zusammenhangsmaße: wie z.B. die Korrelation.</li>
+</ul></li>
+</ul>
+<p>Die deskriptive Statistik ist ein zentrales Element jeder formalen Analyse von Daten, hat jedoch in ihrer Eigenschaft folgende Einschränkungen:</p>
+<ul>
+<li>liefert keine Aussagen zu einer über die untersuchten Fälle hinausgehenden Grundgesamtheit .</li>
+<li>Es ist keine Überprüfung von Hypothesen möglich.</li>
+<li>Verwendet keine stochastischen Modelle (Grundlage der induktiven Statistik).</li>
+<li>getroffenen Aussagen können nicht durch Fehlerwahrscheinlichkeiten abgesichert werden.</li>
+</ul>
+</div>
+<div id="explorative-datenanalyse-eda" class="section level3 unnumbered">
+<h3>Explorative Datenanalyse (EDA)</h3>
+<p>Die Methoden der explorativen Statistik sind meist identisch mit denen der deskriptiven Statistik, unterscheiden sich aber bezüglich der <em>Ziele der Analyse</em>. Dieses sind in der explorativen Analyse:</p>
+<ul>
+<li>bisher unbekannte Strukturen und Zusammenhänge in den Daten zu finden.</li>
+<li>Annahmen (Hypothesen) über die Ursache und den Grund der beobachteten Daten zu bilden.</li>
+<li>Annahmen einzuschätzen, worauf statistische Inferenz basieren kann.</li>
+<li>Die Auswahl von passenden statistischen Werkzeugen und Techniken zu unterstützen.</li>
+<li>Eine Basis für die weitere Daten-Sammlung durch Umfragen oder Design von Experimenten bereitzustellen.</li>
+</ul>
+<p>Die Vorgehensweise bei einer EDA kann anhand der folgenden Checkliste kurz besch</p>
+</div>
+<div id="inferenzstatistik" class="section level3 unnumbered">
+<h3>Inferenzstatistik</h3>
+<p>Bei der inferentiellen Statistik wird eine Zufallsstichprobe aus einer Grundgesamtheit entnommen, um Rückschlüsse auf die Grundgesamtheit zu ziehen und diese zu beschreiben. Weitere Begriffe sind:</p>
+<ul>
+<li>analytische Statistik</li>
+<li>inferenzielle Statistik</li>
+<li>induktive Statistik</li>
+<li>schließende Statistik</li>
+</ul>
+<p>Die inferentielle Statistik ist in den Situationen nützlich, in denen es nur schwer oder gar nicht möglich ist, eine vollständige Grundgesamtheit zu untersuchen. Wesentliche Merkmale der Inferenzstatistik sind:</p>
+<ul>
+<li>trifft Wahrscheinlichkeitsaussagen über Populationswerte.</li>
+<li>Daten werden in Form von (Zufalls-) Stichproben aus der Grundgesamtheit entnommen.</li>
+<li>Signifikanztests und Intervalleschätzungen bieten die Entscheidungsgrundlage hinsichtlich der postulierten Hypothesen.</li>
+</ul>
+</div>
+<div id="pradiktive-statistik" class="section level3 unnumbered">
+<h3>Prädiktive Statistik</h3>
+<p>Prädikative Statistik (predictive analytics) verwendet (historische) Daten, um zukünftige Ereignisse vorherzusagen. Im Allgemeinen werden vorliegende (historische) Daten verwendet, um ein mathematisches (prädiktives Modell) Modell zu erstellen. Dieses Modell soll bestmöglich wichtige Trends in den Daten erfassen.</p>
+<p>Dieses wird dann auf aktuelle Daten angewendet, um zukünftige Ereignisse vorherzusagen, oder um Aktionen vorzuschlagen, mit denen optimale Ergebnisse erreicht werden können. Vor allem in den letzten Jahren hat diese Form der Statistik in den Bereichen von Big Data und Machine Learning sehr an Bedeutung gewonnen.</p>
+</div>
+<div id="mechanististische-statistik" class="section level3 unnumbered">
+<h3>Mechanististische Statistik</h3>
+<p>Zusammenhängen zwischen mehreren Variablen mit gleichzeitiger Interpretation der Kausalitäten werden häufig mit Hilfe eines Strukturgleichungsmodells (SEM<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>) analysiert. Dabei handelt es sich um ein statistisches Modell, das das Schätzen und Testen korrelativer Zusammenhänge zwischen abhängigen Variablen und unabhängigen Variablen sowie den verborgenen Strukturen dazwischen erlaubt.</p>
+<p>Eine Besonderheit von Strukturgleichungsmodellen ist das Überprüfen latenter (nicht direkt beobachtbarer) Variablen. Spezialfälle von Strukturgleichungsmodellen sind:</p>
+<ul>
+<li>Pfadanalyse</li>
+<li>Faktorenanalyse</li>
+<li>Regressionsanalyse</li>
+</ul>
+<p>Ein Strukturgleichungsmodell stellt wiederum einen Spezialfall eines sogenannten Kausalmodells dar.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p><em>S</em>tructural <em>E</em>quation <em>M</em>odeling<a href="statistisches-modell.html#fnref1">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vorbereitung-fur-r-studio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datenbeschreibung.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

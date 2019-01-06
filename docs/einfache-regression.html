@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Einfache Regression | Statistische Modellbildung</title>
+  <meta name="description" content="Einführung in die statistische Modellbildung">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Einfache Regression | Statistische Modellbildung />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Images/Cover.PNG" />
+  <meta property="og:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="github-repo" content="wgruber/Modellbildung" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Einfache Regression | Statistische Modellbildung />
+  
+  <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="twitter:image" content="Images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="korrelationen.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i>Kennzeichen eines statistischen Modelles</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#zyklus-der-modellbildung"><i class="fa fa-check"></i>Zyklus der Modellbildung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#grundlagen-der-statistischen-modellbildung"><i class="fa fa-check"></i>Grundlagen der statistischen Modellbildung</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#explorative-datenanalyse-eda"><i class="fa fa-check"></i>Explorative Datenanalyse (EDA)</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#inferenzstatistik"><i class="fa fa-check"></i>Inferenzstatistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#pradiktive-statistik"><i class="fa fa-check"></i>Prädiktive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#mechanististische-statistik"><i class="fa fa-check"></i>Mechanististische Statistik</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Teil II: Modelle mit einer Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="datenbeschreibung.html"><a href="datenbeschreibung.html"><i class="fa fa-check"></i>Datenbeschreibung</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html"><i class="fa fa-check"></i>Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#tabellen"><i class="fa fa-check"></i>Tabellen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html"><i class="fa fa-check"></i>Mittelwerts-Modell</a><ul>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#konfidenzintervall-um-den-mittelwert"><i class="fa fa-check"></i>Konfidenzintervall um den Mittelwert</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="codebook-cps85.html"><a href="codebook-cps85.html"><i class="fa fa-check"></i>Codebook CPS85</a></li>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html#aufgabe_1"><i class="fa fa-check"></i>Aufgabe_1</a></li>
+</ul></li>
+<li class="part"><span><b>Teil III: Modelle mit mehr Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html"><i class="fa fa-check"></i>Korrelationen</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#kausalitat"><i class="fa fa-check"></i>Kausalität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#linearitat"><i class="fa fa-check"></i>Linearität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#korrelationskoeffizienten"><i class="fa fa-check"></i>Korrelationskoeffizienten</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#modell"><i class="fa fa-check"></i>Modell</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#beispiel"><i class="fa fa-check"></i>Beispiel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html"><i class="fa fa-check"></i>Einfache Regression</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definition"><i class="fa fa-check"></i>Definition</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#berechnung-der-koeffizienten"><i class="fa fa-check"></i>Berechnung der Koeffizienten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Modellbildung</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="einfache-regression" class="section level1 unnumbered">
+<h1>Einfache Regression</h1>
+<p>Die Regression basiert auf der Korrelation und ermöglicht die bestmögliche Vorhersage für eine Variable. Im Gegensatz zur Korrelation muss hierbei festgelegt werden, welche Variable durch eine andere Variable vorhergesagt werden soll. Die Variable die vorhergesagt werden soll nennt man bei der Regression <em>Kriterium</em> (<span class="math inline">\(y\)</span>). Die Variable die für die Vorhersage eingesetzt wird bezeichnet man als <em>Prädiktor</em> (<span class="math inline">\(x_i\)</span>)<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>. Anhand des Prädiktors wird demzufolge das Kriterium vorhergesagt.</p>
+<div id="definition" class="section level2 unnumbered">
+<h2>Definition</h2>
+<p>Die formale Definition eines einfachen linearen Modells ist:</p>
+<span class="math display" id="eq:LinModFehler">\[\begin{equation} 
+  y = b_0 + b_1 \cdot x_1 + \varepsilon_1
+  \tag{6}
+\end{equation}\]</span>
+<p>Die wesentlichen Parameter dieses einfachen Modells sind:</p>
+<ol style="list-style-type: decimal">
+<li>Intercept <span class="math inline">\(b_0\)</span>: jener Wert den <span class="math inline">\(y\)</span> einnimmt, wenn <span class="math inline">\(x_1 = 0\)</span> ist.</li>
+<li>Steigung <span class="math inline">\(b_1\)</span>: die Zunahme von <span class="math inline">\(y\)</span>, wenn <span class="math inline">\(x_1\)</span> sich um eine Einheit erhöht.</li>
+</ol>
+<p>Des Weiteren berücksichtigt dieses Modell auch einen Fehler (<span class="math inline">\(\varepsilon_1\)</span>). Damit kommt auch ein ganz zentraler Teil bei der Modellbildung zum Ausdruck. Die meisten Modelle definieren sich also aus:</p>
+<span class="math display" id="eq:AllgModellvorstellung">\[\begin{equation} 
+  \textrm{wahrer Wert} = \textrm{Modell} + \textrm{Fehler}
+  \tag{7}
+\end{equation}\]</span>
+<p>Daraus lässt sich auch folgende Erkenntnis bezüglich des Modells direkt ableiten:</p>
+<ol style="list-style-type: decimal">
+<li>Je kleiner die Summe der Fehler sind, desto besser ist das Modell.</li>
+<li>Je genauer das Modell, desto kleiner wird auch der Fehler sein.</li>
+</ol>
+<p>Mit dieser Erkenntnis wird auch klar, dass i.A. ein ganz einfaches Modell (mit einem einzigen Prädiktor) nur zu einer bedingten Reduktion des Fehlers geeignet ist. Wir werden uns im weiteren Verlauf mit erweiterten Modellen beschäftigen, wollen aber zunächst die Eigenschaften des einfachen linearen Modells näher betrachten. Im folgenden Link findet man eine gute <a href="https://phet.colorado.edu/sims/html/least-squares-regression/latest/least-squares-regression_en.html">Veranschaulichung des einfachen linearen Modells</a>.</p>
+<p>Betrachtet man das Modell isoliert (also ohne Fehlerterm), ist folgende Schreibweise üblich:</p>
+<span class="math display" id="eq:LinMod">\[\begin{equation} 
+  \hat{y} = b_0 + b_1 \cdot x_1
+  \tag{8}
+\end{equation}\]</span>
+<div id="berechnung-der-koeffizienten" class="section level3 unnumbered">
+<h3>Berechnung der Koeffizienten</h3>
+<p>Für die Berechnung der Koeffizienten wird das Kriterium der kleinste Quadrate (MLS) angewandet. Einfach ausgedrückt wird eine Gerade durch die beobachteten Daten gesucht, die folgenden Eigenschaften aufweist:</p>
+<ol style="list-style-type: decimal">
+<li>die Summe der quadratischen Abstände jeder Beobachtung zum entsprechenden Punkt auf der Geraden ist ein Minimum, also <span class="math inline">\(\sum_{i=1}^{N} \varepsilon_1^2 = min\)</span>.</li>
+<li>es gibt keine andere Gerade die eine kleinere Summe dieser Fehler liefert.</li>
+</ol>
+<p>Die Berechnung der Parameter entspricht daher einer Extremwertaufgabe, d.h. die partiellen Ableitungen werden auf Null gesetzt. Daraus lassen sich dann die Parameter <span class="math inline">\(b_0, b_1\)</span> berechnent. Details dazu siehe <a href="https://de.wikipedia.org/wiki/Einfache_lineare_Regression">Wikipedia</a>.</p>
+</div>
+</div>
+<div id="modellanwendung" class="section level2 unnumbered">
+<h2>Modellanwendung</h2>
+<p>Zur Anwendung eines einfachen linearen Modell betrachten wir wiederum die bereits bekannten Daten aus dem Datensatz <em>CPS85</em>. Diese Mal wollen wir das Gehalt (<em>wage</em>) durch die Ausbildungsdauer (<em>educ</em> in Jahren) vorhersagen. Formal lautet das Modell demnach:</p>
+<span class="math display" id="eq:LinModBsp1">\[\begin{equation} 
+   \hat{\textrm{wage}} = b_0 + b_1 \cdot \textrm{educ}
+  \tag{9}
+\end{equation}\]</span>
+<p>Die Werte der Parameter <span class="math inline">\(b_0, b_1\)</span> können für dieses Beispiel entsprechend der obigen Erläuterung folgendermaßen interpretiert werden:</p>
+<ol style="list-style-type: decimal">
+<li>Für eine Person mit keiner Ausbildung (<span class="math inline">\(\textrm{wage} = x_1 = 0\)</span>) wird durch das Modell ein Einkommen <span class="math inline">\(y = b_0\)</span> vorhergesagt.</li>
+<li>Erhöht man die Ausbildungsdauer <span class="math inline">\(x_1\)</span> um ein Jahr, steigt der Gehalt <span class="math inline">\(y\)</span> um das <span class="math inline">\(b_1\)</span>-fache an.</li>
+</ol>
+<p>Kopiere zur Veranschaulichung folgenden Code in dein R-Script und führe diesen aus.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  DF &lt;-<span class="st"> </span>CPS85
+  <span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> educ, <span class="dt">y =</span> wage)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,
+                <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell1-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  model_<span class="dv">1</span>     &lt;-<span class="st"> </span><span class="kw">lm</span>(wage <span class="op">~</span><span class="st"> </span>educ, <span class="dt">data =</span> CPS85)
+  <span class="kw">pander</span>(<span class="kw">summary</span>(model_<span class="dv">1</span>))</code></pre></div>
+<table style="width:88%;">
+<colgroup>
+<col width="25%" />
+<col width="15%" />
+<col width="18%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Estimate</th>
+<th align="center">Std. Error</th>
+<th align="center">t value</th>
+<th align="center">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>(Intercept)</strong></td>
+<td align="center">-0.746</td>
+<td align="center">1.045</td>
+<td align="center">-0.7135</td>
+<td align="center">0.4758</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>educ</strong></td>
+<td align="center">0.7505</td>
+<td align="center">0.07873</td>
+<td align="center">9.532</td>
+<td align="center">5.474e-20</td>
+</tr>
+</tbody>
+</table>
+<table style="width:86%;">
+<caption>Fitting linear model: wage ~ educ</caption>
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="12%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Observations</th>
+<th align="center">Residual Std. Error</th>
+<th align="center"><span class="math inline">\(R^2\)</span></th>
+<th align="center">Adjusted <span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">534</td>
+<td align="center">4.754</td>
+<td align="center">0.1459</td>
+<td align="center">0.1443</td>
+</tr>
+</tbody>
+</table>
+<p>Die in der Tabelle angegebenen Werte der Spalte <strong>Estimate</strong> entsprechen dabei den Parametern <span class="math inline">\(b_0, b_1\)</span> des Modells. Eine weitere wesentliche Kennzahl für die Interpretation des Modells ist der Spalte <span class="math inline">\(R^2\)</span> zu entnehmen. Dieser Wert wird als <em>Determinationskoeffizient</em><a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> bezeichnet. Umgerechnet in % (im vorliegenden Beispiel also 14.43%) besagt der Wert, wie viel der Variablität des Gehaltes durch den Prädiktor Ausbilung erklärt wird. Wir werden im weiteren Verlauf noch öfter auf diesen Kennwert zurückkommen.</p>
+<p>Welche Gehälter würden für Ausbildungszeiten zwischen 10 und 14 Jahren vorhergesagt werden? Kopiere folgenden Code in dein R-Script und führe diesen aus. Änder auch den Wertebereich der Prädiktoren und beobachte was dabei passiert!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  new_input &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">educ =</span> <span class="dv">10</span><span class="op">:</span><span class="dv">14</span>)
+  <span class="kw">pander</span>(<span class="kw">predict</span>(model_<span class="dv">1</span>, <span class="dt">newdata =</span> new_input), <span class="dt">style =</span> <span class="st">&quot;rmarkdown&quot;</span>)</code></pre></div>
+<table style="width:51%;">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">6.759</td>
+<td align="center">7.509</td>
+<td align="center">8.26</td>
+<td align="center">9.01</td>
+<td align="center">9.76</td>
+</tr>
+</tbody>
+</table>
+<p>Im Vergleich zum Mittelwert-Modell zeigt sich mit steigender Ausbildung ein höheres Einkommen. Der Fehler bei der Vorhersage des Einkommens wird sich daher durch diese Modellvorstellung verringern (mehr zur Abschätzung der Fehlerreduktion später).</p>
+</div>
+<div id="residualanalyse" class="section level2 unnumbered">
+<h2>Residualanalyse</h2>
+<p>Ein zentrales Thema der Modellbildung ist die Beurteilung und (statistische) Auswertung der Abweichungen des Modells von den Beobachtungen (Fehler, Residum). Folgende Kennwerte bilden die Möglichkeit, die Güte des Modells abzuschätzen:</p>
+<ol style="list-style-type: decimal">
+<li><em>Vorhergesagte Werte</em>: vorhergesagte Werte der Regressionsgleichung (= Werte die auf der Geraden liegen).</li>
+<li><em>Residuen</em>: tatsächliche Wert der abhängigen Variablen minus des vorhergesagten Werts aus der Regressionsgleichung.</li>
+<li><em>Distanzen</em>: Maße zum Auffinden von Fällen mit ungewöhnlichen Wertekombinationen bei den unabhängigen Variablen und von Fällen, die einen großen Einfluss auf das Modell haben könnten.</li>
+<li><em>Vorhersageintervalle</em>: obere und untere Grenzen sowohl für Mittelwert als auch für einzelne Vorhersageintervalle.</li>
+<li><em>Einflussstatistiken</em>: Änderung in den Regressionskoeffizienten (DfBeta(s)) und vorhergesagten Werten (DfFit), die sich aus dem Ausschluss eines bestimmten Falls ergeben.</li>
+</ol>
+<p>Die Detailanalyse der Residuen soll dazu dienen, die Güte eines Modells besser beurteilen zu können.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  CPS85_Res &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Res     =</span> <span class="kw">round</span>(<span class="kw">resid</span>(model_<span class="dv">1</span>), <span class="dv">2</span>),
+                          <span class="dt">StdRes  =</span> <span class="kw">round</span>(<span class="kw">rstandard</span>(model_<span class="dv">1</span>), <span class="dv">2</span>),
+                          <span class="dt">StudRes =</span> <span class="kw">round</span>(<span class="kw">rstudent</span>(model_<span class="dv">1</span>), <span class="dv">2</span>),
+                          <span class="co"># Cook    = round(cooks.distance(model_1), 2),</span>
+                          <span class="co"># DFBeta  = round(dfbeta(model_1), 2),</span>
+                          <span class="dt">DF5Fit  =</span> <span class="kw">round</span>(<span class="kw">dffits</span>(model_<span class="dv">1</span>), <span class="dv">2</span>),
+                          <span class="co"># Lev     = round(hatvalues(model_1), 2),</span>
+                          <span class="dt">CovRat  =</span> <span class="kw">round</span>(<span class="kw">covratio</span>(model_<span class="dv">1</span>), <span class="dv">2</span>))
+  <span class="kw">pander</span>(<span class="kw">head</span>(CPS85_Res))</code></pre></div>
+<table style="width:62%;">
+<colgroup>
+<col width="11%" />
+<col width="12%" />
+<col width="13%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Res</th>
+<th align="center">StdRes</th>
+<th align="center">StudRes</th>
+<th align="center">DF5Fit</th>
+<th align="center">CovRat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">2.24</td>
+<td align="center">0.47</td>
+<td align="center">0.47</td>
+<td align="center">0.03</td>
+<td align="center">1.01</td>
+</tr>
+<tr class="even">
+<td align="center">-2.76</td>
+<td align="center">-0.58</td>
+<td align="center">-0.58</td>
+<td align="center">-0.03</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">-4.46</td>
+<td align="center">-0.94</td>
+<td align="center">-0.94</td>
+<td align="center">-0.04</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">2.24</td>
+<td align="center">0.47</td>
+<td align="center">0.47</td>
+<td align="center">0.02</td>
+<td align="center">1.01</td>
+</tr>
+<tr class="odd">
+<td align="center">6.74</td>
+<td align="center">1.42</td>
+<td align="center">1.42</td>
+<td align="center">0.07</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">-2.26</td>
+<td align="center">-0.48</td>
+<td align="center">-0.48</td>
+<td align="center">-0.03</td>
+<td align="center">1.01</td>
+</tr>
+</tbody>
+</table>
+<p>Mit der Residualanalyse kann man auf relativ einfache Weise jene Werte ermitteln (und auch graphisch darstellen), die z.B. um mehr als eine Standardabweichung abweichen. Diese Werte könnte man nochmals genauer untersuchen und gegebenenfalls vor einer weiterführenden Analyse ausschließen<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>. Keinesfalls sollte sie jedoch dazu verwendet werden, um einen erwünschten Effekt durch schrittweises löschen störender Daten zu erreichen! Kopiere folgenden Code in dein R-Script und führe diesen aus.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Liste standardisierte Residuen &gt; |1|</span>
+  Ind_Res &lt;-<span class="st"> </span><span class="kw">which</span>((CPS85_Res<span class="op">$</span>StdRes <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>CPS85_Res<span class="op">$</span>StdRes <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span><span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>)
+  <span class="co"># Anzeige der Werte von wage und educ sowie der Standardisierten Residuen</span>
+  <span class="co"># fÃ¼r jene FÃ¤lle, deren Residuen Ã¼ber 1 SD abweichen.</span>
+  
+  <span class="co"># pander(data.frame(Indizes = Ind_Res,</span>
+  <span class="co">#                   wage = CPS85$wage[Ind_Res],</span>
+  <span class="co">#                   educ = CPS85$educ[Ind_Res] ,</span>
+  <span class="co">#                   CPS85_Res$StdRes[Ind_Res]))</span>
+  
+  p_Res1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> educ, <span class="dt">y =</span> wage)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">data=</span>CPS85[Ind_Res,],<span class="dt">colour=</span><span class="st">&quot;red&quot;</span>,<span class="dt">size=</span><span class="dv">3</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_bw</span>()
+  <span class="kw">print</span>(p_Res1, <span class="dt">comment =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p><img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell1_ResidStat_Graph1-1.png" width="672" /></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>wobei <span class="math inline">\(i\)</span> als Index für die Anzahl der verwendeten Prädiktoren steht. Bei einem einfachen Modell ist <span class="math inline">\(i = 1\)</span><a href="einfache-regression.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>häufig auch als Varianzaufklärung<a href="einfache-regression.html#fnref8">↩</a></p></li>
+<li id="fn9"><p>der Ausschluss von Werten ist nur dann erlaubt, wenn eine entsprechende Begründung (nachvollziehbarer Messfehler, falsche Datenübertragung, etc.) vorliegt!<a href="einfache-regression.html#fnref9">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="korrelationen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
