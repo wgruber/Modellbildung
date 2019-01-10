@@ -25,7 +25,7 @@
 <meta name="author" content="Walter Gruber">
 
 
-<meta name="date" content="2019-01-06">
+<meta name="date" content="2019-01-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="korrelationen.html">
-<link rel="next" href="references.html">
+<link rel="next" href="multiple-regression.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -100,8 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
-<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorbemerkung</a></li>
+<li class="chapter" data-level="" data-path="einleitung.html"><a href="einleitung.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li><a href="allgemeine-definition-des-begriffs-modell.html#allgemeine-definition-des-begriffs-modell">Allgemeine Definition des Begriffs <em>Modell</em></a></li>
 <li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
@@ -147,6 +148,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple Regression</a><ul>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition-1"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich"><i class="fa fa-check"></i>Modellvergleich</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#wahl-relevanter-pradiktoren"><i class="fa fa-check"></i>Wahl relevanter Prädiktoren</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#sequentielle-modellbildung"><i class="fa fa-check"></i>Sequentielle Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-aic"><i class="fa fa-check"></i>Modellvergleich durch AIC</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-kreuzvalidierung"><i class="fa fa-check"></i>Modellvergleich durch Kreuzvalidierung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-bei-linearer-modellierung"><i class="fa fa-check"></i>Voraussetzungen bei linearer Modellierung</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -167,20 +177,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="einfache-regression" class="section level1 unnumbered">
 <h1>Einfache Regression</h1>
-<p>Die Regression basiert auf der Korrelation und ermöglicht die bestmögliche Vorhersage für eine Variable. Im Gegensatz zur Korrelation muss hierbei festgelegt werden, welche Variable durch eine andere Variable vorhergesagt werden soll. Die Variable die vorhergesagt werden soll nennt man bei der Regression <em>Kriterium</em> (<span class="math inline">\(y\)</span>). Die Variable die für die Vorhersage eingesetzt wird bezeichnet man als <em>Prädiktor</em> (<span class="math inline">\(x_i\)</span>)<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>. Anhand des Prädiktors wird demzufolge das Kriterium vorhergesagt.</p>
+<p>Die Regression basiert auf der Korrelation und ermöglicht die bestmögliche Vorhersage für eine Variable. Im Gegensatz zur Korrelation muss hierbei festgelegt werden, welche Variable durch eine andere Variable vorhergesagt werden soll. Die Variable die vorhergesagt werden soll nennt man bei der Regression <em>Kriterium</em> (<span class="math inline">\(y_i\)</span>). Die Variable die für die Vorhersage eingesetzt wird bezeichnet man als <em>Prädiktor</em> (<span class="math inline">\(x_1i\)</span>)<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>. Anhand des Prädiktors wird demzufolge das Kriterium vorhergesagt.</p>
 <div id="definition" class="section level2 unnumbered">
 <h2>Definition</h2>
 <p>Die formale Definition eines einfachen linearen Modells ist:</p>
 <span class="math display" id="eq:LinModFehler">\[\begin{equation} 
-  y = b_0 + b_1 \cdot x_1 + \varepsilon_1
+  y_i = b_0 + b_1 \cdot x_{1i} + \varepsilon_i
   \tag{6}
 \end{equation}\]</span>
 <p>Die wesentlichen Parameter dieses einfachen Modells sind:</p>
 <ol style="list-style-type: decimal">
-<li>Intercept <span class="math inline">\(b_0\)</span>: jener Wert den <span class="math inline">\(y\)</span> einnimmt, wenn <span class="math inline">\(x_1 = 0\)</span> ist.</li>
-<li>Steigung <span class="math inline">\(b_1\)</span>: die Zunahme von <span class="math inline">\(y\)</span>, wenn <span class="math inline">\(x_1\)</span> sich um eine Einheit erhöht.</li>
+<li>Intercept <span class="math inline">\(b_0\)</span>: jener Wert den <span class="math inline">\(y_i\)</span> einnimmt, wenn <span class="math inline">\(x_{1i} = 0\)</span> ist.</li>
+<li>Steigung <span class="math inline">\(b_1\)</span>: die Zunahme von <span class="math inline">\(y_i\)</span>, wenn <span class="math inline">\(x_{1i}\)</span> sich um eine Einheit erhöht.</li>
 </ol>
-<p>Des Weiteren berücksichtigt dieses Modell auch einen Fehler (<span class="math inline">\(\varepsilon_1\)</span>). Damit kommt auch ein ganz zentraler Teil bei der Modellbildung zum Ausdruck. Die meisten Modelle definieren sich also aus:</p>
+<p>Des Weiteren berücksichtigt dieses Modell auch einen Fehler (<span class="math inline">\(\varepsilon_i\)</span>). Damit kommt auch ein ganz zentraler Teil bei der Modellbildung zum Ausdruck. Die meisten Modelle definieren sich also aus:</p>
 <span class="math display" id="eq:AllgModellvorstellung">\[\begin{equation} 
   \textrm{wahrer Wert} = \textrm{Modell} + \textrm{Fehler}
   \tag{7}
@@ -193,14 +203,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Mit dieser Erkenntnis wird auch klar, dass i.A. ein ganz einfaches Modell (mit einem einzigen Prädiktor) nur zu einer bedingten Reduktion des Fehlers geeignet ist. Wir werden uns im weiteren Verlauf mit erweiterten Modellen beschäftigen, wollen aber zunächst die Eigenschaften des einfachen linearen Modells näher betrachten. Im folgenden Link findet man eine gute <a href="https://phet.colorado.edu/sims/html/least-squares-regression/latest/least-squares-regression_en.html">Veranschaulichung des einfachen linearen Modells</a>.</p>
 <p>Betrachtet man das Modell isoliert (also ohne Fehlerterm), ist folgende Schreibweise üblich:</p>
 <span class="math display" id="eq:LinMod">\[\begin{equation} 
-  \hat{y} = b_0 + b_1 \cdot x_1
+  \hat{y}_i = b_0 + b_1 \cdot x_{1i}
   \tag{8}
 \end{equation}\]</span>
 <div id="berechnung-der-koeffizienten" class="section level3 unnumbered">
 <h3>Berechnung der Koeffizienten</h3>
 <p>Für die Berechnung der Koeffizienten wird das Kriterium der kleinste Quadrate (MLS) angewandet. Einfach ausgedrückt wird eine Gerade durch die beobachteten Daten gesucht, die folgenden Eigenschaften aufweist:</p>
 <ol style="list-style-type: decimal">
-<li>die Summe der quadratischen Abstände jeder Beobachtung zum entsprechenden Punkt auf der Geraden ist ein Minimum, also <span class="math inline">\(\sum_{i=1}^{N} \varepsilon_1^2 = min\)</span>.</li>
+<li>die Summe der quadratischen Abstände jeder Beobachtung zum entsprechenden Punkt auf der Geraden ist ein Minimum, also <span class="math inline">\(\sum_{i=1}^{N} \varepsilon_i^2 = min\)</span>.</li>
 <li>es gibt keine andere Gerade die eine kleinere Summe dieser Fehler liefert.</li>
 </ol>
 <p>Die Berechnung der Parameter entspricht daher einer Extremwertaufgabe, d.h. die partiellen Ableitungen werden auf Null gesetzt. Daraus lassen sich dann die Parameter <span class="math inline">\(b_0, b_1\)</span> berechnent. Details dazu siehe <a href="https://de.wikipedia.org/wiki/Einfache_lineare_Regression">Wikipedia</a>.</p>
@@ -215,15 +225,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \end{equation}\]</span>
 <p>Die Werte der Parameter <span class="math inline">\(b_0, b_1\)</span> können für dieses Beispiel entsprechend der obigen Erläuterung folgendermaßen interpretiert werden:</p>
 <ol style="list-style-type: decimal">
-<li>Für eine Person mit keiner Ausbildung (<span class="math inline">\(\textrm{wage} = x_1 = 0\)</span>) wird durch das Modell ein Einkommen <span class="math inline">\(y = b_0\)</span> vorhergesagt.</li>
-<li>Erhöht man die Ausbildungsdauer <span class="math inline">\(x_1\)</span> um ein Jahr, steigt der Gehalt <span class="math inline">\(y\)</span> um das <span class="math inline">\(b_1\)</span>-fache an.</li>
+<li>Für eine Person mit keiner Ausbildung (<span class="math inline">\(\textrm{wage} = x_{1i} = 0\)</span>) wird durch das Modell ein Einkommen <span class="math inline">\(y_i = b_0\)</span> vorhergesagt.</li>
+<li>Erhöht man die Ausbildungsdauer <span class="math inline">\(x_{1i}\)</span> um ein Jahr, steigt der Gehalt <span class="math inline">\(y_i\)</span> um das <span class="math inline">\(b_1\)</span>-fache an.</li>
 </ol>
 <p>Kopiere zur Veranschaulichung folgenden Code in dein R-Script und führe diesen aus.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  DF &lt;-<span class="st"> </span>CPS85
-  <span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> educ, <span class="dt">y =</span> wage)) <span class="op">+</span><span class="st"> </span>
+  <span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> educ, <span class="dt">y =</span> wage)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,
-                <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span>
 <span class="st">    </span><span class="kw">theme_bw</span>()</code></pre></div>
 <p><img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell1-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  model_<span class="dv">1</span>     &lt;-<span class="st"> </span><span class="kw">lm</span>(wage <span class="op">~</span><span class="st"> </span>educ, <span class="dt">data =</span> CPS85)
@@ -324,13 +333,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Residualanalyse</h2>
 <p>Ein zentrales Thema der Modellbildung ist die Beurteilung und (statistische) Auswertung der Abweichungen des Modells von den Beobachtungen (Fehler, Residum). Folgende Kennwerte bilden die Möglichkeit, die Güte des Modells abzuschätzen:</p>
 <ol style="list-style-type: decimal">
-<li><em>Vorhergesagte Werte</em>: vorhergesagte Werte der Regressionsgleichung (= Werte die auf der Geraden liegen).</li>
-<li><em>Residuen</em>: tatsächliche Wert der abhängigen Variablen minus des vorhergesagten Werts aus der Regressionsgleichung.</li>
-<li><em>Distanzen</em>: Maße zum Auffinden von Fällen mit ungewöhnlichen Wertekombinationen bei den unabhängigen Variablen und von Fällen, die einen großen Einfluss auf das Modell haben könnten.</li>
-<li><em>Vorhersageintervalle</em>: obere und untere Grenzen sowohl für Mittelwert als auch für einzelne Vorhersageintervalle.</li>
-<li><em>Einflussstatistiken</em>: Änderung in den Regressionskoeffizienten (DfBeta(s)) und vorhergesagten Werten (DfFit), die sich aus dem Ausschluss eines bestimmten Falls ergeben.</li>
+<li><em>Vorhergesagte Werte</em>: vorhergesagte Werte der Regressionsgleichung (= Werte die auf der Geraden liegen).
+<ul>
+<li>Nicht standardisiert: der Wert, den das Modell für die abhängige Variable vorhersagt.</li>
+<li>Standardisiert: <span class="math inline">\(z\)</span>-Transformierte vorhergesagte Werte.</li>
+<li>Korrigiert: der vorhergesagte Wert für einen Fall, wenn dieser Fall von der Berechnung der Regressionskoeffizienten ausgeschlossen ist.</li>
+<li>Standardfehler des Mittelwerts: Standardfehler der vorhergesagten Werte. Ein Schätzwert der Standardabweichung des Durchschnittswertes der abhängigen Variablen für die Fälle, die dieselben Werte für die unabhängigen Variablen haben.</li>
+</ul></li>
+<li><em>Residuen</em>: tatsächliche Wert der abhängigen Variablen minus des vorhergesagten Werts aus der Regressionsgleichung.
+<ul>
+<li>Nicht standardisiert: Die Differenz zwischen einem beobachteten Wert und dem durch das Modell vorhergesagten Wert.</li>
+<li>Standardisiert: Der Quotient aus dem Residuum und einer Schätzung seiner Standardabweichung. Standardisierte Residuen, auch bekannt als Pearson-Residuen, haben einen Mittelwert von 0 und eine Standardabweichung von 1.</li>
+<li>Studentisiert: Ein Residuum, das durch seine geschätzte Standardabweichung geteilt wird, die je nach der Distanz zwischen den Werten der unabhängigen Variablen des Falles und dem Mittelwert der unabhängigen Variablen von Fall zu Fall variiert.</li>
+<li>Ausgeschlossen: Das Residuum für einen Fall, wenn dieser Fall nicht in die Berechnung der Regressionskoeffizienten eingegangen ist. Dies ist die Differenz zwischen dem Wert der abhängigen Variablen und dem korrigierten Schätzwert.</li>
+<li>Studentisiert und ausgeschlossen: Der Quotient aus dem ausgeschlossenen Residuum eines Falles und seinem Standardfehler. Die Differenz zwischen einem studentisierten ausgeschlossenen Residuum und dem zugehörigen studentisierten Residuum gibt an, welchen Unterschied die Entfernung eines Falles für dessen eigene Vorhersage bewirkt.</li>
+</ul></li>
+<li><em>Distanzen</em>: Maße zum Auffinden von Fällen mit ungewöhnlichen Wertekombinationen bei den unabhängigen Variablen und von Fällen, die einen großen Einfluss auf das Modell haben könnten.
+<ul>
+<li>Mahalanobis: Dieses Maß gibt an, wie weit die Werte der unabhängigen Variablen eines Falls vom Mittelwert aller Fälle abweichen. Eine große Mahalanobis-Distanz charakterisiert einen Fall, der bei einer oder mehreren unabhängigen Variablen Extremwerte besitzt.</li>
+<li>Cook: Ein Maß dafür, wie stark sich die Residuen aller Fälle ändern würden, wenn ein spezieller Fall von der Berechnung der Regressionskoeffizienten ausgeschlossen würde. Ein großer Wert der Cook-Distanz zeigt an, dass der Ausschluss eines Falles von der Berechnung der Regressionskoeffizienten die Koeffizienten substanziell verändert.</li>
+<li>Hebelwerte: Werte, die den Einfluss eines Punktes auf die Anpassung der Regression messen. Der zentrierte Wert für die Hebelwirkung bewegt sich zwischen 0 (kein Einfluss auf die Anpassung) und <span class="math inline">\((N-1)/N\)</span>.</li>
+</ul></li>
+<li><em>Vorhersageintervalle</em>: obere und untere Grenzen sowohl für Mittelwert als auch für einzelne Vorhersageintervalle.
+<ul>
+<li>Mittelwert: Unter- und Obergrenze (zwei Variablen) für das Vorhersageintervall für den mittleren vorhergesagten Wert.</li>
+<li>Individuell: Unter- und Obergrenzen (zwei Variablen) für das Vorhersageintervall der abhängigen Variablen für einen Einzelfall.</li>
+<li>Konfidenzintervall: Geben Sie einen Wert zwischen 1 und 99,99 ein, um das Konfidenzniveau für die beiden Vorhersageintervalle festzulegen. Wählen Sie <em>Mittelwert</em> oder <em>Individuell</em> aus, bevor Sie diesen Wert eingeben. Typische Werte für Konfidenzniveaus sind 90, 95 und 99.</li>
+</ul></li>
+<li><em>Einflussstatistiken</em>: Änderung in den Regressionskoeffizienten (DfBeta(s)) und vorhergesagten Werten (DfFit), die sich aus dem Ausschluss eines bestimmten Falls ergeben.
+<ul>
+<li>Differenz in Beta: entspricht der Änderung im Regressionskoeffizienten, die sich aus dem Ausschluss eines bestimmten Falls ergibt. Für jeden Term im Modell, einschließlich der Konstanten, wird ein Wert berechnet.</li>
+<li>Standardisiertes DfBeta: die Änderung des Regressionskoeffizienten, die sich durch den Ausschluss eines bestimmten Falls ergibt. Es empfiehlt sich, Fälle mit absoluten Werten größer als <span class="math inline">\(2/\sqrt{N}\)</span> zu überprüfen, wenn <span class="math inline">\(N\)</span> die Anzahl der Fälle darstellt. Für jeden Term im Modell, einschließlich der Konstanten, wird ein Wert berechnet.</li>
+<li>DfFit: Differenz im Anpassungswert ist die Änderung im vorhergesagten Wert, die sich aus dem Ausschluss eines bestimmten Falls ergibt.</li>
+<li>Standardisiertes DfFit: Änderung des vorhergesagten Werts, die sich durch den Ausschluss eines bestimmten Falls ergibt. Es empfiehlt sich, Fälle mit absoluten Werten <span class="math inline">\(&gt; 2/\sqrt{p/N}\)</span> zu überprüfen, wobei <span class="math inline">\(p\)</span> die Anzahl der unabhängigen Variablen im Modell und <span class="math inline">\(N\)</span> die Anzahl der Fälle darstellt.</li>
+<li>Kovarianzverhältnis: Verhältnis der Determinante der Kovarianzmatrix bei Ausschluss eines bestimmten Falls von der Berechnung der Regressionskoeffizienten zur Determinante der Kovarianzmatrix bei Einschluss aller Fälle. Wenn der Quotient dicht bei 1 liegt, beeinflusst der ausgeschlossene Fall die Kovarianzmatrix nur unwesentlich.</li>
+</ul></li>
 </ol>
-<p>Die Detailanalyse der Residuen soll dazu dienen, die Güte eines Modells besser beurteilen zu können.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  CPS85_Res &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Res     =</span> <span class="kw">round</span>(<span class="kw">resid</span>(model_<span class="dv">1</span>), <span class="dv">2</span>),
                           <span class="dt">StdRes  =</span> <span class="kw">round</span>(<span class="kw">rstandard</span>(model_<span class="dv">1</span>), <span class="dv">2</span>),
                           <span class="dt">StudRes =</span> <span class="kw">round</span>(<span class="kw">rstudent</span>(model_<span class="dv">1</span>), <span class="dv">2</span>),
@@ -413,19 +451,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="co">#                   educ = CPS85$educ[Ind_Res] ,</span>
   <span class="co">#                   CPS85_Res$StdRes[Ind_Res]))</span>
   
-  p_Res1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> educ, <span class="dt">y =</span> wage)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">data=</span>CPS85[Ind_Res,],<span class="dt">colour=</span><span class="st">&quot;red&quot;</span>,<span class="dt">size=</span><span class="dv">3</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_bw</span>()
+  p_Res1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(CPS85, <span class="kw">aes</span>(<span class="dt">x =</span> educ, <span class="dt">y =</span> wage)) <span class="op">+</span><span class="st"> </span>
+<span class="st">            </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">            </span><span class="kw">geom_point</span>(<span class="dt">data=</span>CPS85[Ind_Res,],<span class="dt">colour=</span><span class="st">&quot;red&quot;</span>,<span class="dt">size=</span><span class="dv">3</span>) <span class="op">+</span>
+<span class="st">            </span><span class="kw">theme_bw</span>()
   <span class="kw">print</span>(p_Res1, <span class="dt">comment =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <p><img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell1_ResidStat_Graph1-1.png" width="672" /></p>
-
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="7">
-<li id="fn7"><p>wobei <span class="math inline">\(i\)</span> als Index für die Anzahl der verwendeten Prädiktoren steht. Bei einem einfachen Modell ist <span class="math inline">\(i = 1\)</span><a href="einfache-regression.html#fnref7">↩</a></p></li>
+<li id="fn7"><p>wobei die 1 für den ersten (einzigen) Prädiktor und <span class="math inline">\(i\)</span> als Index für die <span class="math inline">\(i\)</span>-te Beobachtung steht.<a href="einfache-regression.html#fnref7">↩</a></p></li>
 <li id="fn8"><p>häufig auch als Varianzaufklärung<a href="einfache-regression.html#fnref8">↩</a></p></li>
 <li id="fn9"><p>der Ausschluss von Werten ist nur dann erlaubt, wenn eine entsprechende Begründung (nachvollziehbarer Messfehler, falsche Datenübertragung, etc.) vorliegt!<a href="einfache-regression.html#fnref9">↩</a></p></li>
 </ol>
@@ -436,7 +473,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="korrelationen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multiple-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

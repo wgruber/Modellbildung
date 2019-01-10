@@ -25,7 +25,7 @@
 <meta name="author" content="Walter Gruber">
 
 
-<meta name="date" content="2019-01-06">
+<meta name="date" content="2019-01-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -100,8 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
-<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorbemerkung</a></li>
+<li class="chapter" data-level="" data-path="einleitung.html"><a href="einleitung.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li><a href="allgemeine-definition-des-begriffs-modell.html#allgemeine-definition-des-begriffs-modell">Allgemeine Definition des Begriffs <em>Modell</em></a></li>
 <li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
@@ -147,6 +148,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple Regression</a><ul>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition-1"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich"><i class="fa fa-check"></i>Modellvergleich</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#wahl-relevanter-pradiktoren"><i class="fa fa-check"></i>Wahl relevanter Prädiktoren</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#sequentielle-modellbildung"><i class="fa fa-check"></i>Sequentielle Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-aic"><i class="fa fa-check"></i>Modellvergleich durch AIC</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-kreuzvalidierung"><i class="fa fa-check"></i>Modellvergleich durch Kreuzvalidierung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-bei-linearer-modellierung"><i class="fa fa-check"></i>Voraussetzungen bei linearer Modellierung</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -167,7 +177,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="datenbeschreibung" class="section level1 unnumbered">
 <h1>Datenbeschreibung</h1>
-<p>Betrachten wir zunächst einen einfachen Datensatz aus dem Projekt MOSAIC Data Sets (Paket mosaicData)<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</p>
+<p>Betrachten wir zunächst einen einfachen Datensatz aus dem Projekt MOSAIC Data Sets (Paket mosaicData, <strong>CPS85</strong>)<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</p>
 <p>Diese Datei beinhaltet <em>N =</em> <code>534</code> Beobachtungen und <em>k =</em> <code>11</code> Variablen, deren Namen in folgender Tabelle nochmals separat angeführt sind:</p>
 <table>
 <thead>

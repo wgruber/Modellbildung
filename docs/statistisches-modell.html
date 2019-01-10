@@ -25,14 +25,14 @@
 <meta name="author" content="Walter Gruber">
 
 
-<meta name="date" content="2019-01-06">
+<meta name="date" content="2019-01-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="vorbereitung-fur-r-studio.html">
+<link rel="prev" href="allgemeine-definition-des-begriffs-modell.html">
 <link rel="next" href="datenbeschreibung.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -100,8 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
-<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorbemerkung</a></li>
+<li class="chapter" data-level="" data-path="einleitung.html"><a href="einleitung.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li><a href="allgemeine-definition-des-begriffs-modell.html#allgemeine-definition-des-begriffs-modell">Allgemeine Definition des Begriffs <em>Modell</em></a></li>
 <li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
@@ -146,6 +147,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple Regression</a><ul>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition-1"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich"><i class="fa fa-check"></i>Modellvergleich</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#wahl-relevanter-pradiktoren"><i class="fa fa-check"></i>Wahl relevanter Prädiktoren</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#sequentielle-modellbildung"><i class="fa fa-check"></i>Sequentielle Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-aic"><i class="fa fa-check"></i>Modellvergleich durch AIC</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-kreuzvalidierung"><i class="fa fa-check"></i>Modellvergleich durch Kreuzvalidierung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-bei-linearer-modellierung"><i class="fa fa-check"></i>Voraussetzungen bei linearer Modellierung</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -211,6 +221,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Erklärung</li>
 <li>Vorhersage</li>
 </ul>
+<p>Damit kommt kaum ein Anwendungsbereich ohne statistische Modellbildung aus. Auszugsweise ein paar Anwendungsbereiche für die statistische Modellbildung:</p>
+<ul>
+<li>Alle wissenschaftlichen Forschungsgebiete</li>
+<li>Wettervorhersagen</li>
+<li>Finanzmärkte</li>
+<li>Industrie und Gewerbe</li>
+<li>Wahlprognosen, Meinungsumfragen</li>
+<li>Informationstechnologie</li>
+<li>etc.</li>
+</ul>
 <div id="zyklus-der-modellbildung" class="section level3 unnumbered">
 <h3>Zyklus der Modellbildung</h3>
 <p>Das Bilden von statistischen Modellen ist ein iterativer Vorgang, welcher durchaus mehrere zyklische Entwicklungsschritte beinhalten kann.</p>
@@ -267,7 +287,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <div id="deskriptive-statistik" class="section level3 unnumbered">
 <h3>Deskriptive Statistik</h3>
-<p>Methoden der deskriptiven Statistik umfassen:</p>
+<p>Die deskriptive Statistik hat zum Ziel, empirische Daten durch Tabellen, Kennzahlen (auch: Maßzahlen oder Parameter) und Grafiken übersichtlich darzustellen und zu ordnen.</p>
+<p>Die Methoden der deskriptiven Statistik umfassen:</p>
 <ul>
 <li>Tabellen</li>
 <li>Diagramme</li>
@@ -288,7 +309,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="explorative-datenanalyse-eda" class="section level3 unnumbered">
 <h3>Explorative Datenanalyse (EDA)</h3>
-<p>Die Methoden der explorativen Statistik sind meist identisch mit denen der deskriptiven Statistik, unterscheiden sich aber bezüglich der <em>Ziele der Analyse</em>. Dieses sind in der explorativen Analyse:</p>
+<p>Die explorative Datenanalyse/Statistik hat zum Ziel, bisher unbekannte Strukturen und Zusammenhänge in den Daten zu finden und hierdurch neue Hypothesen zu generieren. Diese auf Stichprobendaten beruhenden Hypothesen können dann im Rahmen der schließenden Statistik mittels wahrscheinlichkeitstheoretischer Methoden auf ihre Allgemeingültigkeit untersucht werden.</p>
+<p>Die Methoden der explorativen Statistik sind meist identisch mit denen der deskriptiven Statistik, unterscheiden sich aber bezüglich der <em>Ziele der Analyse</em>. Bei der EDA sollten vor allem die nachfolgenden Fragen geklärt werden:</p>
+<ul>
+<li>Haben wir die richtigen Daten zur Beantwortung der Fragestellung?</li>
+<li>Brauchen wir mehr Daten?</li>
+<li>Müssen wir die Fragestellung verfeinern?</li>
+<li>Was kann aus den vorliegenden Daten abgeleitet werden?</li>
+</ul>
+<p>Die Ziele der EDA sind:</p>
 <ul>
 <li>bisher unbekannte Strukturen und Zusammenhänge in den Daten zu finden.</li>
 <li>Annahmen (Hypothesen) über die Ursache und den Grund der beobachteten Daten zu bilden.</li>
@@ -296,7 +325,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Die Auswahl von passenden statistischen Werkzeugen und Techniken zu unterstützen.</li>
 <li>Eine Basis für die weitere Daten-Sammlung durch Umfragen oder Design von Experimenten bereitzustellen.</li>
 </ul>
-<p>Die Vorgehensweise bei einer EDA kann anhand der folgenden Checkliste kurz besch</p>
+<p>Speziell in Bezug auf die erforderliche Stichprobengröße sollte vor Begin der Datenerhebung die mindest notwendigen Fallzahlen (optimaler Stichprobenumfang) bestimmt werden, der für den Nachweise praktisch bedeutsamer Effekte notwendig ist. Sowohl in R als auch in diversen Anwednungen gibt es die Möglichkeit, diese optimale Stichprobengröße a priori zu bestimmen.</p>
+<p>Voraussetzung dafür sind jedoch Kenntnisse über den zu erwartenden Effekt. Dieser kann entweder durch einer Meta-Analyse oder durch entsprechende Erfahrungswerte bestimmt werden. Zusätzlich ist dann noch die Irrtumswahrscheinlichkeit, die gewünschte Teststärke und die verwendete statistischen Methode festzulegen. Je größer eine Stichprobe ist, desto genauer werden auch die daraus abgeleiteten Kennwerte und Teststatistiken Auskunft über die in der Population gültigen Werte liefern. Aus praktischen/finanziellen/zeitlichen Gründen wird man jedoch i.A. danach trachten, eine möglichst kleine Stichprobe zu erheben. Generell lassen sich diesbezüglich folgende Aussagen treffen:</p>
+<ul>
+<li>bei großen Stichproben werden auch kleine Effekte im statistischen Sinn signifikant (damit ist nicht gesagt, dass auch eine praktische Signifikanz des Effektes vorliegt).</li>
+<li>bei kleinen Stichproben wird ein kleiner Effekt oft statistisch nicht signifikant. Wenn doch, ist das oft nur ein Zufallsergebnis und kann i.A. nicht reproduziert werden.</li>
+<li>eine sorgfältige Stichprobenplanung geht mit einer intensiven inhaltlichen Auseinandersetzung einher. Der Vorteil dieser Planung liegt also nicht nur in der Wahrscheinlichkeit, einen vorhandenen Effekt auch stastisch absichern zu können, sondern vor allem auch darin, dass eventuell schon beantwortete Fragen rechtzeitig entdeckt werden!</li>
+</ul>
 </div>
 <div id="inferenzstatistik" class="section level3 unnumbered">
 <h3>Inferenzstatistik</h3>
@@ -347,7 +382,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="vorbereitung-fur-r-studio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="allgemeine-definition-des-begriffs-modell.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="datenbeschreibung.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

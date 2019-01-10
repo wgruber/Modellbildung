@@ -48,6 +48,16 @@ Statistische Modelle finden Verwendung für:
 * Erklärung
 * Vorhersage
 
+Damit kommt kaum ein Anwendungsbereich ohne statistische Modellbildung aus. Auszugsweise ein paar Anwendungsbereiche für die statistische Modellbildung:
+
+* Alle wissenschaftlichen Forschungsgebiete
+* Wettervorhersagen
+* Finanzmärkte
+* Industrie und Gewerbe
+* Wahlprognosen, Meinungsumfragen
+* Informationstechnologie
+* etc.
+
 ### Zyklus der Modellbildung {-}
 
 Das Bilden von statistischen Modellen ist ein iterativer Vorgang, welcher durchaus mehrere zyklische Entwicklungsschritte beinhalten kann.
@@ -104,7 +114,9 @@ Bei der Analyse und Interpretation der Daten unterscheidet man:
 
 ### Deskriptive Statistik {-}
 
-Methoden der deskriptiven Statistik umfassen:
+Die deskriptive Statistik hat zum Ziel, empirische Daten durch Tabellen, Kennzahlen (auch: Maßzahlen oder Parameter) und Grafiken übersichtlich darzustellen und zu ordnen.
+
+Die Methoden der deskriptiven Statistik umfassen:
 
 * Tabellen
 * Diagramme
@@ -122,7 +134,16 @@ Die deskriptive Statistik ist ein zentrales Element jeder formalen Analyse von D
 
 ### Explorative Datenanalyse (EDA) {-}
 
-Die Methoden der explorativen Statistik sind meist identisch mit denen der deskriptiven Statistik, unterscheiden sich aber bezüglich der *Ziele der Analyse*. Dieses sind in der explorativen Analyse:
+Die explorative Datenanalyse/Statistik hat zum Ziel, bisher unbekannte Strukturen und Zusammenhänge in den Daten zu finden und hierdurch neue Hypothesen zu generieren. Diese auf Stichprobendaten beruhenden Hypothesen können dann im Rahmen der schließenden Statistik mittels wahrscheinlichkeitstheoretischer Methoden auf ihre Allgemeingültigkeit untersucht werden.
+
+Die Methoden der explorativen Statistik sind meist identisch mit denen der deskriptiven Statistik, unterscheiden sich aber bezüglich der *Ziele der Analyse*. Bei der EDA sollten vor allem die nachfolgenden Fragen geklärt werden:
+
+* Haben wir die richtigen Daten zur Beantwortung der Fragestellung?
+* Brauchen wir mehr Daten?
+* Müssen wir die Fragestellung verfeinern?
+* Was kann aus den vorliegenden Daten abgeleitet werden?
+
+Die Ziele der EDA sind:
 
 * bisher unbekannte Strukturen und Zusammenhänge in den Daten zu finden.
 * Annahmen (Hypothesen) über die Ursache und den Grund der beobachteten Daten zu bilden.
@@ -130,7 +151,13 @@ Die Methoden der explorativen Statistik sind meist identisch mit denen der deskr
 * Die Auswahl von passenden statistischen Werkzeugen und Techniken zu unterstützen.
 * Eine Basis für die weitere Daten-Sammlung durch Umfragen oder Design von Experimenten bereitzustellen.
 
-Die Vorgehensweise bei einer EDA kann anhand der folgenden Checkliste kurz besch
+Speziell in Bezug auf die erforderliche Stichprobengröße sollte vor Begin der Datenerhebung die mindest notwendigen Fallzahlen (optimaler Stichprobenumfang) bestimmt werden, der für den Nachweise praktisch bedeutsamer Effekte notwendig ist. Sowohl in R als auch in diversen Anwednungen gibt es die Möglichkeit, diese optimale Stichprobengröße a priori zu bestimmen. 
+
+Voraussetzung dafür sind jedoch Kenntnisse über den zu erwartenden Effekt. Dieser kann entweder durch einer Meta-Analyse oder durch entsprechende Erfahrungswerte bestimmt werden. Zusätzlich ist dann noch die Irrtumswahrscheinlichkeit, die gewünschte Teststärke und die verwendete statistischen Methode festzulegen. Je größer eine Stichprobe ist, desto genauer werden auch die daraus abgeleiteten Kennwerte und Teststatistiken Auskunft über die in der Population gültigen Werte liefern. Aus praktischen/finanziellen/zeitlichen Gründen wird man jedoch i.A. danach trachten, eine möglichst kleine Stichprobe zu erheben. Generell lassen sich diesbezüglich folgende Aussagen treffen:
+
+* bei großen Stichproben werden auch kleine Effekte im statistischen Sinn signifikant (damit ist nicht gesagt, dass auch eine praktische Signifikanz des Effektes vorliegt).
+* bei kleinen Stichproben wird ein kleiner Effekt oft statistisch nicht signifikant. Wenn doch, ist das oft nur ein Zufallsergebnis und kann i.A. nicht reproduziert werden.
+* eine sorgfältige Stichprobenplanung geht mit einer intensiven inhaltlichen Auseinandersetzung einher. Der Vorteil dieser Planung liegt also nicht nur in der Wahrscheinlichkeit, einen vorhandenen Effekt auch stastisch absichern zu können, sondern vor allem auch darin, dass eventuell schon beantwortete Fragen rechtzeitig entdeckt werden!
 
 ### Inferenzstatistik {-}
 

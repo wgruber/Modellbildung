@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vorbereitung für R-Studio | Statistische Modellbildung</title>
+  <title>Einleitung | Statistische Modellbildung</title>
   <meta name="description" content="Einführung in die statistische Modellbildung">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Vorbereitung für R-Studio | Statistische Modellbildung />
+  <meta property="og:title" content="Einleitung | Statistische Modellbildung />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="Images/Cover.PNG" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="wgruber/Modellbildung" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vorbereitung für R-Studio | Statistische Modellbildung />
+  <meta name="twitter:title" content="Einleitung | Statistische Modellbildung />
   
   <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
   <meta name="twitter:image" content="Images/Cover.PNG" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="einleitung.html">
-<link rel="next" href="statistisches-modell.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="allgemeine-definition-des-begriffs-modell.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -102,7 +102,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorbemerkung</a></li>
 <li class="chapter" data-level="" data-path="einleitung.html"><a href="einleitung.html"><i class="fa fa-check"></i>Einleitung</a></li>
-<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li><a href="allgemeine-definition-des-begriffs-modell.html#allgemeine-definition-des-begriffs-modell">Allgemeine Definition des Begriffs <em>Modell</em></a></li>
 <li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
@@ -148,6 +148,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple Regression</a><ul>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition-1"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich"><i class="fa fa-check"></i>Modellvergleich</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#wahl-relevanter-pradiktoren"><i class="fa fa-check"></i>Wahl relevanter Prädiktoren</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#sequentielle-modellbildung"><i class="fa fa-check"></i>Sequentielle Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-aic"><i class="fa fa-check"></i>Modellvergleich durch AIC</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-kreuzvalidierung"><i class="fa fa-check"></i>Modellvergleich durch Kreuzvalidierung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-bei-linearer-modellierung"><i class="fa fa-check"></i>Voraussetzungen bei linearer Modellierung</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -166,20 +175,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="vorbereitung-fur-r-studio" class="section level1 unnumbered">
-<h1>Vorbereitung für R-Studio</h1>
-
+<div id="einleitung" class="section level1 unnumbered">
+<h1>Einleitung</h1>
+<p>Donald Knuth, einer der Pioniere und bedeutensten Persönlichkeiten in der Entwicklung von Programmiersprachen vertrat in seinem Buch Compter <em>Programming as an art</em> <span class="citation">(Knuth <a href="#ref-Knuth">2008</a>)</span> die Auffassung, dass rein wissenschaftliches Arbeiten durch einen Computer erlernt werden kann (<em>Science is knowledge which we understand so well that we can teach it to a computer</em>). Alle andere Formen der Datenanalyse bezeichnete er als Kunst.</p>
+<p>Neben statistischen Methoden, maschinellem Lernen, diversen Softwarepaketen und verschiedensten Werkzeugen stehen heutzutage auch entsprechend leistungsfähige Computer zur Verfügung, um Unmengen von Daten aufzuzeichnen und zu verarbeiten. Die <em>Kunst</em>, Wirklichkeit in bestmöglicher Form durch ein Modell abzubilden, besteht demnach darin, die:</p>
+<ul>
+<li>richtigen Fragen zu stellen.</li>
+<li>Daten zu sammeln, mit welchen diese Fragen beantwortet werden können.</li>
+<li>entsprechenden Methoden und Werkzeuge anzuwenden.</li>
+<li>Ergebnisse richtig zu interpretieren.</li>
+<li>Ergebnisse zu vermitteln.</li>
+</ul>
+<p>In den meisten Fällen ist es nicht möglich, die Wirklichkeit absolut getreu durch Daten abzubilden. Seit Urzeiten verwendet daher der Mensch Modelle, um zumindest mit einer Annäherung diese möglichst genau darzustellen und daraus Rückschlüsse für sonst nicht oder schwer zu erklärende Phänome zu ziehen. In einem Artilel beschreibt G. Box <span class="citation">(Box <a href="#ref-Box">1979</a>)</span> sehr treffend die Eigenschaften von Modellen:</p>
+<blockquote>
+<p>Now it would be very remarkable if any system existing in the real world could be exactly represented by any simple model. However, cunningly chosen parsimonious models often do provide remarkably useful approximations. For example, the law P⋅V=R⋅T relating pressure P, volume V and temperature T of an “ideal” gas via a constant R is not exactly true for any real gas, but it frequently provides a useful approximation and furthermore its structure is informative since it springs from a physical view of the behavior of gas molecules. For such a model there is no need to ask the question “Is the model true?”. If “truth” is to be the “whole truth” the answer must be “No”. The only question of interest is “Is the model illuminating and useful?”. — G. Box</p>
+</blockquote>
 </div>
-
-
-
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Knuth">
+<p>Knuth, D. 2008. “Ein Modell Des Modellseins – Ein Beitrag Zur Aufklärung Des Modellbegriffs.” <em>Peter Lang Verlag</em>, 187–220.</p>
+</div>
+<div id="ref-Box">
+<p>Box, G.E.P. 1979. “Robustness in the Strategy of Scientific Model Building.” <em>Academic Press</em>.</p>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="einleitung.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="statistisches-modell.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="allgemeine-definition-des-begriffs-modell.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

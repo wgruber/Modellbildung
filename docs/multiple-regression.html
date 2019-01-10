@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Multiple Regression | Statistische Modellbildung</title>
+  <meta name="description" content="Einführung in die statistische Modellbildung">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Multiple Regression | Statistische Modellbildung />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Images/Cover.PNG" />
+  <meta property="og:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="github-repo" content="wgruber/Modellbildung" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Multiple Regression | Statistische Modellbildung />
+  
+  <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
+  <meta name="twitter:image" content="Images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="einfache-regression.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorbemerkung</a></li>
+<li class="chapter" data-level="" data-path="einleitung.html"><a href="einleitung.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li><a href="allgemeine-definition-des-begriffs-modell.html#allgemeine-definition-des-begriffs-modell">Allgemeine Definition des Begriffs <em>Modell</em></a></li>
+<li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i>Kennzeichen eines statistischen Modelles</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#zyklus-der-modellbildung"><i class="fa fa-check"></i>Zyklus der Modellbildung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#grundlagen-der-statistischen-modellbildung"><i class="fa fa-check"></i>Grundlagen der statistischen Modellbildung</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#explorative-datenanalyse-eda"><i class="fa fa-check"></i>Explorative Datenanalyse (EDA)</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#inferenzstatistik"><i class="fa fa-check"></i>Inferenzstatistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#pradiktive-statistik"><i class="fa fa-check"></i>Prädiktive Statistik</a></li>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#mechanististische-statistik"><i class="fa fa-check"></i>Mechanististische Statistik</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Teil II: Modelle mit einer Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="datenbeschreibung.html"><a href="datenbeschreibung.html"><i class="fa fa-check"></i>Datenbeschreibung</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html"><i class="fa fa-check"></i>Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#tabellen"><i class="fa fa-check"></i>Tabellen</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html"><i class="fa fa-check"></i>Mittelwerts-Modell</a><ul>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#konfidenzintervall-um-den-mittelwert"><i class="fa fa-check"></i>Konfidenzintervall um den Mittelwert</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="codebook-cps85.html"><a href="codebook-cps85.html"><i class="fa fa-check"></i>Codebook CPS85</a></li>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="losungen.html"><a href="losungen.html#aufgabe_1"><i class="fa fa-check"></i>Aufgabe_1</a></li>
+</ul></li>
+<li class="part"><span><b>Teil III: Modelle mit mehr Variablen</b></span></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html"><i class="fa fa-check"></i>Korrelationen</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#kausalitat"><i class="fa fa-check"></i>Kausalität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#linearitat"><i class="fa fa-check"></i>Linearität</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#korrelationskoeffizienten"><i class="fa fa-check"></i>Korrelationskoeffizienten</a></li>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#modell"><i class="fa fa-check"></i>Modell</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#beispiel"><i class="fa fa-check"></i>Beispiel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html"><i class="fa fa-check"></i>Einfache Regression</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definition"><i class="fa fa-check"></i>Definition</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#berechnung-der-koeffizienten"><i class="fa fa-check"></i>Berechnung der Koeffizienten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple Regression</a><ul>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition-1"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich"><i class="fa fa-check"></i>Modellvergleich</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#wahl-relevanter-pradiktoren"><i class="fa fa-check"></i>Wahl relevanter Prädiktoren</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#sequentielle-modellbildung"><i class="fa fa-check"></i>Sequentielle Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-aic"><i class="fa fa-check"></i>Modellvergleich durch AIC</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-kreuzvalidierung"><i class="fa fa-check"></i>Modellvergleich durch Kreuzvalidierung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-bei-linearer-modellierung"><i class="fa fa-check"></i>Voraussetzungen bei linearer Modellierung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistische Modellbildung</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="multiple-regression" class="section level1 unnumbered">
+<h1>Multiple Regression</h1>
+<p>Man könnte nun die bereits erwähnte Variable Erfahrung (<em>exper</em>) ins Modell aufnehmen. Der bereits aus der Korrelation ersichtliche (negative) Zusammenhang mit der Ausbildung <em>educ</em> lässt den Schluss auf eine Kovariabilität der beiden Variablen zu. Man nennt derartige Variablen auch <strong>Kovariate</strong>. Im linearen Modell wird diese jedoch wie eine weitere Variable (ein weiterer Prädiktor) zur Vorhersage des Kriteriums verwendet.</p>
+<div id="definition-1" class="section level2 unnumbered">
+<h2>Definition</h2>
+<p>Die formale Definition eines multiplen linearen Modells ist:</p>
+<span class="math display" id="eq:LinModMultFehler">\[\begin{equation} 
+  y_i = b_0 + b_1 \cdot x_{1i} + \cdots + b_k \cdot x_{ki} + \varepsilon_i
+  \tag{10}
+\end{equation}\]</span>
+<p>Die wesentlichen Parameter dieses Modells sind:</p>
+<ol style="list-style-type: decimal">
+<li>Intercept <span class="math inline">\(b_0\)</span>: jener Wert den <span class="math inline">\(y_i\)</span> einnimmt, wenn <span class="math inline">\(x_{ji} = 0\)</span> ist (mit <span class="math inline">\(j \epsilon [1,k]\)</span>).</li>
+<li>Steigung <span class="math inline">\(b_i\)</span>: die Zunahme von <span class="math inline">\(y_i\)</span>, wenn <span class="math inline">\(x_{ji}\)</span> sich um eine Einheit erhöht, bei gleichzeitigem Konstanthalten der restlichen Prädiktorwerte <span class="math inline">\(x_{mi}\)</span> (mit <span class="math inline">\(m [1,k]\)</span> und <span class="math inline">\(m \ne j\)</span>)!</li>
+</ol>
+<p>Des Weiteren berücksichtigt auch dieses Modell wieder einen Fehler (<span class="math inline">\(\varepsilon_i\)</span>). Betrachtet man das multiple Modell isoliert (also ohne Fehlerterm), ist folgende Schreibweise üblich:</p>
+<span class="math display" id="eq:LinModMult">\[\begin{equation} 
+  \hat{y}_i = b_0 + b_1 \cdot x_{1i} + \cdots + b_k \cdot x_{ki}
+  \tag{11}
+\end{equation}\]</span>
+<p>Betrachten wir an unseren Beispieldaten folgendes Modell mit zwei Prädiktoren:</p>
+<span class="math display" id="eq:LinModMultBsp">\[\begin{eqnarray*} 
+  \hat{wage}_i = b_0 + b_1 \cdot educ_{i} + b_2 \cdot exper_{i}
+  \tag{12}
+\end{eqnarray*}\]</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  model_<span class="dv">2</span>     &lt;-<span class="st"> </span><span class="kw">lm</span>(wage <span class="op">~</span><span class="st"> </span>educ <span class="op">+</span><span class="st"> </span>exper, <span class="dt">data =</span> CPS85)
+  Det_model_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">pander</span>(<span class="kw">summary</span>(model_<span class="dv">2</span>))
+  <span class="kw">plotPlane</span>(<span class="dt">model =</span> model_<span class="dv">2</span>, <span class="dt">plotx1 =</span> <span class="st">&quot;educ&quot;</span>, <span class="dt">plotx2 =</span> <span class="st">&quot;exper&quot;</span>)</code></pre></div>
+<p><img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell2-1.png" width="672" /></p>
+<p>Dabei entspricht der Koeffizient <span class="math inline">\(b_2\)</span> der Zunahme des Gehaltes <span class="math inline">\(\hat{y}_i\)</span> wenn sich die Erfahrung <span class="math inline">\(x_{2i}\)</span> um eine Einheit erhöht und die Ausbildung <span class="math inline">\(x_{1i}\)</span> konstant gehalten wird. In nachfolgernder Tabelle sind die Werte der Vorhersagen des Modells für den vorliegenden Datensatz auszugsweise dargestellt:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  MinExp    &lt;-<span class="st"> </span><span class="kw">min</span>(CPS85<span class="op">$</span>exper)
+  MaxExp    &lt;-<span class="st"> </span><span class="kw">max</span>(CPS85<span class="op">$</span>exper)
+  RowSeq    &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> MaxExp, <span class="dt">by =</span> <span class="dv">1</span>)
+  educVon   &lt;-<span class="st"> </span><span class="dv">10</span>
+  educBis   &lt;-<span class="st"> </span><span class="dv">18</span>
+  AnzCols   &lt;-<span class="st"> </span>educBis <span class="op">-</span><span class="st"> </span>educVon <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+  Predicted &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow =</span> MaxExp, <span class="dt">ncol =</span> AnzCols)
+  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> MaxExp, <span class="dt">by =</span> <span class="dv">1</span>)) {
+    new_input     &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">educ =</span> educVon<span class="op">:</span>educBis, <span class="dt">exper =</span> i)
+    Predicted[i,] &lt;-<span class="st"> </span><span class="kw">predict</span>(model_<span class="dv">2</span>, <span class="dt">newdata =</span> new_input)
+  }
+  Predicted           &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> MaxExp, <span class="dt">by =</span> <span class="dv">1</span>), Predicted)
+  <span class="kw">colnames</span>(Predicted) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Exp&quot;</span>, <span class="st">&quot;Edu10&quot;</span>, <span class="st">&quot;Edu11&quot;</span>,<span class="st">&quot;Edu12&quot;</span>, <span class="st">&quot;Edu13&quot;</span>,
+                           <span class="st">&quot;Edu14&quot;</span>,<span class="st">&quot;Edu15&quot;</span>, <span class="st">&quot;Edu16&quot;</span>,<span class="st">&quot;Edu17&quot;</span>, <span class="st">&quot;Edu18&quot;</span>)
+  TabRows2Disp        &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">53</span><span class="op">:</span><span class="dv">55</span>)
+  Predicted2Disp      &lt;-<span class="st"> </span>Predicted[TabRows2Disp,]
+  <span class="kw">row.names</span>(Predicted2Disp) &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  <span class="kw">pander</span>(Predicted2Disp, <span class="dt">style =</span> <span class="st">&quot;rmarkdown&quot;</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Exp</th>
+<th align="center">Edu10</th>
+<th align="center">Edu11</th>
+<th align="center">Edu12</th>
+<th align="center">Edu13</th>
+<th align="center">Edu14</th>
+<th align="center">Edu15</th>
+<th align="center">Edu16</th>
+<th align="center">Edu17</th>
+<th align="center">Edu18</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">4.46</td>
+<td align="center">5.386</td>
+<td align="center">6.312</td>
+<td align="center">7.238</td>
+<td align="center">8.164</td>
+<td align="center">9.09</td>
+<td align="center">10.02</td>
+<td align="center">10.94</td>
+<td align="center">11.87</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">4.565</td>
+<td align="center">5.491</td>
+<td align="center">6.417</td>
+<td align="center">7.343</td>
+<td align="center">8.269</td>
+<td align="center">9.195</td>
+<td align="center">10.12</td>
+<td align="center">11.05</td>
+<td align="center">11.97</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">4.671</td>
+<td align="center">5.597</td>
+<td align="center">6.522</td>
+<td align="center">7.448</td>
+<td align="center">8.374</td>
+<td align="center">9.3</td>
+<td align="center">10.23</td>
+<td align="center">11.15</td>
+<td align="center">12.08</td>
+</tr>
+<tr class="even">
+<td align="center">53</td>
+<td align="center">9.927</td>
+<td align="center">10.85</td>
+<td align="center">11.78</td>
+<td align="center">12.71</td>
+<td align="center">13.63</td>
+<td align="center">14.56</td>
+<td align="center">15.48</td>
+<td align="center">16.41</td>
+<td align="center">17.33</td>
+</tr>
+<tr class="odd">
+<td align="center">54</td>
+<td align="center">10.03</td>
+<td align="center">10.96</td>
+<td align="center">11.88</td>
+<td align="center">12.81</td>
+<td align="center">13.74</td>
+<td align="center">14.66</td>
+<td align="center">15.59</td>
+<td align="center">16.51</td>
+<td align="center">17.44</td>
+</tr>
+<tr class="even">
+<td align="center">55</td>
+<td align="center">10.14</td>
+<td align="center">11.06</td>
+<td align="center">11.99</td>
+<td align="center">12.92</td>
+<td align="center">13.84</td>
+<td align="center">14.77</td>
+<td align="center">15.69</td>
+<td align="center">16.62</td>
+<td align="center">17.55</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  
+  CPS852Disp           &lt;-<span class="st"> </span><span class="kw">melt</span>(Predicted,
+                               <span class="dt">id.vars =</span> <span class="st">&quot;Exp&quot;</span>,
+                               <span class="dt">measure.vars =</span> <span class="kw">c</span>(<span class="st">&quot;Edu10&quot;</span>, <span class="st">&quot;Edu11&quot;</span>, <span class="st">&quot;Edu12&quot;</span>,
+                                                <span class="st">&quot;Edu13&quot;</span>, <span class="st">&quot;Edu14&quot;</span>,<span class="st">&quot;Edu15&quot;</span>,
+                                                <span class="st">&quot;Edu16&quot;</span>, <span class="st">&quot;Edu17&quot;</span>, <span class="st">&quot;Edu18&quot;</span>))
+  CPS852Disp<span class="op">$</span>Exp       &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">55</span>, <span class="dv">9</span>)
+  <span class="kw">colnames</span>(CPS852Disp) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Exp&quot;</span>, <span class="st">&quot;Edu&quot;</span>, <span class="st">&quot;WagePred&quot;</span>)
+  p                    &lt;-<span class="st"> </span><span class="kw">ggplot</span>(CPS852Disp, <span class="kw">aes</span>(<span class="dt">x =</span> Exp, <span class="dt">y =</span> WagePred, <span class="dt">color =</span> Edu)) <span class="op">+</span>
+<span class="st">                          </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">                          </span><span class="kw">theme_bw</span>()
+  <span class="kw">print</span>(p, <span class="dt">comment =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p><img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell2_1-1.png" width="672" /></p>
+</div>
+<div id="modellvergleich" class="section level2 unnumbered">
+<h2>Modellvergleich</h2>
+<p>Ein Modell sollte die Wirklichkeit mit möglichst großer Genauigkeit abbilden. Bei der Erstellung des Modells wurden aufgrund einer Stichprobe aus der Grundgesamtheit die Modellparameter (z.B. die <span class="math inline">\(b\)</span>’s) bestimmt. Um nun festzustellen, inwieweit das Modell brauchbare Vorhersagen liefert, sollte man das Modell evaluieren. In den vorangegangen Beispielen wurden zwei Modelle (<em>model_1</em> und <em>model_2</em>) erstellt.</p>
+<p>Der Vergleich der Modelle ist über den Fehler des jeweiligen Modells möglich. Je kleiner der Fehler, desto besser bildet das Modell die beobachteten Werte ab. Im Idealfall (Fehler = 0), würden alle beobachteten Werte gleich den vorhergesagten Werten sein und damit auf der Linie liegen.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  M          &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wage =</span> CPS85<span class="op">$</span>wage, <span class="dt">educ =</span> CPS85<span class="op">$</span>educ, <span class="dt">exper =</span> CPS85<span class="op">$</span>exper)
+  MV_Data    &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">educ =</span> M<span class="op">$</span>educ, <span class="dt">exper =</span> M<span class="op">$</span>exper)
+  MSE_Model1 &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">resid</span>(model_<span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span>),<span class="dv">2</span>)
+  <span class="co">#MSE_Model1 &lt;- mean((M$wage - predict(model_1, newdata = MV_Data))^2)</span>
+  StdResid &lt;-<span class="st"> </span><span class="kw">rstandard</span>(model_<span class="dv">1</span>)
+  <span class="co">#StdResid &lt;- (resid(model_1)-mean(resid(model_1)))/sd(resid(model_1))</span>
+  MSE_Model2 &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">mean</span>((M<span class="op">$</span>wage <span class="op">-</span><span class="st"> </span><span class="kw">predict</span>(model_<span class="dv">2</span>, <span class="dt">newdata =</span> MV_Data))<span class="op">^</span><span class="dv">2</span>),<span class="dv">2</span>)</code></pre></div>
+<p>Der Modellvergleich der obigen Beispiele ergibt für das Modell 1 einen <span class="math inline">\(MSE_1 =\)</span> 22.52 und für Modell 2 einen <span class="math inline">\(MSE_2 =\)</span> 21.04.</p>
+<p>Bei diesen Ergebnis lässt sich zunächst nur feststellen, dass der <span class="math inline">\(MSE_2\)</span> kleiner als der <span class="math inline">\(MSE_1\)</span> ist. Ob diese Verringerung des <span class="math inline">\(MSE\)</span> von statistischer und/oder praktischer Signifikanz ist, wird im folgenden noch genauer betrachtet.</p>
+<p>Mit einer einfachen ANOVA lässt sich nun auch die statistische Signifikanz der Änderungen im Fehler bei den verwendeten Modellen berechnen. Betrachten wir zunächst die statistische Änderung die Modell 1 im Vergleich zum Mittelwertsmodell erzielt:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># ANOVA Tests auf signifikante Ã„nderungen model_1 vs Mittelwertsmodell</span>
+  <span class="co"># Berechnung der Quadratsummen fÃ¼r die Regression (educ)</span>
+  preds_<span class="dv">1</span>            &lt;-<span class="st"> </span><span class="kw">predict</span>(model_<span class="dv">1</span>, <span class="dt">newdata =</span> CPS85)
+  AnzPred            &lt;-<span class="st"> </span><span class="dv">2</span> <span class="co"># b_0 und b_1</span>
+  SS_Regression_<span class="dv">1</span>    &lt;-<span class="st"> </span><span class="kw">sum</span>((preds_<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(preds_<span class="dv">1</span>))<span class="op">^</span><span class="dv">2</span>)
+  Zdf_Regression_<span class="dv">1</span>   &lt;-<span class="st"> </span>AnzPred <span class="op">-</span><span class="st"> </span><span class="dv">1</span>
+  MSS_Regression_<span class="dv">1</span>   &lt;-<span class="st"> </span><span class="kw">round</span>(SS_Regression_<span class="dv">1</span> <span class="op">/</span><span class="st"> </span>Zdf_Regression_<span class="dv">1</span>, <span class="dv">2</span>)
+  <span class="co"># Berechnung der Quadratsummen des Fehlers (Residuals)</span>
+  Residuals_<span class="dv">1</span>        &lt;-<span class="st"> </span>CPS85<span class="op">$</span>wage <span class="op">-</span><span class="st"> </span>preds_<span class="dv">1</span>
+  SS_Residuals_<span class="dv">1</span>     &lt;-<span class="st"> </span><span class="kw">sum</span>(Residuals_<span class="dv">1</span><span class="op">^</span><span class="dv">2</span>)
+  Ndf_Residuals_<span class="dv">1</span>    &lt;-<span class="st"> </span><span class="kw">nrow</span>(CPS85) <span class="op">-</span><span class="st"> </span>AnzPred
+  MSS_Residuals_<span class="dv">1</span>    &lt;-<span class="st"> </span><span class="kw">round</span>(SS_Residuals_<span class="dv">1</span> <span class="op">/</span><span class="st"> </span>Ndf_Residuals_<span class="dv">1</span>, <span class="dv">2</span>)
+  <span class="co"># Berechnung der Teststatistik</span>
+  F_Wert             &lt;-<span class="st"> </span><span class="kw">round</span>(MSS_Regression_<span class="dv">1</span> <span class="op">/</span><span class="st"> </span>MSS_Residuals_<span class="dv">1</span>, <span class="dv">2</span>)
+  <span class="co"># Berechnung der totalen Quadratsumme</span>
+  SS_Total_<span class="dv">1</span>         &lt;-<span class="st"> </span><span class="kw">sum</span>((CPS85<span class="op">$</span>wage <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(CPS85<span class="op">$</span>wage))<span class="op">^</span><span class="dv">2</span>)
+  CPS85_Total        &lt;-<span class="st"> </span><span class="kw">nrow</span>(CPS85) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>
+  <span class="co"># Vergleich mit den Ergebnissen der ANOVA</span>
+  <span class="kw">pander</span>(<span class="kw">anova</span>(model_<span class="dv">1</span>))</code></pre></div>
+<table style="width:86%;">
+<caption>Analysis of Variance Table</caption>
+<colgroup>
+<col width="22%" />
+<col width="8%" />
+<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Df</th>
+<th align="center">Sum Sq</th>
+<th align="center">Mean Sq</th>
+<th align="center">F value</th>
+<th align="center">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>educ</strong></td>
+<td align="center">1</td>
+<td align="center">2053</td>
+<td align="center">2053</td>
+<td align="center">90.85</td>
+<td align="center">5.474e-20</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Residuals</strong></td>
+<td align="center">532</td>
+<td align="center">12023</td>
+<td align="center">22.6</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+</tbody>
+</table>
+<p>Das Ergebnis zeigt uns, dass Modell 1 im Vergleich zum Mittelwertsmodell zu einer statistisch signifikanten Fehlerreduktion führt. Bei der händischen Berechnung der Prüfgrößen erhalten wir für die mittlere Quadratsumme der Regression (also der Varianz der Werte die durch das Modell vorhergesagt werden) einen Wert von $MSS_{Regression} = $ 2053.29, welcher ident mit dem Wert der ANOVA-Tabelle ist.</p>
+<p>Die restlichen Kennwerte stimmen auch mit dem Ergebnis der ANOVA überein (<span class="math inline">\(MSS_{Residual}\)</span> = 22.6, F(1,532) = 90.85).</p>
+<p>Wird das Modell 1 erweitert (auf Modell 2), stellt sich die Frage, ob diese Erweiterung im statistischen Sinn zu einer signifikanten Verbesserung führt. Bei diesem Vergleich wird nun die Änderung (Change Statistic) zwischen Modell 1 und Modell 2 auf Signifikanz geprüft.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># ANOVA Tests auf signifikante Ã„nderungen model_1 vs model_2 (Ã„nderung signifikant?)</span>
+  <span class="kw">pander</span>(<span class="kw">anova</span>(model_<span class="dv">1</span>, model_<span class="dv">2</span>))</code></pre></div>
+<table style="width:74%;">
+<caption>Analysis of Variance Table</caption>
+<colgroup>
+<col width="12%" />
+<col width="11%" />
+<col width="6%" />
+<col width="16%" />
+<col width="11%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Res.Df</th>
+<th align="center">RSS</th>
+<th align="center">Df</th>
+<th align="center">Sum of Sq</th>
+<th align="center">F</th>
+<th align="center">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">532</td>
+<td align="center">12023</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+</tr>
+<tr class="even">
+<td align="center">531</td>
+<td align="center">11233</td>
+<td align="center">1</td>
+<td align="center">790.6</td>
+<td align="center">37.37</td>
+<td align="center">1.893e-09</td>
+</tr>
+</tbody>
+</table>
+<p>Zum Verständnis dieser Statistik greifen wir kurz zurück auf die verschiedenen Möglichkeiten der Berechnung von Korrelationskoeffizienten zurück. Diese sind:</p>
+<ol style="list-style-type: decimal">
+<li>Pearson Korrelationskoeffizient (<span class="math inline">\(r_{xy}\)</span>): entspricht der Kovarianz der <span class="math inline">\(z\)</span>-transformierten Variablen.</li>
+<li>Partielle Korrealtionskoeffizient (<span class="math inline">\(r_{xy⋅z}\)</span>): ist die bivariate Korrelation zweier Variablen, welche mittels linearer Regression vom Einfluss einer Drittvariablen bereinigt wurden. 3.Semipartialkorrelation (<span class="math inline">\(sr_{k⋅x_j}\)</span>): zwischen Kriterium und dem <span class="math inline">\(j\)</span>-ten Prädiktor ergibt sich als Korrelation von <span class="math inline">\(y\)</span> mit dem Residuum <span class="math inline">\(x_j^*\)</span> der linearen Regression des <span class="math inline">\(j\)</span>-ten Prädiktors auf den anderen Prädiktor. Mit anderen Worten, die Semipartialkorrelation gibt den alleinigen Beitrag eines Prädiktors <span class="math inline">\(x_j\)</span> (bereinigt um die gemeinsamen Anteile mit den restlichen Prädiktoren) am Kriterium an. Das Quadrat dieses Koeffizienten wird unter anderm auch als Nützlichkeit des Prädiktors <span class="math inline">\(U_k\)</span> bezeichnet und findet sich z.B. in SPSS als <span class="math inline">\(R^2_{change}\)</span> wieder. Formal: <span class="math inline">\(sr_{k \cdot 12 \cdots (k-1)}^2 = R_{y, 12 \cdots k}^2 - R_{y, 12 \cdots k-1}^2\)</span></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Korrelationen, Paritial- und Semipartialkorrelationen</span>
+  Korr_Data      &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wage =</span> M<span class="op">$</span>wage, <span class="dt">educ =</span> M<span class="op">$</span>educ, <span class="dt">exper =</span> M<span class="op">$</span>exper)
+  PearsonKorr    &lt;-<span class="st"> </span><span class="kw">cor</span>(Korr_Data)
+  ModVgl_Korr    &lt;-<span class="st"> </span><span class="kw">pander</span>(PearsonKorr)
+  R2Change_mod_<span class="dv">1</span> &lt;-<span class="st"> </span>PearsonKorr[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>
+  <span class="co"># Partial Korrelation zwischen &quot;wage&quot; und &quot;educ&quot; gegeben &quot;exper&quot;</span>
+  PartKorr_<span class="dv">1</span>       &lt;-<span class="st"> </span><span class="kw">pcor.test</span>(Korr_Data<span class="op">$</span>wage, Korr_Data<span class="op">$</span>educ, Korr_Data<span class="op">$</span>exper)
+  ModVgl_ParKorr_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">pander</span>(PartKorr_<span class="dv">1</span>)
+  <span class="co"># Partial Korrelation zwischen &quot;wage&quot; und &quot;exper&quot; gegeben &quot;educ&quot;</span>
+  PartKorr_<span class="dv">2</span>       &lt;-<span class="st"> </span><span class="kw">pcor.test</span>(Korr_Data<span class="op">$</span>wage, Korr_Data<span class="op">$</span>exper, Korr_Data<span class="op">$</span>educ)
+  ModVgl_ParKorr_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">pander</span>(PartKorr_<span class="dv">2</span>)
+  <span class="co"># Semi-Partial (part) Korrelation zwischen &quot;wage&quot; und &quot;educ&quot; gegeben &quot;exper&quot;</span>
+  SemiPartKorr_<span class="dv">1</span>      &lt;-<span class="st"> </span><span class="kw">spcor.test</span>(Korr_Data<span class="op">$</span>wage, Korr_Data<span class="op">$</span>educ, Korr_Data<span class="op">$</span>exper)
+  ModVgl_SemParKorr_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">pander</span>(SemiPartKorr_<span class="dv">1</span>)
+  <span class="co"># Semi-Partial (part) Korrelation zwischen &quot;wage&quot; und &quot;exper&quot; gegeben &quot;edu&quot;</span>
+  SemiPartKorr_<span class="dv">2</span>      &lt;-<span class="st"> </span><span class="kw">spcor.test</span>(Korr_Data<span class="op">$</span>wage, Korr_Data<span class="op">$</span>exper, Korr_Data<span class="op">$</span>educ)
+  ModVgl_SemParKorr_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">pander</span>(SemiPartKorr_<span class="dv">2</span>)
+  R2Change_mod_<span class="dv">2</span>      &lt;-<span class="st"> </span><span class="kw">round</span>(SemiPartKorr_<span class="dv">2</span><span class="op">$</span>estimate<span class="op">^</span><span class="dv">2</span>,<span class="dv">3</span>)
+  <span class="kw">pander</span>(<span class="kw">summary</span>(model_<span class="dv">2</span>))</code></pre></div>
+<table style="width:88%;">
+<colgroup>
+<col width="25%" />
+<col width="15%" />
+<col width="18%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Estimate</th>
+<th align="center">Std. Error</th>
+<th align="center">t value</th>
+<th align="center">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>(Intercept)</strong></td>
+<td align="center">-4.904</td>
+<td align="center">1.219</td>
+<td align="center">-4.024</td>
+<td align="center">6.564e-05</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>educ</strong></td>
+<td align="center">0.926</td>
+<td align="center">0.0814</td>
+<td align="center">11.37</td>
+<td align="center">5.563e-27</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>exper</strong></td>
+<td align="center">0.1051</td>
+<td align="center">0.0172</td>
+<td align="center">6.113</td>
+<td align="center">1.893e-09</td>
+</tr>
+</tbody>
+</table>
+<table style="width:85%;">
+<caption>Fitting linear model: wage ~ educ + exper</caption>
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="11%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Observations</th>
+<th align="center">Residual Std. Error</th>
+<th align="center"><span class="math inline">\(R^2\)</span></th>
+<th align="center">Adjusted <span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">534</td>
+<td align="center">4.599</td>
+<td align="center">0.202</td>
+<td align="center">0.199</td>
+</tr>
+</tbody>
+</table>
+<p>Im vorliegenden Beispiel sind daher die beiden Nützlichkeitsmaße <span class="math inline">\(U_{educ}\)</span> = 0.146 und <span class="math inline">\(U_{exper}\)</span> = 0.056 von Interesse. Ersteres bedeutet, dass die Varianzaufklärung aufgrund der Verwendung der Variablen <em>educ</em> 14.6% ist. Wird im Modell dann noch der Prädiktor <em>exper</em> aufgenommen, werden zusätzliche 5.6% an Varianz des Kriteriums wage erklärt. Insgesamt werden somit <span class="math inline">\(R^2 = 0.202\)</span> oder 20.2% der Varianz des Kriteriums erklärt. Der Test (<span class="math inline">\(t(531) = 11.37, p&lt; .001\)</span>) bestätigt für den Prädiktor <em>educ</em>, sowie (<span class="math inline">\(t(531) = 6.11, p&lt;.001\)</span>) für den Prädiktor <em>exper</em> die statistische Signifikanz.</p>
+</div>
+<div id="wahl-relevanter-pradiktoren" class="section level2 unnumbered">
+<h2>Wahl relevanter Prädiktoren</h2>
+<p>Eine wichtige Frage bei der Modellerstellung betrifft die Wahl der besten Prädiktoren. Prinzipiell muss bereits im Vorfeld der statistischen Analyse bestimmt werden, welche Merkmale für die Modellierung der abhängigen Variablen am geeignetsten sind. Ausreichende theoretische und praktischen Kenntnisse sind daher unbedingt erforderlich. Die Erfassung von potentiellen Prädiktoren ist stets mit zeitlichen und/oder finanziellen Aufwand verbunden. Prädiktoren sind dann gut geeignet, wenn Sie folgende Eigenschaften erfüllen:</p>
+<ol style="list-style-type: decimal">
+<li>jeder Prädiktor erklärt möglichst viel der Variabilität des Kriteriums.</li>
+<li>die Prädiktoren (z.B. <span class="math inline">\(x_1\)</span> und <span class="math inline">\(x_2\)</span>) sind im günstigsten Fall voneinander unabhängig (<span class="math inline">\(r(x_1,x_2) \approx 0\)</span>)</li>
+</ol>
+<p>Diese Eigenschaft kann man durch eine einfache paarweise Korrelation prüfen. Vor allem wenn die zweite Eigenschaft nicht gegeben ist, also wenn einen hohe Korrelationen zwischen zwei Prädiktoren vorliegt, wird es bei der Modellierung zu maßgeblichen Problemen (Multikollinearität) kommen (siehe: <a href="#voraussetzungen-der-multiplen-regression">Voraussetzungen der multiplen Regression</a>.</p>
+<p>Neben der Frage nach der Güte einzelner Prädiktoren ist es auch wichtig sich Gedanken über die Anzahl der zu verwendenden Prädiktoren zu machen. Einerseits führt trivialerweise eine höhere Anzahl von Prädiktoren auch zu einer besseren Aufklärung der Varianz im Kriterium. Ausgenommen von Prädiktoren die in keiner Beziehung zum Kriterium stehen, wird jeder zusätzliche Prädiktor mehr oder weniger der verbleibenden Varianz erklären. In den meisten Fällen ist es aber aus zeitlichen/finanziellen oder sonstigen Gründen nicht sinnvoll, eine möglichst große Menge an Prädiktorvariablen zu erheben.</p>
+<p>Werden zu viele erklärende Variablen zur Spezifizierung eines Modells verwendet, wird die tatsächliche (geringere) Anpassungsgüte verschleiert. Das Modell wird zwar besser auf die Daten der Stichprobe angepasst, allerdings besteht aufgrund fehlender Generalität keine Übertragbarkeit auf die Grundgesamtheit. Grundsätzlich sollte wie bereits erwähnt die Wahl der Prädiktoren auf theoretisch und praktisch fundierten Grundlagen erfolgen. Welche der zur Verfügung stehenden Prädiktoren im Endeffekt für das Modell verwendet werden, kann anhand der Modellvergleiche auch im statistischen Sinn evaluiert werden.</p>
+<p>Bei der bisher besprochenen Vorgehensweise der Modellerstellung obliegt es dem Analysten, die zu verwendenden Prädiktoren zu bestimmen. Eine weitere Möglichkeit bietet die sogenannte sequentielle Vorgehensweise, bei der die Ein- und Ausschlusskriterien für Prädiktoren durch statistische Kriterien getroffen werden.</p>
+</div>
+<div id="sequentielle-modellbildung" class="section level2 unnumbered">
+<h2>Sequentielle Modellbildung</h2>
+<p>In manchen Fällen sind nicht ausreichende theoretische Grundlagen und Erfahrungswerte bezüglich der Wirksamkeit und Wichtigkeit von Prädiktoren vorhanden. In solchen Fällen kann ein exploratives Vorgehen bei der Modellerstellung sehr hilfreich sein. Die nachfolgend beschriebene sequentielle Modellierung entspricht einem solchen Ansatz.</p>
+<p>Bei der sequentiellen Modellbildung wird ein Modell schrittweise mit unabhängigen Variablen erweitert. In der Regel wird jene Variable, die das <span class="math inline">\(R^2\)</span> am meisten vergrößert und damit die Vorhersage am meisten verbessert hinzugefügt.</p>
+<p>Abhängig von der Anzahl der verfügbaren Prädiktoren wird die Bildung neuer Modelle entweder abgebrochen, wenn weitere Variablen keinen weiteren statistischen signifikanten Beitrag zur Varianzaufklärung mehr leisten, oder wenn keine weiteren Variablen zur Verfügung stehen.</p>
+<p>Aufgrund der statistischen (maschinellen) Entscheidung über die Verwendung von Prädiktoren, wird diese Vorgehensweise vielfach kritisiert. Nehmen wir in einem sehr einfachen Beispiel einmal an, es stehen 2 Prädiktoren (<span class="math inline">\(x_1, x_2\)</span>) zur Vorhersage der abhängigen Variablen zur Verfügung. Der Prädiktor <span class="math inline">\(x_1\)</span> klärt geringfügig weniger Varianz des Kriteriums auf als Prädiktor <span class="math inline">\(x_2\)</span>, ersterer ist aber inhaltlich sinnvoller, leichter zu interpretiern und vor allem weit kostengünstiger zu erfassen. Bei der sequentiellen Methode könnte aber aufgrund des Abbruchkriteriums (Signifikanz des Beitrags) genau dieser Prädiktor vom Modell ausgeschlossen werden.</p>
+<p>Bei der sequentiellen Methode unterscheidet man noch unterschiedliche Vorgehensweisen hinsichtlich des Hinzufügens/Entfernens von Variablen:</p>
+<ol style="list-style-type: decimal">
+<li>Schrittweise (STEPWISE): Diese Methode ist ähnlich wie “Vorwärts”-Selektion, es wird aber zusätzlich bei jedem Schritt getestet, ob die am wenigsten “nützliche” Variable entfernt werden soll.</li>
+<li>Vorwärts-Selektion (FORWARD): Die Variablen werden sequenziell in das Modell aufgenommen. Diejenige unabhängige Variable, welche am stärksten mit der abhängigen Variable korreliert wird zuerst zum Modell hinzugefügt. Dann wird jene der verbleibenden Variablen hinzugefügt, die die höchste partielle Korrelation mit der abhängigen Variablen aufweist. Dieser Schritt wird wiederholt, bis sich die Modellgüte (R-Quadrat) nicht weiter signifikant erhöht oder alle Variablen ins Modellaufgenommen worden sind.</li>
+<li>Rückwärts-Elimination (BACKWARD): Zunächst sind alle Variablen im Regressionsmodell enthalten und werden anschließend sequenziell entfernt. Schrittweise wird immer diejenige unabhängige Variable entfernt, welche die kleinste partielle Korrelation mit der abhängigen Variable aufweist, bis entweder keine Variablen mehr im Modell sind oder keine die verwendeten Ausschlusskriterien erfüllen.</li>
+</ol>
+<p>Diese Methoden unterscheiden sich von der sogenannten Einschlussmethode (ENTER), bei der alle Variablen gleichzeitig in das Modell eingefügt werden. Diese Methode wird angewendet, wenn das Modell auf theoretischen Überlegungen basiert. Das heißt, sie eignet sich um Theorien zu testen, während die übrigen Methoden eher im Rahmen explorativer Studien eingesetzt werden.</p>
+</div>
+<div id="modellvergleich-durch-aic" class="section level2 unnumbered">
+<h2>Modellvergleich durch AIC</h2>
+<p>Nach einer (explorativen) Analyse der Daten und der Wahl einer passenden Modellklasse, geht es darum das bestmögliche Modell zu den vorliegenden Daten zu finden (siehe FUB). Daher stellt sich die Frage, was “bestmögliches” Modell bedeutet und wie ein solches bestimmt werden kann. In diesem Zusammenhang wird der Gedanke aufgegriffen, dass mit keinem Regressionsmodell die Realität eins zu eins abgebildet werden kann. Nimmt man zu viele erklärende Variablen auf, läuft man in Gefahr das Modell zu “overfitten” (überanpassen). Ein überangepasstes Modell erklärt die zum Schätzen verwendete abhängige Variable meist sehr gut, schneidet jedoch in der Vorhersage von Daten außerhalb der verwendeten Stichprobe häufig schlecht ab. Auf der anderen Seite kann ein Modell auch “underfitted” sein, d.h. die aufgenommenen unabhängigen Variablen können die abhängige Variable nur sehr unzureichend erklären.</p>
+<p>Das Thema der Modellselektion ist ein allgegenwärtiges in der Statistik/ Regressionsanalyse. Dennoch gibt es keine absoluten, objektiven Kriterien anhand derer entschieden werden kann, ob das eine oder das andere Modell gewählt werden sollte. Vielmehr existieren viele verschiedene Verfahren, die versuchen zwischen möglichst viel Erklärungsgehalt des Modells und möglichst wenig Komplexität (siehe dazu Ockhams Rasiermesser) abzuwägen.</p>
+<p>In einem Artikel von <span class="citation">(Yamashita <a href="#ref-Yamashita">2007</a>)</span> wurden folgende Methoden:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Partial F</li>
+<li>Partial Correlation</li>
+<li>Semi-Partial Correlation</li>
+<li>Akaike Information Criteria (AIC)</li>
+</ol>
+<p>für den Vergleich von Regressionsmodellen untersucht. Die Autoren schließen aus den Ergebnissen ihrer Untersuchung, dass alle Methoden zu den gleichen Ergebnissen, d.h. zur gleichen Modellentscheidung gelangen. Da aber der AIC einerseits leicht zu interpretieren und andererseits auch auf nichtlineare Modelle und Modelle die auf nicht normalverteilten Daten beruhen zu erweitern ist, wird die Anwendung dieses Kriteriums empfohlen.</p>
+<p>Das AIC dient also dazu, verschiedene Modellkandidaten zu vergleichen. Dies geschieht anhand des Wertes der log-Likelihood, der umso größer ist, je besser das Modell die abhängige Variable erklärt. Um nicht komplexere Modelle als durchweg besser einzustufen wird neben der log-Likelihood noch die Anzahl der geschätzten Parameter als Strafterm mitaufgenommen.</p>
+<span class="math display" id="eq:AIC">\[\begin{equation} 
+  AIC_k = 2 \cdot |k| - 2\cdot \hat{L}_k
+  \tag{13}
+\end{equation}\]</span>
+<p>In der Formel steht <span class="math inline">\(k\)</span> für die Anzahl der im Modell enthaltenen Parameter und <span class="math inline">\(\hat{L}_k\)</span> für den Wert der log-Likelihoodfunktion.</p>
+<p><strong>Das Modell mit dem kleinsten AIC wird bevorzugt.</strong></p>
+<p>Das AIC darf nicht als absolutes Gütemaß verstanden werden. Auch das Modell, welches vom Akaike Kriterium als bestes ausgewiesen wird, kann eine sehr schlechte Anpassung an die Daten aufweisen. Die Anpassung ist lediglich besser als in den Alternativmodellen.</p>
+<p>Die praktische Bedeutung soll anhand eines einfachen Beispiels und der Verwendung des Kriteriums bei unseren Beispieldaten erläutert werden.</p>
+<p>Nehmen wir an, dass drei Modellvergleiche (mod_1,mod_2,mod_3) folgende AIC-Werte ergeben haben:</p>
+<p><span class="math inline">\(AIC_1 = 100, AIC_2 = 102, AIC_3 = 110\)</span>. Berechnet man <span class="math inline">\(e^{(AIC_{min} - AIC_i)/2}\)</span>, kann das Ergebnis folgendermaßen interpretiert werden:</p>
+<ul>
+<li>Beim <em>mod_2</em> ist es um das <span class="math inline">\(e^{(100-102)/2} = 0.368\)</span>-fache wahrscheinlicher den Informationsverlust zu verringern als bei Modell 1 (<em>mod_1</em>).</li>
+<li>Beim <em>mod_3</em> ist es um das <span class="math inline">\(e^{(100-110)/2} = 0.007\)</span>-fache wahrscheinlicher den Informationsverlust zu verringern als bei Modell 1 (<em>mod_1</em>).</li>
+</ul>
+<p>Bei diesem Beispiel würde man also <em>mod_3</em> für weitere Betrachtungen ausschließen. Nachdem aber die Modelle <em>mod_1</em> und <em>mod_2</em> sehr nahe beisammen liegen, ist es mit den vorliegenden Daten nicht möglich, eine klare Entscheidung für eines der beiden Modelle zu treffen.</p>
+<p>Man könnte durchaus noch zusätzliche Daten erheben um dadurch eventuell eine klarere Trennung der beiden Modelle (<em>mod_1</em>, <em>mod_2</em>) zu erkennen. Ist das nicht möglich, könnte man beide Modelle mit der relativen likelihood gewichten und auf eine statistische Signifikanz testen, oder davon ausgehen, dass mit den vorliegenden Daten eine Modellwahl eben nicht eindeutig zu treffen ist.</p>
+</div>
+<div id="modellvergleich-durch-kreuzvalidierung" class="section level2 unnumbered">
+<h2>Modellvergleich durch Kreuzvalidierung</h2>
+<p>Betrachten wir im Folgenden ein Modell (<em>mod_1</em>) mit den Prädiktoren <em>sector</em> (Berufsgruppe), <em>exper</em> (Erfahrung), sowie das um den Prädiktor <em>age</em> (Alter) erweiterte Model (<em>mod_2</em>).</p>
+<p>Die Vorhergehensweise bei der Kreuzvalidierung ist relativ simpel:</p>
+<ol style="list-style-type: decimal">
+<li>Erstelle ein/mehrere Modell(e) und berechne die jeweiligen Modellparameter <span class="math inline">\(b_i^j\)</span> (mit <span class="math inline">\(j = j\)</span>-tes Modell und <span class="math inline">\(i = i\)</span>’ter Parameter) mit einer Teilmenge der zur Verfügung stehenden Daten (z.B. <em>Training_Data</em> <span class="math inline">\(\subset\)</span> <em>DF</em>).</li>
+<li>Verwende die restlichen Daten um mit den entsprechenden Modellen Vorhersagen zu berechnen.</li>
+<li>Berechne die Differenz der beobachteten Daten und der vorhergesagten Daten. Diese Differenz entspricht dem Fehler des Modells (<span class="math inline">\(\rightarrow \epsilon_i\)</span>).</li>
+<li>Berechne den mittleren quadratischen Fehler der Differenzen.</li>
+</ol>
+</div>
+<div id="voraussetzungen-bei-linearer-modellierung" class="section level2 unnumbered">
+<h2>Voraussetzungen bei linearer Modellierung</h2>
+<p>Folgende Voraussetzungen müssen/sollten bei der linearen Modellierung mit mehreren Prädiktoren erfüllt sein, damit die Ergebnisse auch sinnvoll interpretiert werden können.:</p>
+<ol style="list-style-type: decimal">
+<li>Lineare Beziehung zwischen den Variablen.</li>
+<li>Keine Multikollinearität.</li>
+<li>Keine Ausreißer.</li>
+<li>Unabhängigkeit der Residuen (keine Autokorrelation).</li>
+<li>Varianzgleichheit der Residuen (Homoskädasdizität).</li>
+<li>Normalverteilung der Residuen.</li>
+</ol>
+<p>Eine Verletzung einer/mehrerer dieser Voraussetzungen führt meistens dazu, dass die Genauigkeit der Vorhersage gemindert wird. Relativ einfach zu prüfen sind die ersten drei Voraussetzungen (graphisch, Kennwerte wie Korrelation, etc.). Bei der Überprüfung der restlichen Voraussetzung muss man i.A. auf entsprechende statische Verfahren zurückgreifen, die hier aber nicht näher besprochen werden. Einen Überblick über die Möglichkeiten zur Überprüfung der Voraussetzungen finden Sie z.B. unter <span class="citation">(UZH <a href="#ref-UZH">2018</a>)</span>, oder MR2 - <span class="citation">(Hemmerich <a href="#ref-Hemmerich">2018</a>)</span>.</p>
+<p><a href="#wahl-relevanter-prädiktoren">zurück zur Kapitel</a></p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Yamashita">
+<p>Yamashita, T. 2007. “A Stepwise Aic Method for Variable Selection in Linear Regression.” <em>Communications in Statistics Theory and Methods, No. 36:13:2395–2403</em>. doi:<a href="https://doi.org/https://doi.org/10.1080/03610920701215639">https://doi.org/10.1080/03610920701215639</a>.</p>
+</div>
+<div id="ref-UZH">
+<p>UZH. 2018. “Multiple Regressionsanalyse.” <a href="https://www.methodenberatung.uzh.ch/de/datenanalyse_spss/zusammenhaenge/mreg.html" class="uri">https://www.methodenberatung.uzh.ch/de/datenanalyse_spss/zusammenhaenge/mreg.html</a>.</p>
+</div>
+<div id="ref-Hemmerich">
+<p>Hemmerich, W.A. 2018. “StatistikGuru Multiple Lineare Regression in Spss, Version 1.96.” <a href="https://statistikguru.de/spss/multiple-lineare-regression/einleitung-2.html" class="uri">https://statistikguru.de/spss/multiple-lineare-regression/einleitung-2.html</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="einfache-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

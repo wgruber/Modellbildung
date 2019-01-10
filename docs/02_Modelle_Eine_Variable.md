@@ -6,7 +6,7 @@
 
 # Datenbeschreibung {-}
 
-Betrachten wir zunächst einen einfachen Datensatz aus dem Projekt MOSAIC Data Sets (Paket mosaicData)[^2]. 
+Betrachten wir zunächst einen einfachen Datensatz aus dem Projekt MOSAIC Data Sets (Paket mosaicData, **CPS85**)[^2]. 
 
 
 

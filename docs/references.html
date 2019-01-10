@@ -25,14 +25,14 @@
 <meta name="author" content="Walter Gruber">
 
 
-<meta name="date" content="2019-01-06">
+<meta name="date" content="2019-01-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="einfache-regression.html">
+<link rel="prev" href="multiple-regression.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -100,8 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Einleitung</a></li>
-<li class="chapter" data-level="" data-path="vorbereitung-fur-r-studio.html"><a href="vorbereitung-fur-r-studio.html"><i class="fa fa-check"></i>Vorbereitung für R-Studio</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorbemerkung</a></li>
+<li class="chapter" data-level="" data-path="einleitung.html"><a href="einleitung.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li><a href="allgemeine-definition-des-begriffs-modell.html#allgemeine-definition-des-begriffs-modell">Allgemeine Definition des Begriffs <em>Modell</em></a></li>
 <li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
@@ -147,6 +148,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple Regression</a><ul>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition-1"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich"><i class="fa fa-check"></i>Modellvergleich</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#wahl-relevanter-pradiktoren"><i class="fa fa-check"></i>Wahl relevanter Prädiktoren</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#sequentielle-modellbildung"><i class="fa fa-check"></i>Sequentielle Modellbildung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-aic"><i class="fa fa-check"></i>Modellvergleich durch AIC</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-kreuzvalidierung"><i class="fa fa-check"></i>Modellvergleich durch Kreuzvalidierung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-bei-linearer-modellierung"><i class="fa fa-check"></i>Voraussetzungen bei linearer Modellierung</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -170,10 +180,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <div id="refs" class="references">
 <div>
+<p>Box, G.E.P. 1979. “Robustness in the Strategy of Scientific Model Building.” <em>Academic Press</em>.</p>
+</div>
+<div>
+<p>Coursera. 2018. “Coursera Take the World’s Best Courses.” <a href="https://www.coursera.org/" class="uri">https://www.coursera.org/</a>.</p>
+</div>
+<div>
+<p>DataCamp. 2018. “DataCamp Learn Data Science.” <a href="https://www.datacamp.com/" class="uri">https://www.datacamp.com/</a>.</p>
+</div>
+<div>
+<p>Field, A. 2017. <em>Discovering Statistics Using R</em>. 2nd ed. 1 Olivers Yard, 55 City Road, London EC1Y 1SP: SAGE Publications Ltd.</p>
+</div>
+<div>
+<p>Hemmerich, W.A. 2018. “StatistikGuru Multiple Lineare Regression in Spss, Version 1.96.” <a href="https://statistikguru.de/spss/multiple-lineare-regression/einleitung-2.html" class="uri">https://statistikguru.de/spss/multiple-lineare-regression/einleitung-2.html</a>.</p>
+</div>
+<div>
+<p>Knuth, D. 2008. “Ein Modell Des Modellseins – Ein Beitrag Zur Aufklärung Des Modellbegriffs.” <em>Peter Lang Verlag</em>, 187–220.</p>
+</div>
+<div>
 <p>Mahr, Bernd. 2008. “Ein Modell Des Modellseins – Ein Beitrag Zur Aufklärung Des Modellbegriffs.” <em>Peter Lang Verlag</em>, 187–220.</p>
 </div>
 <div>
 <p>Upmeier, D., A. und Krüger. 2010. “Modellkompetenz Im Biologieunterricht.” <em>Zeitschrift Für Didaktik Der Naturwissenschaften</em>.</p>
+</div>
+<div>
+<p>UZH. 2018. “Multiple Regressionsanalyse.” <a href="https://www.methodenberatung.uzh.ch/de/datenanalyse_spss/zusammenhaenge/mreg.html" class="uri">https://www.methodenberatung.uzh.ch/de/datenanalyse_spss/zusammenhaenge/mreg.html</a>.</p>
+</div>
+<div>
+<p>Yamashita, T. 2007. “A Stepwise Aic Method for Variable Selection in Linear Regression.” <em>Communications in Statistics Theory and Methods, No. 36:13:2395–2403</em>. doi:<a href="https://doi.org/https://doi.org/10.1080/03610920701215639">https://doi.org/10.1080/03610920701215639</a>.</p>
 </div>
 </div>
 </div>
@@ -196,7 +230,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="einfache-regression.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multiple-regression.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
