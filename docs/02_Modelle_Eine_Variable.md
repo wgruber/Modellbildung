@@ -4,7 +4,7 @@
 
 
 
-# Datenbeschreibung {-}
+# Datensatz {-}
 
 Betrachten wir zunächst einen einfachen Datensatz aus dem Projekt MOSAIC Data Sets (Paket mosaicData, **CPS85**)[^2]. 
 
@@ -35,9 +35,15 @@ Angenommen Sie müssten auf Basis der vorliegenden Daten für eine Person das du
 
 Bevor man diese Frage beantwortet, sollte man sich die deskriptive Statistik der entsprechenden Variablen genauer ansehen. In der vorliegenden Fragestellung handelt es sich um eine intervallskalierte Variable, daher ist die Betrachtung der Kennwerte für zentrale Tendenzen (Mittelwert, Median, Modus, Minimum, Maximum und Range), der Dispersion (Varianz, Standardabweichung, Quartile, Standardfehler, Konfidenzintervalle, Schiefe und Kurtosis), sowie die Darstellung der Verteilung in einem Histogramm sehr hilfreich. 
 
-## Tabellen {-}
+Unter bestimmten Voraussetzungen, eignet sich der Mittelwert als bester Schätzer (bzw. als einfachste Modellvorstellung). Bevor man sich jedoch der Auswertung von Daten widmet, ist es sehr empfehlenswert die zugrundeliegende Datenstruktur zu analysieren und auch zu dokumentieren. Im nachfolgenden Kapitel wird ein sehr nützliches Paket für genau diese Analyse kurz vorgestellt.
 
-Kopiere den nachfolgenden Code in den Editor und führe in aus. Diskutiere die Ergebnisse.
+## Codebooks in R {-}
+
+In R hat man die Möglichkeit, mit Hilfe des Pakets *codebook* eine genaue Beschreibung der Daten (inklusive einer deskriptiven Statistik für jede Variable) zu erstellen. Für den vorliegenden Datensatz wurde auszugsweise eines erstellt, welches in Kapitel [Codebook CPS85](#codebook-cps85) zu finden ist.
+
+### Tabellen {-}
+
+Im Codebook werden neben den deskriptiven Kennwerten (für kategorielle Variablen) Häufigkeitstabellen angegeben. Wir wollen uns daher einen kurzen Überblick über Häufigkeitstabellen in R verschaffen. Kopiere den nachfolgenden Code in den Editor und führe in aus. Diskutiere die Ergebnisse.
 
 
 ```r
@@ -57,9 +63,69 @@ Kopiere den nachfolgenden Code in den Editor und führe in aus. Diskutiere die E
   # HÃ¤ufigkeitstabellen mit Randsummen
   x0 <- addmargins(table(CPS85$sex, CPS85$race))
   kable(x0)
+  # HÃ¤ufigkeitstabellen in Prozent
+  x1 <- addmargins(round(100*prop.table(table(CPS85$sex, CPS85$race)), 2))
+  kable(x1)
 ```
 
-Um die Eigenschaften des Mittelwertes bei vorliegen von starken Abweichungen in den Daten noch besser zu verdeutlichen, setzen wir bei 50 zufällig gewählten Personen das Einkommen drastisch hinauf. Kopiere den folgenden Code ins RStudio und führe diesen dann aus.
+# Mittelwerts-Modell {-}
+
+Wie bereits erwähnt, wäre unter bestimmten Voraussetzungen (Verteilungseigenschaften) der Mittelwert ein guter Schätzer, da dieser die folgende Eigenschaft besitzt:
+
+* Die Summe der quadrierten Abweichungen der Beobachtungswerte $x_i$ von einem beliebigen Punkt $m$ wird minimal, wenn dieser Punkt $m = \bar{x}$, also der arithmetische Mittelwert ist!
+
+Formal berechnet sich das arithmetische Mittel:
+
+\begin{equation} 
+  \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i
+  (\#eq:MW)
+\end{equation} 
+
+Die Aussagekraft des arithmetischen Mittels beschränkt sich jedoch ganz wesentlich, wenn nicht weitere Kennwerte der Daten bekannt sind. Vor allem ist es von Interesse, die Streung (Variabilität) der Werte um den Mittelwert zu kennen. Diese wird durch das Streuungsmaß, welches als durchschnittliche Abweichung der Messwerte um den Mittelwert gesehen werden kann, beschrieben:
+
+\begin{equation} 
+  s = \sqrt{\sum_{i=1}^{N} (x_i \frac{x_i - \bar{x})^2}{N-1}}
+  (\#eq:SD)
+\end{equation} 
+
+## Modell *idealer* Daten {-}
+
+Betrachten wir zunächst einen Datensatz, in dem das Gehalt (*wage*) symmetrisch und in Form einer Glockenkurve gegeben ist. Kopiere den nachfolgenden Code in dein R-Script und führe diesen dann aus.
+
+
+```r
+  options(digits = 2)
+  DF      <- CPS85
+  set.seed(825)
+  DF$wage <- rnorm(n = nrow(DF), mean = 8, sd = 2.3)
+  Income  <- DF$wage
+  
+  # Kennwerte berechnen
+  MW <- mean(Income)
+  SD <- sd(Income)
+  MD <- median(Income)
+  RA <- range(Income)
+  # Daten anzeigen
+  # p1 <- hist(Income)
+  # p2 <- boxplot(Income)
+  
+  # starke Abweichungen entfernen
+  TrimmedIncome <- Income[!Income %in% boxplot.stats(Income)$out]
+  # Kennwerte berechnen
+  MW_T <- mean(TrimmedIncome)
+  SD_T <- sd(TrimmedIncome)
+  MD_T <- median(TrimmedIncome)
+  RA_T <- range(TrimmedIncome)
+  # Daten anzeigen
+  # p3   <- hist(TrimmedIncome)
+  # p4   <- boxplot(TrimmedIncome)
+```
+
+Die Ergebnisse der statistischen Kennwerte $\bar{x}$ = (8.0952214), $med$ = (8.2289139), $sd$ = (2.3218623) und vor allem (das hier nicht angezeigte) angezeigte Histogramm lassen vermuten, dass der Mittelwert als *Modell* durchaus geeignet ist. Vor allem wenn man noch durch *Beschneidung (trim)* der Daten die kleinsten und größten Werte entfernt, nehmen der Mittelwert $\bar{x}_{trim}$ =  8.1089335 und Median $med_{trim}$ = 8.2306598 den gleichen Wert ein.
+
+## Modell *schiefer* Daten {-}
+
+Um die Eigenschaften des Mittelwertes bei vorliegen von starken Abweichungen in den Daten noch besser zu verdeutlichen, verwenden wir einerseits die Originaldaten (welche für sich schon schiefverteilt sind) und setzen zusätzlich bei 50 zufällig gewählten Personen das Einkommen drastisch hinauf. Kopiere den folgenden Code ins RStudio und führe diesen dann aus.
 
 
 ```r
@@ -68,28 +134,21 @@ Um die Eigenschaften des Mittelwertes bei vorliegen von starken Abweichungen in 
   IncomeNew[ID] <- IncomeNew[ID] + 18
 ```
 
-## Aufgabenstellung 1 {-}
+### Aufgabenstellung 1 {-}
 
-Erstelle nun für die neuen Daten eine Tabelle und ein Histogramm. Berechne den Mittelwert:
+Berechne für die neuen Daten folgende Kennwerte und zeichne sowohl ein Histogramm, als auch einen Boxplot. 
 
-* ohne Berücksichtigung der Ausreißer (Funktion *mean(???, na.rm = TRUE)*)
-* unter Berücksichtigung der Ausreißer (Funktion *mean(???, trim = ???, na.rm = TRUE)*)
+* Mittelwert
+* Standardabweichung
+* Median
+* Range
+* Getrimmten Mittelwert, wobei jeweils 10% der Daten vom unteren und oberen Wertebereich unberücksichtigt bleiben sollen.
 
-Diskutiere die Ergebnisse. Die Lösung zu diesen Aufgaben findest du in [Lösung Aufgabe 1](#aufgabe_1)
+Diskutiere die Ergebnisse. Die Lösung zu diesen Aufgaben findest du in [Lösung Aufgabe 1](#aufgabe_1).
 
-## Codebooks in R {-}
+### Graphische Darstellung {-}
 
-In R hat man die Möglichkeit, mit Hilfe des Pakets *codebook* eine genaue Beschreibung der Daten (inklusive einer deskriptiven Statistik für jede Variable) zu erstellen. Für den vorliegenden Datensatz wurde auszugsweise eines erstellt, welches in Kapitel [Codebook CPS85](#codebook-cps85) zu finden ist.
-
-# Mittelwerts-Modell {-}
-
-Eine gute Schätzung wäre daher unter bestimmten Voraussetzungen (Verteilungseigenschaften) der Mittelwert, da dieser die folgende Eigenschaft besitzt:
-
-* Die Summe der quadrierten Abweichungen der Beobachtungswerte $x_i$ von einem beliebigen Punkt $m$ wird minimal, wenn dieser Punkt $m = \bar{x}$, also der arithmetische Mittelwert ist!
-
-Damit diese Schätzung inhaltlich auch Sinn ergibt, ist jedoch eine (halbwegs) symmetrische Verteilung in Form einer Glockenkurve erforderlich. Weicht diese Verteilung stark davon ab, so wird der Mittelwert nur ein schlechtes Modell für die Population sein.
-
-Zur Veranschaulichung von Verteilungseigenschaften einer Variablen eignen sich vor allem Histogramme, Boxplots und Q-Q-Plots. Kopiere den folgenden Code ins RStudio und führe diesen dann aus. Diskutiere die Ergebnisse.
+Zur Veranschaulichung von Verteilungseigenschaften einer Variablen eignen sich vor allem Histogramme, Boxplots und Q-Q-Plots. In Kombination mit den entsprechenden Tabellen, können bereits durch die einfache deskriptive Statistik wertvolle Aussagen über die statistischen Eigenschaften der Daten gewonnen werden. Kopiere den folgenden Code ins RStudio und führe diesen dann aus. Diskutiere die Ergebnisse.
 
 
 ```r
@@ -109,11 +168,12 @@ Zur Veranschaulichung von Verteilungseigenschaften einer Variablen eignen sich v
   qqline(CPS85$wage, col = "steelblue", lwd = 2)
 ```
 
-Eine der häufigsten Ursachen für Verzerrungen in den Verteilungseigenschaften einer Variablen sind Ausreißer. Die Behandlung von Ausreißern ist ein eigenes und heftig diskutiertes Thema in der Statistik. Wir wollen uns im Rahmen dieser LV nicht weiter damit auseinandersetzen. Eine (wenngleich nicht unbedenkliche) Methode ist das sogenannte *Trimmen* der Daten. Nachfolgendes Beispiel zeigt eine weitere Möglichkeit[^3], Ausreißer aus einer Analyse zu entfernen. Es sei an dieser Stelle nochmals explizit darauf hingewiesen, dass ein beliebiges Weglassen von *störenden* Werten durchaus bedenklich ist und eigentlich nur im Sinne einer explorativen Analyse von Daten (was wäre, wenn die Daten keine Ausreißer hätten[^4]?) gerechtfertigt werden kann! Kopiere den folgenden Code ins RStudio und führe diesen dann aus. Diskutiere die Ergebnisse.
+### Bemerkung Ausreißer {-}
+
+Eine der häufigsten Ursachen für Verzerrungen in den Verteilungseigenschaften einer Variablen sind Ausreißer. Die Behandlung von Ausreißern ist ein eigenes und heftig diskutiertes Thema in der Statistik. Eine (wenngleich nicht unbedenkliche) Methode ist das bereits verwendete *Trimmen* der Daten. Nachfolgendes Beispiel zeigt eine weitere Möglichkeit[^3], Ausreißer aus einer Analyse zu entfernen. Es sei an dieser Stelle nochmals explizit darauf hingewiesen, dass ein beliebiges Weglassen von *störenden* Werten durchaus bedenklich ist und eigentlich nur im Sinne einer explorativen Analyse von Daten (was wäre, wenn die Daten keine Ausreißer hätten?) gerechtfertigt werden kann! Kopiere den folgenden Code ins RStudio und führe diesen dann aus. Diskutiere die Ergebnisse.
 
 [^3]: wir haben bereits bei der Mittelwertsfunktion *mean()* das Argument *trim* kennengelernt. 
 
-[^4]: liegen z.B. Kenntnisse der Verteilungseigenschaften in der Population vor, aber die vorliegende Stichprobe ist sehr klein, könnte man eventuell 
 
 
 ```r
@@ -168,9 +228,9 @@ Ein wichtiger Bestandteil einer Modellbildung ist die Abschätzung der Güte des
   (\#eq:SE)
 \end{eqnarray} 
 
-Der Standardfehler (englisch: standard error, meist $SE$ abgekürzt) ist die Standardabweichung der Stichprobenverteilung einer Stichprobenfunktion. In der Regel bezieht sich der Standardfehler dabei auf den Mittelwert und wird meistens dann als standard error of the mean ($SEM$ abgekürzt) bezeichnet.
+Der Standardfehler (englisch: standard error, meist $SE$ abgekürzt) ist die Standardabweichung der Stichprobenkennwertverteilung einer Stichprobenfunktion. In der Regel bezieht sich der Standardfehler dabei auf den Mittelwert und wird meistens dann als *standard error of the mean* ($SEM$ abgekürzt) bezeichnet.
 
-Erläuterung zum $SE$:
+### Erläuterung zum $SE$ {-}
 
 Wenn wir viele zufällige Stichproben aus derselben Grundgesamtheit ziehen und jeweils den Mittelwert berechnen, würden diese Mittelwerte in der Regel unterschiedlich sein. 
 
@@ -199,7 +259,7 @@ Wünschenswerte Eigenschaften von Schätzern sind:
 
 Der Punktschätzer ist der beste Schätzer für den (unbekannte) Parameter der Grundgesamtheit. Dennoch ist es recht unwahrscheinlich, dass der Punktschätzer genau dem Parameter entspricht[^5]. Daher sollte man die Punktschätzung durch eine Intervallschätzung ergänzen, die eine größere Wahrscheinlichkeit aufweist – um den Preis einer größeren Bandbreite.
 
-Die Intervallschätzung zielt nun darauf ab, einen Bereich anzugeben, der mit einer gewissen (von der Forscherin gewählten) Wahrscheinlichkeit den wahren Wert enthält (überdeckt). Dieser Bereich heißt [*Konfidenzintervall*](https://de.wikipedia.org/wiki/Konfidenzintervall). Die Wahrscheinlichkeit, mit der das Intervall den wahren Wert enthält, sollte in der Regel möglichst hoch sein. Der trade-off: Je größer die gewählte Wahrscheinlichkeit, desto breiter das resultierende Intervall.
+Die Intervallschätzung zielt nun darauf ab, einen Bereich anzugeben, der mit einer gewissen (von der Forscherin gewählten) Wahrscheinlichkeit den wahren Wert enthält (überdeckt). Dieser Bereich heißt [*Konfidenzintervall*](https://de.wikipedia.org/wiki/Konfidenzintervall){target="_blank"}. Die Wahrscheinlichkeit, mit der das Intervall den wahren Wert enthält, sollte in der Regel möglichst hoch sein. Der trade-off: Je größer die gewählte Wahrscheinlichkeit, desto breiter das resultierende Intervall.
 
 Das Konfidenzintervall berechnet sich aus:
 
@@ -210,11 +270,11 @@ Das Konfidenzintervall berechnet sich aus:
 
 Die Eigenschaften des Konfidenzintervalls lassen sich sehr schön in einer Simulation von [Geoff Cumming](https://thenewstatistics.com/itns/esci/) veranschaulichen.
 
-[^5]: siehe [Prof. Dr. Wolfgang Ludwig-Mayerhofer, Uni Siegen, Punkt- und Intervallschätzungen ](https://www.uni-siegen.de/phil/sozialwissenschaften/soziologie/mitarbeiter/ludwig-mayerhofer/statistik/statistik_downloads/statistik_ii_4.pdf), oder [Springer](https://link.springer.com/content/pdf/10.1007/978-3-642-41995-9_8.pdf)
+[^5]: siehe [Prof. Dr. Wolfgang Ludwig-Mayerhofer, Uni Siegen, Punkt- und Intervallschätzungen ](https://www.uni-siegen.de/phil/sozialwissenschaften/soziologie/mitarbeiter/ludwig-mayerhofer/statistik/statistik_downloads/statistik_ii_4.pdf){target="_blank"}, oder [Springer](https://link.springer.com/content/pdf/10.1007/978-3-642-41995-9_8.pdf){target="_blank"}
 
 # Codebook CPS85 {-}
 
-Das nachfolgende [Codebook](#codebooks-in-r) stellt einen Auszug der Daten von NHANES dar.
+Das nachfolgende [Codebook](#codebooks-in-r) zeigt die Datenstruktur des Datensatzes *CPS85*.
 
 ===========================================================================
 
@@ -388,13 +448,20 @@ Das nachfolgende [Codebook](#codebooks-in-r) stellt einen Auszug der Daten von N
 
 ```r
   IncomeNew     <- CPS85$wage
+  set.seed(21430)
   ID            <- sample(1:534, 50)
   IncomeNew[ID] <- IncomeNew[ID] + 180
+
+  # Kennwerte berechnen
+  MW_A1         <- mean(IncomeNew)
+  SD_A1         <- sd(IncomeNew)
+  MD_A1         <- median(IncomeNew)
+  RA_A1         <- range(IncomeNew)
+  MW_A1_Trimmed <- mean(IncomeNew, trim = .1)
   
-  hist(IncomeNew)
-  # DT::datatable(data.frame(stat.desc(IncomeNew)))
-  mean(IncomeNew, trim = .0, na.rm = TRUE)
-  mean(IncomeNew, trim = .1, na.rm = TRUE)
+  # Daten anzeigen
+  # p5 <- hist(IncomeNew)
+  # p6 <- boxplot(IncomeNew)
 ```
 
 [zurück zur Aufgabenstellung](#aufgabenstellung-1)

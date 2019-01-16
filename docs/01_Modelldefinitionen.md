@@ -1,12 +1,12 @@
 
 
-# (PART\*) Teil I: Allgemeiner Überblick {-}
+# (PART\*) Teil I: Begrifflichkeiten {-}
 
 # Statistisches Modell {-}
 
-Unter statistischer Modellbildung versteht man den Prozess, ein passendes Modell für die Daten einer Beobachtungsreihe zu finden.
+Ein [statistisches Modell](https://de.wikipedia.org/wiki/Statistisches_Modell){target="_blank"}, manchmal auch statistischer Raum genannt, ist ein Begriff aus der mathematischen Statistik, dem Teilbereich der Statistik, der sich der Methoden der Stochastik und Wahrscheinlichkeitstheorie bedient. Unter *statistischer Modellbildung* versteht man dabei den Prozess, ein passendes Modell für die Daten einer Beobachtungsreihe zu finden.
 
-* Als *Prozess* wird die strukturierte und gesteuerte Reihe von Arbeitsschritten bezeichnet, konzipiert, um eine bestimmtes Ergebnis hervorzubringen.
+* Als *Prozess* wird die strukturierte und gesteuerte Reihe von Arbeitsschritten bezeichnet, welche ein bestimmtes Ergebnis hervorbringen.
 * *Daten* sind Werte und Beobachtungen, die im Lauf einer (statistischen) Erhebung gesammelt werden.
 * Eine *Erhebung* ist die Sammlung von Daten einer bestimmten Grundgesamtheit zum Zweck der Untersuchung eines speziellen Aspektes. Die Daten werden oft nur von einer Stichprobe der Grundgesamtheit erhoben. Erhebungen sind in der Forschung weit verbreitet.
 * Eine *Stichprobe* ist die Teilmenge einer Grundgesamtheit bei einer statistischen Untersuchung, zusammengestellt, um ausgewählte Eigenschaften der Gesamtpopulation zu untersuchen.
@@ -21,7 +21,7 @@ Die Modellbildung abstrahiert mit dem Erstellen eines Modells von der Realität,
 
 * **Mischformen**: Bei Mischformen sind Teile des Systems bekannt, andere wiederum nicht. Nicht alle Wechselwirkungen und Interaktionen zwischen Teilkomponenten lassen sich nachvollziehen - hier spricht man vom **Greybox-Modell**. Diese Mischform ist die häufigste, weil es aufgrund von Kosten-Nutzen-Überlegungen meist ausreichend ist, das System auf diese Weise abzubilden.
 
-## Kennzeichen eines statistischen Modelles {-}
+## Kennzeichen eines Modelles {-}
 
 Ein Modell ist im Wesentlichen durch drei Merkmale gekennzeichnet:
 
@@ -33,14 +33,12 @@ Ein Modell ist im Wesentlichen durch drei Merkmale gekennzeichnet:
       * innerhalb bestimmter Zeitintervalle (wann?)
       * unter Einschränkung auf bestimmte gedankliche oder tatsächliche Operationen (wozu?).
 
-Statistische Modelle sind somit:
+Im übertragenen Sinn ist damit ein statistisches Modell:
 
-* eine vereinfachte mathematisch-formalisierte Methode, sich der Realität anzunähern.
-* Beschreiben den Zustand eines Systems vor und nach Änderungen äußerer Relationen, nicht jedoch während einer Änderung. 
-* Das Ziel ist es herauszufinden, ob man in der Natur auftretende Phänomene auf allgemein gültige Gesetzmäßigkeiten zurückführen kann.
-* In der Regel werden Beobachtungen durchgeführt und diese als Daten aufgezeichnet.
-* In diesen Daten gilt es Muster zu finden, die Rückschlüsse auf die Mechanismen zulassen, welche dem Phänomen zugrunde liegen.
-* Auf diese Weise wird ein Modell von der Funktionsweise eines Phänomens erstellt.
+* Eine vereinfachte mathematisch-formalisierte Methode, sich der Realität anzunähern.
+* Die Beschreiben des Zustandes eines Systems vor und nach Änderungen äußerer Relationen, nicht jedoch während einer Änderung. 
+
+Das Ziel ist es herauszufinden, ob man in der Natur auftretende Phänomene auf allgemein gültige Gesetzmäßigkeiten zurückführen kann. In der Regel werden Beobachtungen durchgeführt und diese als Daten aufgezeichnet. In diesen Daten gilt es Muster zu finden, die Rückschlüsse auf die Mechanismen zulassen, welche dem Phänomen zugrunde liegen. Auf diese Weise wird ein Modell von der Funktionsweise eines Phänomens erstellt.
 
 Statistische Modelle finden Verwendung für:
 
@@ -48,14 +46,13 @@ Statistische Modelle finden Verwendung für:
 * Erklärung
 * Vorhersage
 
-Damit kommt kaum ein Anwendungsbereich ohne statistische Modellbildung aus. Auszugsweise ein paar Anwendungsbereiche für die statistische Modellbildung:
+Statistische Modelle sind in fast allen Anwendungsbereichen der Wissenschaft, aber auch des praktischen Lebens zu finden, wie z.B.:
 
-* Alle wissenschaftlichen Forschungsgebiete
-* Wettervorhersagen
-* Finanzmärkte
-* Industrie und Gewerbe
-* Wahlprognosen, Meinungsumfragen
-* Informationstechnologie
+* Bei Wettervorhersagen.
+* In der Finanzmarktanalyse.
+* In der Industrie und Gewerbe.
+* Bei Wahlprognosen, Meinungsumfragen.
+* In der Informationstechnologie.
 * etc.
 
 ### Zyklus der Modellbildung {-}
@@ -64,7 +61,7 @@ Das Bilden von statistischen Modellen ist ein iterativer Vorgang, welcher durcha
 
 <center>
 
-![**Abbildung 1**: Zyklus der Modellbildung](Images/ZyklusModellbildung.PNG){ width=50% }
+![**Abbildung 1**: Zyklus der Modellbildung](Images/ZyklusModellbildung.PNG){ width=40% }
 
 </center>
 
@@ -78,26 +75,26 @@ Grundlage ist eine entsprechende Fragestellung, die auf theoretischen Grundlagen
 Charakteristiken von guten Fragen sind:
 
 * **Interessant für andere**: wie z.B. für Mitarbeiter, wissenschaftliche Gemeinschaft, Geldgeber, Allgemeinheit?
-* **Noch nicht beantwortet**: wurde die Fragestellung bereits bearbeitet/beantwortet? Literaturrecherche, Kongressbeiträge, etc.
+* **Noch nicht beantwortet**: wurde die Fragestellung bereits bearbeitet/beantwortet? Das erfordert eine intensive Auseinandersetzung mit dem Thema (Literaturrecherche, Kongressbeiträge, etc.).
 * **Sinnvoll**: kann durch die Beantwortung eine Erklärung gefunden werden, wie etwas funktioniert?
-Beantwortbarkeit: kann die Fragestellung überhaupt beantwortet werden?
+* **Beantwortbarkeit**: kann die Fragestellung überhaupt beantwortet werden?
 * **Spezifisch**: wie präzise ist die Fragestellung? Gesundes Essen führt zu besserer Gesundheit ist weniger präzise wie z.B. 5 Mal am Tag Früchte und Gemüse führt zu einer geringeren Wahrscheinlichkeit an Atemwegserkrankungen zu erkranken.
 
 Bei den Qualitätskriterien für Daten ist folgendes zu beachten:
 
-* **Korrektheit**: müssen mit der Realität übereinstimmen.
-* **Konsistenz**: dürfen in sich und zu anderen Datensätzen keine Widersprüche aufweisen.
-* **Zuverlässigkeit**: Entstehung der Daten muss nachvollziehbar sein.
-* **Vollständigkeit**: muss alle notwendigen Attribute enthalten.
-* **Genauigkeit**: müssen in der jeweils geforderten Exaktheit vorliegen (Beispiel: Nachkommastellen).
-* **Aktualität**: müssen jeweils dem aktuellen Zustand der abgebildeten Realität entsprechen.
-* **Relevanz**: Der Informationsgehalt muss den jeweiligen Informationsbedarf erfüllen.
-* **Einheitlichkeit**: Die Informationen müssen einheitlich strukturiert sein.
-* **Eindeutigkeit**: muss eindeutig interpretierbar sein. 
-* **Verständlichkeit**: müssen in ihrer Begrifflichkeit und Struktur mit den Vorstellungen der Fachbereiche übereinstimmen.
+* **Korrektheit** $\rightarrow$ müssen mit der Realität übereinstimmen.
+* **Konsistenz** $\rightarrow$ dürfen in sich und zu anderen Datensätzen keine Widersprüche aufweisen.
+* **Zuverlässigkeit** $\rightarrow$ Entstehung der Daten muss nachvollziehbar sein.
+* **Vollständigkeit** $\rightarrow$ muss alle notwendigen Attribute enthalten.
+* **Genauigkeit** $\rightarrow$ müssen in der jeweils geforderten Exaktheit vorliegen (Beispiel: Nachkommastellen).
+* **Aktualität** $\rightarrow$ müssen jeweils dem aktuellen Zustand der abgebildeten Realität entsprechen.
+* **Relevanz** $\rightarrow$ Der Informationsgehalt muss den jeweiligen Informationsbedarf erfüllen.
+* **Einheitlichkeit** $\rightarrow$ Die Informationen müssen einheitlich strukturiert sein.
+* **Eindeutigkeit** $\rightarrow$ muss eindeutig interpretierbar sein. 
+* **Verständlichkeit** $\rightarrow$ müssen in ihrer Begrifflichkeit und Struktur mit den Vorstellungen der Fachbereiche übereinstimmen.
 * **Redundanzfreiheit**: Innerhalb der Datensätze sollen/dürfen keine Dubletten vorkommen.
 
-Aus der Testtheorie sind in auch die Gütekriterien (Testgütekriterien) der empirischen Forschung für die statistische Modellbildung anzuwenden. Diese sind:
+Aus der Testtheorie sind in auch die Gütekriterien (*Testgütekriterien*) der empirischen Forschung für die statistische Modellbildung anzuwenden. Diese sind:
 
 * **Reliabilität**: Indikator für die Replizierbarkeit der Ergebnisse. Fragen müssen z.B. so eindeutig formuliert sein, dass sie nicht höchst unterschiedlich verstanden werden können.
 * **Validität**: wenn die gewählten Indikatoren, Fragen und Antwortmöglichkeiten wirklich und präzise das messen, was gemessen werden soll. 
@@ -149,7 +146,7 @@ Die Ziele der EDA sind:
 * Annahmen (Hypothesen) über die Ursache und den Grund der beobachteten Daten zu bilden.
 * Annahmen einzuschätzen, worauf statistische Inferenz basieren kann.
 * Die Auswahl von passenden statistischen Werkzeugen und Techniken zu unterstützen.
-* Eine Basis für die weitere Daten-Sammlung durch Umfragen oder Design von Experimenten bereitzustellen.
+* Eine Basis für die weitere Datensammlung durch Umfragen oder Design von Experimenten bereitzustellen.
 
 Speziell in Bezug auf die erforderliche Stichprobengröße sollte vor Begin der Datenerhebung die mindest notwendigen Fallzahlen (optimaler Stichprobenumfang) bestimmt werden, der für den Nachweise praktisch bedeutsamer Effekte notwendig ist. Sowohl in R als auch in diversen Anwednungen gibt es die Möglichkeit, diese optimale Stichprobengröße a priori zu bestimmen. 
 

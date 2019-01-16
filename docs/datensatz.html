@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Einleitung | Statistische Modellbildung</title>
+  <title>Datensatz | Statistische Modellbildung</title>
   <meta name="description" content="Einführung in die statistische Modellbildung">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Einleitung | Statistische Modellbildung />
+  <meta property="og:title" content="Datensatz | Statistische Modellbildung />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="Images/Cover.PNG" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="wgruber/Modellbildung" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Einleitung | Statistische Modellbildung />
+  <meta name="twitter:title" content="Datensatz | Statistische Modellbildung />
   
   <meta name="twitter:description" content="Einführung in die statistische Modellbildung" />
   <meta name="twitter:image" content="Images/Cover.PNG" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="allgemeine-definition-des-begriffs-modell.html">
+<link rel="prev" href="statistisches-modell.html">
+<link rel="next" href="deskriptive-statistik-1.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -190,38 +190,79 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="einleitung" class="section level1 unnumbered">
-<h1>Einleitung</h1>
-<p>Donald Knuth, einer der Pioniere und bedeutensten Persönlichkeiten in der Entwicklung von Programmiersprachen, vertrat in seinem Buch Compter <em>Programming as an art</em> <span class="citation">(Knuth <a href="#ref-Knuth">2008</a>)</span> die Auffassung, dass rein wissenschaftliches Arbeiten durch einen Computer erlernt werden kann (<em>Science is knowledge which we understand so well that we can teach it to a computer</em>). Alle andere Formen der Datenanalyse bezeichnete er als Kunst.</p>
-<p>Neben statistischen Methoden, maschinellem Lernen, diversen Softwarepaketen und verschiedensten Werkzeugen stehen heutzutage auch entsprechend leistungsfähige Computer zur Verfügung, um Unmengen von Daten aufzuzeichnen und zu verarbeiten. Die <em>Kunst</em>, Wirklichkeit in bestmöglicher Form durch ein Modell abzubilden, besteht demnach darin, die:</p>
-<ul>
-<li>richtigen Fragen zu stellen.</li>
-<li>Daten zu sammeln, mit welchen diese Fragen beantwortet werden können.</li>
-<li>entsprechenden Methoden und Werkzeuge anzuwenden.</li>
-<li>Ergebnisse richtig zu interpretieren.</li>
-<li>Ergebnisse zu vermitteln.</li>
-</ul>
-<p>In den meisten Fällen ist es nicht möglich, die Wirklichkeit absolut getreu durch Daten abzubilden. Seit Urzeiten verwendet daher der Mensch Modelle, um zumindest mit einer Annäherung diese möglichst genau darzustellen und daraus Rückschlüsse für sonst nicht (oder nur schwer) zu erklärende Phänome zu ziehen. In einem Artilel beschreibt G. Box <span class="citation">(Box <a href="#ref-Box">1979</a>)</span> sehr treffend die Eigenschaften von Modellen:</p>
-<blockquote>
-<p>Now it would be very remarkable if any system existing in the real world could be exactly represented by any simple model. However, cunningly chosen parsimonious models often do provide remarkably useful approximations. For example, the law <span class="math inline">\(P \cdot V = R \cdot T\)</span> relating pressure P, volume V and temperature T of an “ideal” gas via a constant R is not exactly true for any real gas, but it frequently provides a useful approximation and furthermore its structure is informative since it springs from a physical view of the behavior of gas molecules. For such a model there is no need to ask the question “Is the model true?”. If “truth” is to be the “whole truth” the answer must be “No”. The only question of interest is “Is the model illuminating and useful?”. — G. Box</p>
-</blockquote>
+<div id="datensatz" class="section level1 unnumbered">
+<h1>Datensatz</h1>
+<p>Betrachten wir zunächst einen einfachen Datensatz aus dem Projekt MOSAIC Data Sets (Paket mosaicData, <strong>CPS85</strong>)<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</p>
+<p>Diese Datei beinhaltet <em>N =</em> <code>534</code> Beobachtungen und <em>k =</em> <code>11</code> Variablen, deren Namen in folgender Tabelle nochmals separat angeführt sind:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">LNr</th>
+<th align="left">Variablenname</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">wage</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">educ</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">race</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">sex</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">hispanic</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">south</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">married</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">exper</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">union</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">age</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="left">sector</td>
+</tr>
+</tbody>
+</table>
+<p>Angenommen Sie müssten auf Basis der vorliegenden Daten für eine Person das durchschnittliche Einkommen (<em>wage</em>) schätzen, ohne dabei andere Variablen zu berücksichtigen. Welchen Wert würden Sie wählen?</p>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-Knuth">
-<p>Knuth, D. 2008. “Ein Modell Des Modellseins – Ein Beitrag Zur Aufklärung Des Modellbegriffs.” <em>Peter Lang Verlag</em>, 187–220.</p>
-</div>
-<div id="ref-Box">
-<p>Box, G.E.P. 1979. “Robustness in the Strategy of Scientific Model Building.” <em>Academic Press</em>.</p>
-</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p><a href="http://mosaic-web.org/">Project MOSAIC</a>, is a community of educators working to develop a new way to introduce mathematics, statistics, computation and modeling to students in colleges and universities.<a href="datensatz.html#fnref2">↩</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="allgemeine-definition-des-begriffs-modell.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistisches-modell.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="deskriptive-statistik-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

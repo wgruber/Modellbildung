@@ -6,29 +6,29 @@
 
 # Korrelationen {-}
 
-Korrelation ist ein Maß für den statistischen Zusammenhang zwischen zwei Datensätzen. Unabhängige Variablen sind daher stets unkorreliert. Korrelation impliziert daher auch stochastische Abhängigkeit. Durch Korrelation wird die lineare Abhängigkeit zwischen zwei Variablen quantifiziert.
+Korrelation ist ein Maß für den statistischen Zusammenhang zwischen zwei Datensätzen. Unabhängige Variablen sind daher stets unkorreliert. Korrelation impliziert daher auch stochastische Abhängigkeit. Bei der Berechnung einer Korrelation wird die lineare Abhängigkeit zwischen zwei Variablen quantifiziert.
 
-Auch wenn Korrelation eine *deskriptive Statistik* ist, wird sie durch eine Reihe von Verfahren, wie z.B. partielle Korrelation, multiple Korrelation oder Faktorenanalyse, verfeinert. Es ist ein absolut unverzichtbares Werkzeug für viele Forschungsgebiete.
+Korrelationen werden i.A. der *deskriptiven Statistik* zugeordnet. Durch eine Reihe von Verfahren, wie z.B. partielle Korrelation, multiple Korrelation oder Faktorenanalyse, kann die einfache Korrelation zweier Variablen auf Beziehungen zwischen zwei Variablen unter Berücksichtigung des Einflusses weiterer Variablen werden. Korrelationen sind ein unverzichtbares Werkzeug für viele Forschungsgebiete.
 
 ## Kausalität {-}
 
-Eine relevante (statistisch signifikante) Korrelation liefert keinen Beleg für Kausalität. Vor allem in der Medizin und Psychologie suchen Forscher nach Kriterien für Kausalität. Es existieren mehrere Ansätze, nachfolgend seien hier die neun Kriterien von Hill (1965) angeführt:
+Eine relevante (statistisch signifikante) Korrelation liefert keinen Beleg für die Kausalität. Vor allem in der Medizin und Psychologie suchen Forscher nach Kriterien für Kausalität. Es existieren mehrere Ansätze zur Erklärung der Ursächlichkeit einer Korrelation (siehe z.B. die 9  [Bradford-Hill-Kriterien](https://de.wikipedia.org/wiki/%C3%84tiologie_(Medizin)){target="_blank"}).
 
-1. *Stärke der Assoziation (Effektstärke)*: Eine geringe Effektsstärke bedeutet nicht, dass keine Beziehung zwischen den Variablen existiert, aber bei einer größeren Effektstärke ist eine kausale Beziehung wahrscheinlicher.
-2. *Konsistenz (Reproduzierbarkeit)*: Übereinstimmende Befunde, festgestellt durch verschiedene Personen an verschiedenen Orten mit verschiedenen Stichproben, verstärkt die Wahrscheinlichkeit eines Effekts.
-3. *Spezifität*: Kausalität ist wahrscheinlich, wenn es keine andere bessere Erklärung für das Auftreten des Ereignisses gibt. Je spezifischer die Beziehung zwischen einem Faktor und einem Effekt ist, desto höher die Wahrscheinlichkeit eines kausalen Zusammenhangs.
-4. *Zeitbedingtheit*: Die Ursache muss der Wirkung vorausgehen (wenn erwartet wird, dass es eine Verzögerung nach der Ursache und dem erwarteten Effekt gibt, dann muss der Effekt nach der Verzögerung eintreten).
-5. *Dosis-Wirkungs-Beziehung*: Größere Exposition sollte gewöhnlich auch zu einer größeren Auftretenshäufigkeit des Effekts führen. In einigen Fällen jedoch kann bereits die bloße Anwesenheit eines Faktors einen Effekt auslösen. In anderen Fällen wird der umgekehrte Fall beobachtet: die Anwesenheit eines Faktors reduziert die Auftretenshäufigkeit.
-6. *(Biologische) Plausibilität*: Ein plausibler Mechanismus zwischen Ursache und Wirkung ist hilfreich (allerdings fügte Hill auch hinzu, dass das Verständnis von Ursache und Wirkung durch unseren aktuellen Wissensstand begrenzt sein kann).
-7. *Koheränz*: Die Stimmigkeit zwischen epidemiologischen- und Laborbefunden erhöht die Wahrscheinlichkeit eines Effekts. Hill fügte allerdings hinzu, dass das Fehlen eines Laborbefundes nicht einen epidemiologischen Effekt auf die Beziehung ungültig machen kann.
-8. *Experiment*: Es ist wahrscheinlicher, dass eine Beziehung kausal ist, wenn sie experimentell verifiziert werden kann.
-9. *Analogie*: Der Effekt ähnlicher Faktoren darf berücksichtigt werden.
+<!-- 1. *Stärke der Assoziation (Effektstärke)*: Eine geringe Effektsstärke bedeutet nicht, dass keine Beziehung zwischen den Variablen existiert, aber bei einer größeren Effektstärke ist eine kausale Beziehung wahrscheinlicher. -->
+<!-- 2. *Konsistenz (Reproduzierbarkeit)*: Übereinstimmende Befunde, festgestellt durch verschiedene Personen an verschiedenen Orten mit verschiedenen Stichproben, verstärkt die Wahrscheinlichkeit eines Effekts. -->
+<!-- 3. *Spezifität*: Kausalität ist wahrscheinlich, wenn es keine andere, bessere Erklärung für das Auftreten des Ereignisses gibt. Je spezifischer die Beziehung zwischen einem Faktor und einem Effekt ist, desto höher die Wahrscheinlichkeit eines kausalen Zusammenhangs. -->
+<!-- 4. *Zeitbedingtheit*: Die Ursache muss der Wirkung vorausgehen (wenn erwartet wird, dass es eine Verzögerung nach der Ursache und dem erwarteten Effekt gibt, dann muss der Effekt nach der Verzögerung eintreten). -->
+<!-- 5. *Dosis-Wirkungs-Beziehung*: Größere Exposition sollte gewöhnlich auch zu einer größeren Auftretenshäufigkeit des Effekts führen. In einigen Fällen jedoch kann bereits die bloße Anwesenheit eines Faktors einen Effekt auslösen. In anderen Fällen wird der umgekehrte Fall beobachtet: die Anwesenheit eines Faktors reduziert die Auftretenshäufigkeit. -->
+<!-- 6. *(Biologische) Plausibilität*: Ein plausibler Mechanismus zwischen Ursache und Wirkung ist hilfreich (allerdings fügte Hill auch hinzu, dass das Verständnis von Ursache und Wirkung durch unseren aktuellen Wissensstand begrenzt sein kann). -->
+<!-- 7. *Koheränz*: Die Stimmigkeit zwischen epidemiologischen- und Laborbefunden erhöht die Wahrscheinlichkeit eines Effekts. Hill fügte allerdings hinzu, dass das Fehlen eines Laborbefundes nicht einen epidemiologischen Effekt auf die Beziehung ungültig machen kann. -->
+<!-- 8. *Experiment*: Es ist wahrscheinlicher, dass eine Beziehung kausal ist, wenn sie experimentell verifiziert werden kann. -->
+<!-- 9. *Analogie*: Der Effekt ähnlicher Faktoren darf berücksichtigt werden. -->
 
 ## Linearität {-}
 
 Ein Korrelationskoeffizient zeigt die Stärke eines *linearen Zusammenhangs* zwischen zwei Variablen. Aber der Wert von $r$ charakterisiert nicht die genaue Art des Zusammenhangs oder das Aussehen des Punktdiagramms beider Variablen[^6].
 
-[^6]: [Abbildungen aus Matheguru](https://matheguru.com/stochastik/korrelation-korrelationskoeffizient.html)
+[^6]: [Abbildungen aus Matheguru](https://matheguru.com/stochastik/korrelation-korrelationskoeffizient.html){target="_blank"}
 
 <center>
 
@@ -38,7 +38,7 @@ Ein Korrelationskoeffizient zeigt die Stärke eines *linearen Zusammenhangs* zwi
 
 ## Korrelationskoeffizienten {-}
 
-Neben dem Pearson-Produkt-Moment-Korrelationskoeffizienten $r$ existieren noch etliche weitere Korrelationskoeffizienten und Zusammenhangsmaße. Die meisten hiervon sind Sonderfälle der Pearson-Produkt-Moment-Korrelation. Die Tabelle (unten) zeigt, wann welcher Koeffizient berechnet werden soll, abhängig von dem Skalenniveau der beteiligten Variablen.
+Neben dem Pearson-Produkt-Moment-Korrelationskoeffizienten $r$ existieren noch etliche weitere Korrelationskoeffizienten und Zusammenhangsmaße. Die meisten hiervon sind Sonderfälle der Pearson-Produkt-Moment-Korrelation. Nachfolgende Tabelle zeigt, wann welcher Koeffizient berechnet werden soll. Die Verwendung unterschiedlicher Korrelationsberechnungen ist i.A. abhängig vom Skalenniveau der beteiligten Variablen.
 
 <center>
 
@@ -46,9 +46,9 @@ Neben dem Pearson-Produkt-Moment-Korrelationskoeffizienten $r$ existieren noch e
 
 </center>
 
-Weiter Infos zu den einzelnen Korrelationskoeffizienten sind der Literatur zu entnehmen. Eine übersichtliche Darstellung findet man auch unter folgendem [Link](https://matheguru.com/stochastik/korrelation-korrelationskoeffizient.html).
+Weiter Infos zu den einzelnen Korrelationskoeffizienten sind der Literatur zu entnehmen. Eine übersichtliche Darstellung findet man auch auf der Website von [MatheGuru](https://matheguru.com/stochastik/korrelation-korrelationskoeffizient.html){target="_blank"}.
 
-## Modell {-}
+## Herleitung {-}
 
 Bereits bei der deskriptiven Statistik haben wir mit dem Maß der Varianz ($s^2$) einen Kennwert definiert, der die Schwankungen bezüglich des entsprechenden Mittelwertes beschreibt. Per Definition ist die Varianz die durchschnittliche Summe der quadrierten Abweichungen zum Mittelwert, also:
 
@@ -86,11 +86,43 @@ Anhand des bereits verwendeten Datensatzes (*CPS85*) wollen wir die Beziehung de
 
 # Einfache Regression {-}
 
-Die Regression basiert auf der Korrelation und ermöglicht die bestmögliche Vorhersage für eine Variable. Im Gegensatz zur Korrelation muss hierbei festgelegt werden, welche Variable durch eine andere Variable vorhergesagt werden soll. Die Variable die vorhergesagt werden soll nennt man bei der Regression *Kriterium* ($y_i$). Die Variable die für die Vorhersage eingesetzt wird bezeichnet man als *Prädiktor* ($x_1i$)[^7]. Anhand des Prädiktors wird demzufolge das Kriterium vorhergesagt.
+Will man bei der Korrelationsanalyse den Zusammenhang von Variablen beschreiben, versucht man in der Regressionsanalyse eine Variable mittels einer linearen Funktion durch eine (oder mehrere) andere Variablen zur *erklären*. Nichts desto trotz sind Korrelation und Regression sehr eng miteinander verknüpft.
 
-[^7]: wobei die 1 für den ersten (einzigen) Prädiktor und $i$ als Index für die $i$-te Beobachtung steht.
+Der Begriff Regression tauchte erstmalig 1877 in einer von Sir Francis Galton abgefassten wissenschaftlichen Studie auf. In einer späteren Studie über die Körpergröße von Vätern und deren Söhnen wendete er den Gedanken der Regressionsanalyse erneut an. 
 
-## Definition {-}
+Er fand heraus, dass Söhne sehr großer (kleiner) Väter zwar groß (klein), aber etwas kleiner (größer) sind als diese. Die Körpergröße entwickelt sich somit immer wieder in Richtung des Durchschnitts zurück. Als Engländer bezeichnete Galton diesen Prozess als *Regression*[^7].
+
+[^7]: was mit *Rückschritt*, *Rückkehr* oder *rückläufige Entwicklung* übersetzt werden kann (siehe [Deskriptive Statistik und moderne Datenanalyse](https://link.springer.com/chapter/10.1007/978-3-8349-7071-8_5)).
+
+Zwischen der Körpergröße der Söhne und der Väter besteht somit ein Zusammenhang, dessen Stärke mit Hilfe der Korrelation ausgedrückt werden könnte. Im Unterschied zur Korrelationsanalyse unterstellt man bei der Regressionsanalyse jedoch sehr oft auch die kausale Richtung des Zusammenhangs: 
+
+>Die Körpergröße der Söhne ist abhängig von der Körpergröße des Vaters und nicht umgekehrt.
+
+Entsprechend bezeichnete Galton:
+
+* die Größe der Söhne als *abhängige Variable* (*dependent variable*, **DV**) und 
+* die Größe der Väter als *unabhängige Variable* (*independent variable*, **IV**).
+
+Häufig werden die Variable die vorhergesagt werden soll bei der Regression *Kriterium* ($y_i$)und die Variable(n) die für die Vorhersage eingesetzt wird/werden *Prädiktor(n)* ($x_{1i}$)[^9] genannt. Anhand des Prädiktors wird demzufolge das Kriterium vorhergesagt.
+
+[^9]: wobei die 1 für den ersten (einzigen) Prädiktor und $i$ als Index für die $i$-te Beobachtung steht.
+
+Der Schluss, dass die Regression die Kausalität von Zusammenhängen *beweist*, ist damit allerdings nicht (immer) erlaubt. Die Kausalität (Wirkungsrichtung) muss zuvor theoretisch abgeleitet werden, bevor sie empirisch (mit Hilfe der Regression) bewiesen werden kann. So ist die Richtung der Kausalität bei Fragen wie:
+
+* ist es das Alter des Bräutigams, welches das Alter der Braut bestimmt, oder umgekehrt?
+* beeinflusst sich das Alter der verheirateten Paare gar gegenseitig? 
+
+nicht zu bestimmen. Manchmal ist die Kausalität jedoch sehr offensichtlich: 
+
+* der Blutdruck hat keinen Einfluss auf das Alter, sondern das Alter hat einen Einfluss auf den Blutdruck. 
+* die Körpergröße hat einen Einfluss auf das Körpergewicht, aber umgekehrt lässt sich dieser Zusammenhang wohl theoretisch kaum herleiten.
+* mit Zunahme des $CO_2$ Gehaltes in der Atmosphäre steigt die durchschnittliche Temperatur, eine umgekehrte Wirkungsrichtung ist aber auszuschließen (da hätten wir in südlichen Ländern ein kleines Problem!).
+
+Die Regression ermöglicht jedenfalls unter bestimmten Umständen[^8] gute, bzw. bestmögliche Vorhersage für eine Variable. Folgernd aus dem eben gesagten, sollte nochmals klargestellt werden, dass im Gegensatz zur Korrelation festgelegt werden muss, welche Variable durch eine andere Variable vorhergesagt werden soll. 
+
+[^8]: intervallskaliertes Kriterium, linearer Zusammenhang zw. Kriterium und Prädiktor(en), Zufallsstichprobe, Normalverteilung der Fehler, Homoskedastizität, Unabhängigkeit der Fehler. Details dazu später.
+
+## Definitionen {-}
 
 Die formale Definition eines einfachen linearen Modells ist:
 
@@ -101,8 +133,8 @@ Die formale Definition eines einfachen linearen Modells ist:
 
 Die wesentlichen Parameter dieses einfachen Modells sind:
 
-1. Intercept $b_0$: jener Wert den $y_i$ einnimmt, wenn $x_{1i} = 0$ ist.
-2. Steigung $b_1$: die Zunahme von $y_i$, wenn $x_{1i}$ sich um eine Einheit erhöht.
+1. Konstanter Term (intercept) $b_0$: jener Wert den $y_i$ einnimmt, wenn $x_{1i} = 0$ ist.
+2. Steigung (slope) $b_1$: die Zunahme von $y_i$, wenn $x_{1i}$ sich um eine Einheit erhöht.
 
 Des Weiteren berücksichtigt dieses Modell auch einen Fehler ($\varepsilon_i$). Damit kommt auch ein ganz zentraler Teil bei der Modellbildung zum Ausdruck. Die meisten Modelle definieren sich also aus:
 
@@ -116,7 +148,7 @@ Daraus lässt sich auch folgende Erkenntnis bezüglich des Modells direkt ableit
 1. Je kleiner die Summe der Fehler sind, desto besser ist das Modell.
 2. Je genauer das Modell, desto kleiner wird auch der Fehler sein.
 
-Mit dieser Erkenntnis wird auch klar, dass i.A. ein ganz einfaches Modell (mit einem einzigen Prädiktor) nur zu einer bedingten Reduktion des Fehlers geeignet ist. Wir werden uns im weiteren Verlauf mit erweiterten Modellen beschäftigen, wollen aber zunächst die Eigenschaften des einfachen linearen Modells näher betrachten. Im folgenden Link findet man eine gute [Veranschaulichung des einfachen linearen Modells](https://phet.colorado.edu/sims/html/least-squares-regression/latest/least-squares-regression_en.html).
+Mit dieser Erkenntnis wird auch klar, dass i.A. ein ganz einfaches Modell (mit einem einzigen Prädiktor) nur zu einer bedingten Reduktion des Fehlers geeignet ist. Wir werden uns im weiteren Verlauf mit erweiterten Modellen beschäftigen, wollen aber zunächst die Eigenschaften des einfachen linearen Modells näher betrachten. Im folgenden Link findet man eine gute [Veranschaulichung des einfachen linearen Modells](https://phet.colorado.edu/sims/html/least-squares-regression/latest/least-squares-regression_en.html){target="_blank"}.
 
 Betrachtet man das Modell isoliert (also ohne Fehlerterm), ist folgende Schreibweise üblich:
 
@@ -132,7 +164,7 @@ Für die Berechnung der Koeffizienten wird das Kriterium der kleinste Quadrate (
 1. die Summe der quadratischen Abstände jeder Beobachtung zum entsprechenden Punkt auf der Geraden ist ein Minimum, also $\sum_{i=1}^{N} \varepsilon_i^2 = min$.
 2. es gibt keine andere Gerade die eine kleinere Summe dieser Fehler liefert.
 
-Die Berechnung der Parameter entspricht daher einer Extremwertaufgabe, d.h. die partiellen Ableitungen werden auf Null gesetzt. Daraus lassen sich dann die Parameter $b_0, b_1$ berechnent. Details dazu siehe [Wikipedia](https://de.wikipedia.org/wiki/Einfache_lineare_Regression).
+Die Berechnung der Parameter entspricht daher einer Extremwertaufgabe, d.h. die partiellen Ableitungen werden auf Null gesetzt. Daraus lassen sich dann die Parameter $b_0, b_1$ berechnent. Details dazu siehe [Wikipedia](https://de.wikipedia.org/wiki/Einfache_lineare_Regression){target="_blank"}.
 
 ## Modellanwendung {-}
 
@@ -184,26 +216,29 @@ Kopiere zur Veranschaulichung folgenden Code in dein R-Script und führe diesen 
 
 Table: Fitting linear model: wage ~ educ
 
-Die in der Tabelle angegebenen Werte der Spalte **Estimate** entsprechen dabei den Parametern $b_0, b_1$ des Modells. Eine weitere wesentliche Kennzahl für die Interpretation des Modells ist der Spalte $R^2$ zu entnehmen. Dieser Wert wird als *Determinationskoeffizient*[^8] bezeichnet. Umgerechnet in \% (im vorliegenden Beispiel also 14.43\%) besagt der Wert, wie viel der Variablität des Gehaltes durch den Prädiktor Ausbilung erklärt wird. Wir werden im weiteren Verlauf noch öfter auf diesen Kennwert zurückkommen.
+Die in der Tabelle angegebenen Werte der Spalte **Estimate** entsprechen dabei den Parametern $b_0, b_1$ des Modells. Eine weitere wesentliche Kennzahl für die Interpretation des Modells ist der Spalte $R^2$ zu entnehmen. Dieser Wert wird als *Determinationskoeffizient*[^10] bezeichnet. Umgerechnet in \% (im vorliegenden Beispiel also 14.43\%) besagt der Wert, wie viel der Variablität des Gehaltes durch den Prädiktor Ausbilung erklärt wird. Wir werden im weiteren Verlauf noch öfter auf diesen Kennwert zurückkommen.
 
-[^8]: häufig auch als Varianzaufklärung
+[^10]: häufig auch als Varianzaufklärung
 
 Welche Gehälter würden für Ausbildungszeiten zwischen 10 und 14 Jahren vorhergesagt werden? Kopiere folgenden Code in dein R-Script und führe diesen aus. Änder auch den Wertebereich der Prädiktoren und beobachte was dabei passiert!
 
 
-```r
-  new_input <- data.frame(educ = 10:14)
-  pander(predict(model_1, newdata = new_input), style = "rmarkdown")
-```
-
-
-------------------------------------
-   1       2      3      4      5   
-------- ------- ------ ------ ------
- 6.759   7.509   8.26   9.01   9.76 
-------------------------------------
 
 Im Vergleich zum Mittelwert-Modell zeigt sich mit steigender Ausbildung ein höheres Einkommen. Der Fehler bei der Vorhersage des Einkommens wird sich daher durch diese Modellvorstellung verringern (mehr zur Abschätzung der Fehlerreduktion später).
+
+### Aufgabe SLR 1 {-}
+
+Öffne ein neues R-Script und kopiere die bereits bekannte Kopfzeile in diese Datei. Speichere anschließend das Skript unter dem Namen *SLR_Aufgabe1.R*. Bearbeite nun folgende Aufgabenstellungen:
+
+* Lade die Datei "*Album Sales 1.dat*"
+* erstelle ein einfaches Streudiagramm mit Sales auf der x- und adverts auf der y-Achse.
+* erstelle ein einfaches lineares Modell zur Vorhersage der Verkaufszahlen (*sales*) durch die Variable *adverts*.
+* Wie stark korrelliert der Prädiktor mit dem Kriterium?
+* Wie viel Varianz wird vom Kriterium durch den Prädiktor aufgeklärt?
+* Ist das erstellte Modell signifikant besser, als dan Null-Modell?
+* Welchen Wert würde das Modell für Werbeausgaben = 100 vorhersagen?
+
+[Lösung Aufgabe SLR 1](#aufgabe-slr-1-lsg)
 
 ## Residualanalyse {-}
 
@@ -235,6 +270,8 @@ Ein zentrales Thema der Modellbildung ist die Beurteilung und (statistische) Aus
       * Standardisiertes DfFit: Änderung des vorhergesagten Werts, die sich durch den Ausschluss eines bestimmten Falls ergibt. Es empfiehlt sich, Fälle mit absoluten Werten $> 2/\sqrt{p/N}$ zu überprüfen, wobei $p$ die Anzahl der unabhängigen Variablen im Modell und $N$ die Anzahl der Fälle darstellt.
       * Kovarianzverhältnis: Verhältnis der Determinante der Kovarianzmatrix bei Ausschluss eines bestimmten Falls von der Berechnung der Regressionskoeffizienten zur Determinante der Kovarianzmatrix bei Einschluss aller Fälle. Wenn der Quotient dicht bei 1 liegt, beeinflusst der ausgeschlossene Fall die Kovarianzmatrix nur unwesentlich.
 
+Nachfolgender Code und Tabelle zeigen die Auswertung der Residualanalyse für das oben erstellte *model_1*:
+
 
 ```r
   CPS85_Res <- data.frame(Res     = round(resid(model_1), 2),
@@ -265,9 +302,9 @@ Ein zentrales Thema der Modellbildung ist die Beurteilung und (statistische) Aus
  -2.26   -0.48     -0.48    -0.03     1.01  
 --------------------------------------------
 
-Mit der Residualanalyse kann man auf relativ einfache Weise jene Werte ermitteln (und auch graphisch darstellen), die z.B. um mehr als eine Standardabweichung abweichen. Diese Werte könnte man nochmals genauer untersuchen und gegebenenfalls vor einer weiterführenden Analyse ausschließen[^9]. Keinesfalls sollte sie jedoch dazu verwendet werden, um einen erwünschten Effekt durch schrittweises löschen störender Daten zu erreichen! Kopiere folgenden Code in dein R-Script und führe diesen aus.
+Mit der Residualanalyse kann man auf relativ einfache Weise jene Werte ermitteln (und auch graphisch darstellen), die z.B. um mehr als eine Standardabweichung abweichen. Diese Werte könnte man nochmals genauer untersuchen und gegebenenfalls vor einer weiterführenden Analyse ausschließen[^11]. Keinesfalls sollte sie jedoch dazu verwendet werden, um einen erwünschten Effekt durch schrittweises löschen störender Daten zu erreichen! Kopiere folgenden Code in dein R-Script und führe diesen aus.
 
-[^9]: der Ausschluss von Werten ist nur dann erlaubt, wenn eine entsprechende Begründung (nachvollziehbarer Messfehler, falsche Datenübertragung, etc.) vorliegt!
+[^11]: der Ausschluss von Werten ist nur dann erlaubt, wenn eine entsprechende Begründung (nachvollziehbarer Messfehler, falsche Datenübertragung, etc.) vorliegt!
 
 
 ```r
@@ -466,8 +503,8 @@ Table: Analysis of Variance Table
 Zum Verständnis dieser Statistik greifen wir kurz zurück auf die verschiedenen Möglichkeiten der Berechnung von Korrelationskoeffizienten zurück. Diese sind:
 
 1. Pearson Korrelationskoeffizient ($r_{xy}$): entspricht der Kovarianz der $z$-transformierten Variablen.
-2. Partielle Korrealtionskoeffizient ($r_{xy⋅z}$): ist die bivariate Korrelation zweier Variablen, welche mittels linearer Regression vom Einfluss einer Drittvariablen bereinigt wurden.
-3.Semipartialkorrelation ($sr_{k⋅x_j}$): zwischen Kriterium und dem $j$-ten Prädiktor ergibt sich als Korrelation von $y$ mit dem Residuum $x_j^*$ der linearen Regression des $j$-ten Prädiktors auf den anderen Prädiktor. Mit anderen Worten, die Semipartialkorrelation gibt den alleinigen Beitrag eines Prädiktors $x_j$ (bereinigt um die gemeinsamen Anteile mit den restlichen Prädiktoren) am Kriterium an. Das Quadrat dieses Koeffizienten wird unter anderm auch als Nützlichkeit des Prädiktors $U_k$ bezeichnet und findet sich z.B. in SPSS als $R^2_{change}$ wieder. Formal: $sr_{k \cdot 12 \cdots (k-1)}^2 = R_{y, 12 \cdots k}^2 - R_{y, 12 \cdots k-1}^2$
+2. Partielle Korrealtionskoeffizient ($r_{xy \cdot z}$): ist die bivariate Korrelation zweier Variablen, welche mittels linearer Regression vom Einfluss einer Drittvariablen bereinigt wurden.
+3.Semipartialkorrelation ($sr_{k \cdot x_j}$): zwischen Kriterium und dem $j$-ten Prädiktor ergibt sich als Korrelation von $y$ mit dem Residuum $x_j^*$ der linearen Regression des $j$-ten Prädiktors auf den anderen Prädiktor. Mit anderen Worten, die Semipartialkorrelation gibt den alleinigen Beitrag eines Prädiktors $x_j$ (bereinigt um die gemeinsamen Anteile mit den restlichen Prädiktoren) am Kriterium an. Das Quadrat dieses Koeffizienten wird unter anderm auch als Nützlichkeit des Prädiktors $U_k$ bezeichnet und findet sich z.B. in SPSS als $R^2_{change}$ wieder. Formal: $sr_{k \cdot 12 \cdots (k-1)}^2 = R_{y, 12 \cdots k}^2 - R_{y, 12 \cdots k-1}^2$
 
 
 ```r
@@ -515,6 +552,26 @@ Table: Fitting linear model: wage ~ educ + exper
 Im vorliegenden Beispiel sind daher die beiden Nützlichkeitsmaße $U_{educ}$ = 0.146 und $U_{exper}$ = 0.056 von Interesse. Ersteres bedeutet, dass die Varianzaufklärung aufgrund der Verwendung der Variablen *educ* 14.6% ist. 
 Wird im Modell dann noch der Prädiktor *exper* aufgenommen, werden zusätzliche 5.6% an Varianz des Kriteriums wage erklärt. Insgesamt werden somit $R^2 = 0.202$ oder 20.2% der Varianz des Kriteriums erklärt.
 Der Test ($t(531) = 11.37, p< .001$) bestätigt für den Prädiktor *educ*, sowie ($t(531) = 6.11, p<.001$) für den Prädiktor *exper* die statistische Signifikanz.
+
+## Aufgabe MLR 1 {-}
+
+Öffne ein neues R-Script und kopiere die bereits bekannte Kopfzeile in diese Datei. Speichere anschließend das Skript unter dem Namen *SLR_Aufgabe2.R*. Bearbeite nun folgende Aufgabenstellungen:
+
+* Lade die Datei "*Album Sales 2.dat*"
+* erstelle ein lineares Modell zur Vorhersage der Verkaufszahlen (*sales*) durch die Variable *adverts*.
+* erstelle ein weiteres lineares Modell zur Vorhersage der Verkaufszahlen (*sales*) durch die Variable *adverts*, *airplay* und *attract*.
+* Zeige die Ergebnisse des ersten Modells an.
+* Zeige die Ergebnisse des zweiten Modells an.
+* Vergleiche die beiden Modelle mit einer ANOVA und interpretiere die Ergebnisse.
+* Berechne zur Überprüfung der Multikolinearität den Kennwert *Tol* und *VIF* (verwende die Funktion *vif()*. Hinweis: die Toleranz ist der Kehrwert von *VIF*)
+
+[Lösung Aufgabe MLR 1](#aufgabe-mlr-1-lsg)
+
+
+
+
+
+
 
 ## Wahl relevanter Prädiktoren {-}
 
@@ -617,3 +674,46 @@ Folgende Voraussetzungen müssen/sollten bei der linearen Modellierung mit mehre
 Eine Verletzung einer/mehrerer dieser Voraussetzungen führt meistens dazu, dass die Genauigkeit der Vorhersage gemindert wird. Relativ einfach zu prüfen sind die ersten drei Voraussetzungen (graphisch, Kennwerte wie Korrelation, etc.). Bei der Überprüfung der restlichen Voraussetzung muss man i.A. auf entsprechende statische Verfahren zurückgreifen, die hier aber nicht näher besprochen werden. Einen Überblick über die Möglichkeiten zur Überprüfung der Voraussetzungen finden Sie z.B. unter [@UZH], oder MR2 - [@Hemmerich].
 
 [zurück zur Kapitel](#wahl-relevanter-prädiktoren)
+
+
+# Lösungen {-}
+
+## Aufgabe SLR 1 Lsg {-}
+
+
+```r
+  album1       <- read.delim("Daten/Album Sales 1.dat", header = TRUE)
+  ggplot(album1, aes(x = adverts, y = sales)) +
+    geom_point() +
+    geom_smooth(method=lm, se=FALSE) +
+    theme_bw()
+  albumSales.1 <- lm(sales ~ adverts, data = album1)
+  pander(summary(albumSales.1))
+  
+# #---- Modell1_Pred_1
+#   
+#   new_input <- data.frame(educ = 10:14)
+#   pander(predict(model_1, newdata = new_input), style = "rmarkdown")
+```
+
+[zurück zur Aufgabenstellung](#aufgabe-slr-1)
+
+## Aufgabe MLR 1 Lsg {-}
+
+
+```r
+  album2       <- read.delim("Daten/Album Sales 2.dat", header = TRUE)
+  # Erstes Modell
+  albumSales.2 <- lm(sales ~ adverts, data = album2)
+  # zweites Modell
+  albumSales.3 <- lm(sales ~ adverts + airplay + attract, data = album2)
+  # Ausgabe Ergebnisse
+  pander(summary(albumSales.2))
+  pander(summary(albumSales.3))
+  # Modellvergleich
+  anova(albumSales.2, albumSales.3)
+  Tol <- 1/vif(albumSales.3)
+  VIF <- vif(albumSales.3)
+```
+
+[zurück zur Aufgabenstellung](#aufgabe-mlr-1)

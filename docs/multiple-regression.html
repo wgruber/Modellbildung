@@ -25,7 +25,7 @@
 <meta name="author" content="Walter Gruber">
 
 
-<meta name="date" content="2019-01-10">
+<meta name="date" content="2019-01-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="einfache-regression.html">
-<link rel="next" href="references.html">
+<link rel="next" href="losungen-1.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -103,10 +103,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorbemerkung</a></li>
 <li class="chapter" data-level="" data-path="einleitung.html"><a href="einleitung.html"><i class="fa fa-check"></i>Einleitung</a></li>
 <li><a href="allgemeine-definition-des-begriffs-modell.html#allgemeine-definition-des-begriffs-modell">Allgemeine Definition des Begriffs <em>Modell</em></a></li>
-<li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
+<li class="part"><span><b>Teil I: Begrifflichkeiten</b></span></li>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
-<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i>Kennzeichen eines statistischen Modelles</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-modelles"><i class="fa fa-check"></i>Kennzeichen eines Modelles</a><ul>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#zyklus-der-modellbildung"><i class="fa fa-check"></i>Zyklus der Modellbildung</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#grundlagen-der-statistischen-modellbildung"><i class="fa fa-check"></i>Grundlagen der statistischen Modellbildung</a><ul>
@@ -118,14 +118,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Teil II: Modelle mit einer Variablen</b></span></li>
-<li class="chapter" data-level="" data-path="datenbeschreibung.html"><a href="datenbeschreibung.html"><i class="fa fa-check"></i>Datenbeschreibung</a></li>
+<li class="chapter" data-level="" data-path="datensatz.html"><a href="datensatz.html"><i class="fa fa-check"></i>Datensatz</a></li>
 <li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html"><i class="fa fa-check"></i>Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a><ul>
 <li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#tabellen"><i class="fa fa-check"></i>Tabellen</a></li>
-<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
-<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html"><i class="fa fa-check"></i>Mittelwerts-Modell</a><ul>
-<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a></li>
+<li><a href="mittelwerts-modell.html#modell-idealer-daten">Modell <em>idealer</em> Daten</a></li>
+<li><a href="mittelwerts-modell.html#modell-schiefer-daten">Modell <em>schiefer</em> Daten</a><ul>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#graphische-darstellung"><i class="fa fa-check"></i>Graphische Darstellung</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#bemerkung-ausreier"><i class="fa fa-check"></i>Bemerkung Ausreißer</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a><ul>
+<li><a href="mittelwerts-modell.html#erlauterung-zum-se">Erläuterung zum <span class="math inline">\(SE\)</span></a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#konfidenzintervall-um-den-mittelwert"><i class="fa fa-check"></i>Konfidenzintervall um den Mittelwert</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="codebook-cps85.html"><a href="codebook-cps85.html"><i class="fa fa-check"></i>Codebook CPS85</a></li>
@@ -137,25 +145,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#kausalitat"><i class="fa fa-check"></i>Kausalität</a></li>
 <li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#linearitat"><i class="fa fa-check"></i>Linearität</a></li>
 <li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#korrelationskoeffizienten"><i class="fa fa-check"></i>Korrelationskoeffizienten</a></li>
-<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#modell"><i class="fa fa-check"></i>Modell</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#herleitung"><i class="fa fa-check"></i>Herleitung</a><ul>
 <li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#beispiel"><i class="fa fa-check"></i>Beispiel</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html"><i class="fa fa-check"></i>Einfache Regression</a><ul>
-<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definition"><i class="fa fa-check"></i>Definition</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definitionen"><i class="fa fa-check"></i>Definitionen</a><ul>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#berechnung-der-koeffizienten"><i class="fa fa-check"></i>Berechnung der Koeffizienten</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#aufgabe-slr-1"><i class="fa fa-check"></i>Aufgabe SLR 1</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple Regression</a><ul>
-<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition-1"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition"><i class="fa fa-check"></i>Definition</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich"><i class="fa fa-check"></i>Modellvergleich</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#aufgabe-mlr-1"><i class="fa fa-check"></i>Aufgabe MLR 1</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#wahl-relevanter-pradiktoren"><i class="fa fa-check"></i>Wahl relevanter Prädiktoren</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#sequentielle-modellbildung"><i class="fa fa-check"></i>Sequentielle Modellbildung</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-aic"><i class="fa fa-check"></i>Modellvergleich durch AIC</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-kreuzvalidierung"><i class="fa fa-check"></i>Modellvergleich durch Kreuzvalidierung</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-bei-linearer-modellierung"><i class="fa fa-check"></i>Voraussetzungen bei linearer Modellierung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="losungen-1.html"><a href="losungen-1.html"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="losungen-1.html"><a href="losungen-1.html#aufgabe-slr-1-lsg"><i class="fa fa-check"></i>Aufgabe SLR 1 Lsg</a></li>
+<li class="chapter" data-level="" data-path="losungen-1.html"><a href="losungen-1.html#aufgabe-mlr-1-lsg"><i class="fa fa-check"></i>Aufgabe MLR 1 Lsg</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -178,12 +193,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="multiple-regression" class="section level1 unnumbered">
 <h1>Multiple Regression</h1>
 <p>Man könnte nun die bereits erwähnte Variable Erfahrung (<em>exper</em>) ins Modell aufnehmen. Der bereits aus der Korrelation ersichtliche (negative) Zusammenhang mit der Ausbildung <em>educ</em> lässt den Schluss auf eine Kovariabilität der beiden Variablen zu. Man nennt derartige Variablen auch <strong>Kovariate</strong>. Im linearen Modell wird diese jedoch wie eine weitere Variable (ein weiterer Prädiktor) zur Vorhersage des Kriteriums verwendet.</p>
-<div id="definition-1" class="section level2 unnumbered">
+<div id="definition" class="section level2 unnumbered">
 <h2>Definition</h2>
 <p>Die formale Definition eines multiplen linearen Modells ist:</p>
 <span class="math display" id="eq:LinModMultFehler">\[\begin{equation} 
   y_i = b_0 + b_1 \cdot x_{1i} + \cdots + b_k \cdot x_{ki} + \varepsilon_i
-  \tag{10}
+  \tag{12}
 \end{equation}\]</span>
 <p>Die wesentlichen Parameter dieses Modells sind:</p>
 <ol style="list-style-type: decimal">
@@ -193,12 +208,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Des Weiteren berücksichtigt auch dieses Modell wieder einen Fehler (<span class="math inline">\(\varepsilon_i\)</span>). Betrachtet man das multiple Modell isoliert (also ohne Fehlerterm), ist folgende Schreibweise üblich:</p>
 <span class="math display" id="eq:LinModMult">\[\begin{equation} 
   \hat{y}_i = b_0 + b_1 \cdot x_{1i} + \cdots + b_k \cdot x_{ki}
-  \tag{11}
+  \tag{13}
 \end{equation}\]</span>
 <p>Betrachten wir an unseren Beispieldaten folgendes Modell mit zwei Prädiktoren:</p>
 <span class="math display" id="eq:LinModMultBsp">\[\begin{eqnarray*} 
   \hat{wage}_i = b_0 + b_1 \cdot educ_{i} + b_2 \cdot exper_{i}
-  \tag{12}
+  \tag{14}
 \end{eqnarray*}\]</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  model_<span class="dv">2</span>     &lt;-<span class="st"> </span><span class="kw">lm</span>(wage <span class="op">~</span><span class="st"> </span>educ <span class="op">+</span><span class="st"> </span>exper, <span class="dt">data =</span> CPS85)
   Det_model_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">pander</span>(<span class="kw">summary</span>(model_<span class="dv">2</span>))
@@ -446,7 +461,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Zum Verständnis dieser Statistik greifen wir kurz zurück auf die verschiedenen Möglichkeiten der Berechnung von Korrelationskoeffizienten zurück. Diese sind:</p>
 <ol style="list-style-type: decimal">
 <li>Pearson Korrelationskoeffizient (<span class="math inline">\(r_{xy}\)</span>): entspricht der Kovarianz der <span class="math inline">\(z\)</span>-transformierten Variablen.</li>
-<li>Partielle Korrealtionskoeffizient (<span class="math inline">\(r_{xy⋅z}\)</span>): ist die bivariate Korrelation zweier Variablen, welche mittels linearer Regression vom Einfluss einer Drittvariablen bereinigt wurden. 3.Semipartialkorrelation (<span class="math inline">\(sr_{k⋅x_j}\)</span>): zwischen Kriterium und dem <span class="math inline">\(j\)</span>-ten Prädiktor ergibt sich als Korrelation von <span class="math inline">\(y\)</span> mit dem Residuum <span class="math inline">\(x_j^*\)</span> der linearen Regression des <span class="math inline">\(j\)</span>-ten Prädiktors auf den anderen Prädiktor. Mit anderen Worten, die Semipartialkorrelation gibt den alleinigen Beitrag eines Prädiktors <span class="math inline">\(x_j\)</span> (bereinigt um die gemeinsamen Anteile mit den restlichen Prädiktoren) am Kriterium an. Das Quadrat dieses Koeffizienten wird unter anderm auch als Nützlichkeit des Prädiktors <span class="math inline">\(U_k\)</span> bezeichnet und findet sich z.B. in SPSS als <span class="math inline">\(R^2_{change}\)</span> wieder. Formal: <span class="math inline">\(sr_{k \cdot 12 \cdots (k-1)}^2 = R_{y, 12 \cdots k}^2 - R_{y, 12 \cdots k-1}^2\)</span></li>
+<li>Partielle Korrealtionskoeffizient (<span class="math inline">\(r_{xy \cdot z}\)</span>): ist die bivariate Korrelation zweier Variablen, welche mittels linearer Regression vom Einfluss einer Drittvariablen bereinigt wurden. 3.Semipartialkorrelation (<span class="math inline">\(sr_{k \cdot x_j}\)</span>): zwischen Kriterium und dem <span class="math inline">\(j\)</span>-ten Prädiktor ergibt sich als Korrelation von <span class="math inline">\(y\)</span> mit dem Residuum <span class="math inline">\(x_j^*\)</span> der linearen Regression des <span class="math inline">\(j\)</span>-ten Prädiktors auf den anderen Prädiktor. Mit anderen Worten, die Semipartialkorrelation gibt den alleinigen Beitrag eines Prädiktors <span class="math inline">\(x_j\)</span> (bereinigt um die gemeinsamen Anteile mit den restlichen Prädiktoren) am Kriterium an. Das Quadrat dieses Koeffizienten wird unter anderm auch als Nützlichkeit des Prädiktors <span class="math inline">\(U_k\)</span> bezeichnet und findet sich z.B. in SPSS als <span class="math inline">\(R^2_{change}\)</span> wieder. Formal: <span class="math inline">\(sr_{k \cdot 12 \cdots (k-1)}^2 = R_{y, 12 \cdots k}^2 - R_{y, 12 \cdots k-1}^2\)</span></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Korrelationen, Paritial- und Semipartialkorrelationen</span>
   Korr_Data      &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wage =</span> M<span class="op">$</span>wage, <span class="dt">educ =</span> M<span class="op">$</span>educ, <span class="dt">exper =</span> M<span class="op">$</span>exper)
@@ -535,6 +550,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <p>Im vorliegenden Beispiel sind daher die beiden Nützlichkeitsmaße <span class="math inline">\(U_{educ}\)</span> = 0.146 und <span class="math inline">\(U_{exper}\)</span> = 0.056 von Interesse. Ersteres bedeutet, dass die Varianzaufklärung aufgrund der Verwendung der Variablen <em>educ</em> 14.6% ist. Wird im Modell dann noch der Prädiktor <em>exper</em> aufgenommen, werden zusätzliche 5.6% an Varianz des Kriteriums wage erklärt. Insgesamt werden somit <span class="math inline">\(R^2 = 0.202\)</span> oder 20.2% der Varianz des Kriteriums erklärt. Der Test (<span class="math inline">\(t(531) = 11.37, p&lt; .001\)</span>) bestätigt für den Prädiktor <em>educ</em>, sowie (<span class="math inline">\(t(531) = 6.11, p&lt;.001\)</span>) für den Prädiktor <em>exper</em> die statistische Signifikanz.</p>
 </div>
+<div id="aufgabe-mlr-1" class="section level2 unnumbered">
+<h2>Aufgabe MLR 1</h2>
+<p>Öffne ein neues R-Script und kopiere die bereits bekannte Kopfzeile in diese Datei. Speichere anschließend das Skript unter dem Namen <em>SLR_Aufgabe2.R</em>. Bearbeite nun folgende Aufgabenstellungen:</p>
+<ul>
+<li>Lade die Datei “<em>Album Sales 2.dat</em>”</li>
+<li>erstelle ein lineares Modell zur Vorhersage der Verkaufszahlen (<em>sales</em>) durch die Variable <em>adverts</em>.</li>
+<li>erstelle ein weiteres lineares Modell zur Vorhersage der Verkaufszahlen (<em>sales</em>) durch die Variable <em>adverts</em>, <em>airplay</em> und <em>attract</em>.</li>
+<li>Zeige die Ergebnisse des ersten Modells an.</li>
+<li>Zeige die Ergebnisse des zweiten Modells an.</li>
+<li>Vergleiche die beiden Modelle mit einer ANOVA und interpretiere die Ergebnisse.</li>
+<li>Berechne zur Überprüfung der Multikolinearität den Kennwert <em>Tol</em> und <em>VIF</em> (verwende die Funktion <em>vif()</em>. Hinweis: die Toleranz ist der Kehrwert von <em>VIF</em>)</li>
+</ul>
+<p><a href="losungen-1.html#aufgabe-mlr-1-lsg">Lösung Aufgabe MLR 1</a></p>
+</div>
 <div id="wahl-relevanter-pradiktoren" class="section level2 unnumbered">
 <h2>Wahl relevanter Prädiktoren</h2>
 <p>Eine wichtige Frage bei der Modellerstellung betrifft die Wahl der besten Prädiktoren. Prinzipiell muss bereits im Vorfeld der statistischen Analyse bestimmt werden, welche Merkmale für die Modellierung der abhängigen Variablen am geeignetsten sind. Ausreichende theoretische und praktischen Kenntnisse sind daher unbedingt erforderlich. Die Erfassung von potentiellen Prädiktoren ist stets mit zeitlichen und/oder finanziellen Aufwand verbunden. Prädiktoren sind dann gut geeignet, wenn Sie folgende Eigenschaften erfüllen:</p>
@@ -576,7 +605,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Das AIC dient also dazu, verschiedene Modellkandidaten zu vergleichen. Dies geschieht anhand des Wertes der log-Likelihood, der umso größer ist, je besser das Modell die abhängige Variable erklärt. Um nicht komplexere Modelle als durchweg besser einzustufen wird neben der log-Likelihood noch die Anzahl der geschätzten Parameter als Strafterm mitaufgenommen.</p>
 <span class="math display" id="eq:AIC">\[\begin{equation} 
   AIC_k = 2 \cdot |k| - 2\cdot \hat{L}_k
-  \tag{13}
+  \tag{15}
 \end{equation}\]</span>
 <p>In der Formel steht <span class="math inline">\(k\)</span> für die Anzahl der im Modell enthaltenen Parameter und <span class="math inline">\(\hat{L}_k\)</span> für den Wert der log-Likelihoodfunktion.</p>
 <p><strong>Das Modell mit dem kleinsten AIC wird bevorzugt.</strong></p>
@@ -615,7 +644,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p>Eine Verletzung einer/mehrerer dieser Voraussetzungen führt meistens dazu, dass die Genauigkeit der Vorhersage gemindert wird. Relativ einfach zu prüfen sind die ersten drei Voraussetzungen (graphisch, Kennwerte wie Korrelation, etc.). Bei der Überprüfung der restlichen Voraussetzung muss man i.A. auf entsprechende statische Verfahren zurückgreifen, die hier aber nicht näher besprochen werden. Einen Überblick über die Möglichkeiten zur Überprüfung der Voraussetzungen finden Sie z.B. unter <span class="citation">(UZH <a href="#ref-UZH">2018</a>)</span>, oder MR2 - <span class="citation">(Hemmerich <a href="#ref-Hemmerich">2018</a>)</span>.</p>
 <p><a href="#wahl-relevanter-prädiktoren">zurück zur Kapitel</a></p>
-
 </div>
 </div>
 <h3>References</h3>
@@ -636,7 +664,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="einfache-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="losungen-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

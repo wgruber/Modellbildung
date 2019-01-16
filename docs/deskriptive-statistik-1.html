@@ -25,14 +25,14 @@
 <meta name="author" content="Walter Gruber">
 
 
-<meta name="date" content="2019-01-10">
+<meta name="date" content="2019-01-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="datenbeschreibung.html">
+<link rel="prev" href="datensatz.html">
 <link rel="next" href="mittelwerts-modell.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -103,10 +103,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorbemerkung</a></li>
 <li class="chapter" data-level="" data-path="einleitung.html"><a href="einleitung.html"><i class="fa fa-check"></i>Einleitung</a></li>
 <li><a href="allgemeine-definition-des-begriffs-modell.html#allgemeine-definition-des-begriffs-modell">Allgemeine Definition des Begriffs <em>Modell</em></a></li>
-<li class="part"><span><b>Teil I: Allgemeiner Überblick</b></span></li>
+<li class="part"><span><b>Teil I: Begrifflichkeiten</b></span></li>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html"><i class="fa fa-check"></i>Statistisches Modell</a><ul>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#modellbildung"><i class="fa fa-check"></i>Modellbildung</a></li>
-<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-statistischen-modelles"><i class="fa fa-check"></i>Kennzeichen eines statistischen Modelles</a><ul>
+<li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#kennzeichen-eines-modelles"><i class="fa fa-check"></i>Kennzeichen eines Modelles</a><ul>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#zyklus-der-modellbildung"><i class="fa fa-check"></i>Zyklus der Modellbildung</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="statistisches-modell.html"><a href="statistisches-modell.html#grundlagen-der-statistischen-modellbildung"><i class="fa fa-check"></i>Grundlagen der statistischen Modellbildung</a><ul>
@@ -118,14 +118,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Teil II: Modelle mit einer Variablen</b></span></li>
-<li class="chapter" data-level="" data-path="datenbeschreibung.html"><a href="datenbeschreibung.html"><i class="fa fa-check"></i>Datenbeschreibung</a></li>
+<li class="chapter" data-level="" data-path="datensatz.html"><a href="datensatz.html"><i class="fa fa-check"></i>Datensatz</a></li>
 <li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html"><i class="fa fa-check"></i>Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a><ul>
 <li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#tabellen"><i class="fa fa-check"></i>Tabellen</a></li>
-<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
-<li class="chapter" data-level="" data-path="deskriptive-statistik-1.html"><a href="deskriptive-statistik-1.html#codebooks-in-r"><i class="fa fa-check"></i>Codebooks in R</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html"><i class="fa fa-check"></i>Mittelwerts-Modell</a><ul>
-<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a></li>
+<li><a href="mittelwerts-modell.html#modell-idealer-daten">Modell <em>idealer</em> Daten</a></li>
+<li><a href="mittelwerts-modell.html#modell-schiefer-daten">Modell <em>schiefer</em> Daten</a><ul>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#aufgabenstellung-1"><i class="fa fa-check"></i>Aufgabenstellung 1</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#graphische-darstellung"><i class="fa fa-check"></i>Graphische Darstellung</a></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#bemerkung-ausreier"><i class="fa fa-check"></i>Bemerkung Ausreißer</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#guteschatzung-des-mittelwertsmodells"><i class="fa fa-check"></i>Güteschätzung des Mittelwertsmodells</a><ul>
+<li><a href="mittelwerts-modell.html#erlauterung-zum-se">Erläuterung zum <span class="math inline">\(SE\)</span></a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="mittelwerts-modell.html"><a href="mittelwerts-modell.html#konfidenzintervall-um-den-mittelwert"><i class="fa fa-check"></i>Konfidenzintervall um den Mittelwert</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="codebook-cps85.html"><a href="codebook-cps85.html"><i class="fa fa-check"></i>Codebook CPS85</a></li>
@@ -137,25 +145,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#kausalitat"><i class="fa fa-check"></i>Kausalität</a></li>
 <li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#linearitat"><i class="fa fa-check"></i>Linearität</a></li>
 <li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#korrelationskoeffizienten"><i class="fa fa-check"></i>Korrelationskoeffizienten</a></li>
-<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#modell"><i class="fa fa-check"></i>Modell</a><ul>
+<li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#herleitung"><i class="fa fa-check"></i>Herleitung</a><ul>
 <li class="chapter" data-level="" data-path="korrelationen.html"><a href="korrelationen.html#beispiel"><i class="fa fa-check"></i>Beispiel</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html"><i class="fa fa-check"></i>Einfache Regression</a><ul>
-<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definition"><i class="fa fa-check"></i>Definition</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#definitionen"><i class="fa fa-check"></i>Definitionen</a><ul>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#berechnung-der-koeffizienten"><i class="fa fa-check"></i>Berechnung der Koeffizienten</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a></li>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#modellanwendung"><i class="fa fa-check"></i>Modellanwendung</a><ul>
+<li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#aufgabe-slr-1"><i class="fa fa-check"></i>Aufgabe SLR 1</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="einfache-regression.html"><a href="einfache-regression.html#residualanalyse"><i class="fa fa-check"></i>Residualanalyse</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple Regression</a><ul>
-<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition-1"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#definition"><i class="fa fa-check"></i>Definition</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich"><i class="fa fa-check"></i>Modellvergleich</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#aufgabe-mlr-1"><i class="fa fa-check"></i>Aufgabe MLR 1</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#wahl-relevanter-pradiktoren"><i class="fa fa-check"></i>Wahl relevanter Prädiktoren</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#sequentielle-modellbildung"><i class="fa fa-check"></i>Sequentielle Modellbildung</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-aic"><i class="fa fa-check"></i>Modellvergleich durch AIC</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-kreuzvalidierung"><i class="fa fa-check"></i>Modellvergleich durch Kreuzvalidierung</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-bei-linearer-modellierung"><i class="fa fa-check"></i>Voraussetzungen bei linearer Modellierung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="losungen-1.html"><a href="losungen-1.html"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="losungen-1.html"><a href="losungen-1.html#aufgabe-slr-1-lsg"><i class="fa fa-check"></i>Aufgabe SLR 1 Lsg</a></li>
+<li class="chapter" data-level="" data-path="losungen-1.html"><a href="losungen-1.html#aufgabe-mlr-1-lsg"><i class="fa fa-check"></i>Aufgabe MLR 1 Lsg</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -178,9 +193,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="deskriptive-statistik-1" class="section level1 unnumbered">
 <h1>Deskriptive Statistik</h1>
 <p>Bevor man diese Frage beantwortet, sollte man sich die deskriptive Statistik der entsprechenden Variablen genauer ansehen. In der vorliegenden Fragestellung handelt es sich um eine intervallskalierte Variable, daher ist die Betrachtung der Kennwerte für zentrale Tendenzen (Mittelwert, Median, Modus, Minimum, Maximum und Range), der Dispersion (Varianz, Standardabweichung, Quartile, Standardfehler, Konfidenzintervalle, Schiefe und Kurtosis), sowie die Darstellung der Verteilung in einem Histogramm sehr hilfreich.</p>
-<div id="tabellen" class="section level2 unnumbered">
-<h2>Tabellen</h2>
-<p>Kopiere den nachfolgenden Code in den Editor und führe in aus. Diskutiere die Ergebnisse.</p>
+<p>Unter bestimmten Voraussetzungen, eignet sich der Mittelwert als bester Schätzer (bzw. als einfachste Modellvorstellung). Bevor man sich jedoch der Auswertung von Daten widmet, ist es sehr empfehlenswert die zugrundeliegende Datenstruktur zu analysieren und auch zu dokumentieren. Im nachfolgenden Kapitel wird ein sehr nützliches Paket für genau diese Analyse kurz vorgestellt.</p>
+<div id="codebooks-in-r" class="section level2 unnumbered">
+<h2>Codebooks in R</h2>
+<p>In R hat man die Möglichkeit, mit Hilfe des Pakets <em>codebook</em> eine genaue Beschreibung der Daten (inklusive einer deskriptiven Statistik für jede Variable) zu erstellen. Für den vorliegenden Datensatz wurde auszugsweise eines erstellt, welches in Kapitel <a href="codebook-cps85.html#codebook-cps85">Codebook CPS85</a> zu finden ist.</p>
+<div id="tabellen" class="section level3 unnumbered">
+<h3>Tabellen</h3>
+<p>Im Codebook werden neben den deskriptiven Kennwerten (für kategorielle Variablen) Häufigkeitstabellen angegeben. Wir wollen uns daher einen kurzen Überblick über Häufigkeitstabellen in R verschaffen. Kopiere den nachfolgenden Code in den Editor und führe in aus. Diskutiere die Ergebnisse.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  Income &lt;-<span class="st"> </span>CPS85<span class="op">$</span>wage
   <span class="kw">library</span>(pastecs)
     <span class="kw">kable</span>(<span class="kw">stat.desc</span>(Income))
@@ -196,24 +215,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">kable</span>(SRM)
   <span class="co"># HÃ¤ufigkeitstabellen mit Randsummen</span>
   x0 &lt;-<span class="st"> </span><span class="kw">addmargins</span>(<span class="kw">table</span>(CPS85<span class="op">$</span>sex, CPS85<span class="op">$</span>race))
-  <span class="kw">kable</span>(x0)</code></pre></div>
-<p>Um die Eigenschaften des Mittelwertes bei vorliegen von starken Abweichungen in den Daten noch besser zu verdeutlichen, setzen wir bei 50 zufällig gewählten Personen das Einkommen drastisch hinauf. Kopiere den folgenden Code ins RStudio und führe diesen dann aus.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  IncomeNew     &lt;-<span class="st"> </span>CPS85<span class="op">$</span>wage
-  ID            &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">534</span>, <span class="dv">50</span>)
-  IncomeNew[ID] &lt;-<span class="st"> </span>IncomeNew[ID] <span class="op">+</span><span class="st"> </span><span class="dv">18</span></code></pre></div>
+  <span class="kw">kable</span>(x0)
+  <span class="co"># HÃ¤ufigkeitstabellen in Prozent</span>
+  x1 &lt;-<span class="st"> </span><span class="kw">addmargins</span>(<span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(<span class="kw">table</span>(CPS85<span class="op">$</span>sex, CPS85<span class="op">$</span>race)), <span class="dv">2</span>))
+  <span class="kw">kable</span>(x1)</code></pre></div>
 </div>
-<div id="aufgabenstellung-1" class="section level2 unnumbered">
-<h2>Aufgabenstellung 1</h2>
-<p>Erstelle nun für die neuen Daten eine Tabelle und ein Histogramm. Berechne den Mittelwert:</p>
-<ul>
-<li>ohne Berücksichtigung der Ausreißer (Funktion <em>mean(???, na.rm = TRUE)</em>)</li>
-<li>unter Berücksichtigung der Ausreißer (Funktion <em>mean(???, trim = ???, na.rm = TRUE)</em>)</li>
-</ul>
-<p>Diskutiere die Ergebnisse. Die Lösung zu diesen Aufgaben findest du in <a href="losungen.html#aufgabe_1">Lösung Aufgabe 1</a></p>
-</div>
-<div id="codebooks-in-r" class="section level2 unnumbered">
-<h2>Codebooks in R</h2>
-<p>In R hat man die Möglichkeit, mit Hilfe des Pakets <em>codebook</em> eine genaue Beschreibung der Daten (inklusive einer deskriptiven Statistik für jede Variable) zu erstellen. Für den vorliegenden Datensatz wurde auszugsweise eines erstellt, welches in Kapitel <a href="codebook-cps85.html#codebook-cps85">Codebook CPS85</a> zu finden ist.</p>
 </div>
 </div>
             </section>
@@ -221,7 +227,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="datenbeschreibung.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datensatz.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="mittelwerts-modell.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
