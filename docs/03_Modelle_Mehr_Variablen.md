@@ -32,7 +32,7 @@ Ein Korrelationskoeffizient zeigt die Stärke eines *linearen Zusammenhangs* zwi
 
 <center>
 
-![**Abbildung 2**: Korrelation und Linearität](Images/03_LinearitaetKorrelation.JPG){ width=80% }
+![**Abbildung 1**: Korrelation und Linearität](Images/03_LinearitaetKorrelation.JPG){ width=80% }
 
 </center>
 
@@ -42,7 +42,7 @@ Neben dem Pearson-Produkt-Moment-Korrelationskoeffizienten $r$ existieren noch e
 
 <center>
 
-![**Abbildung 3**: verschiedene Korrelationskoeffizienten](Images/Korrelationskoeffizienten.JPG){ width=100% }
+![**Abbildung 2**: verschiedene Korrelationskoeffizienten](Images/Korrelationskoeffizienten.JPG){ width=100% }
 
 </center>
 
@@ -103,9 +103,9 @@ Entsprechend bezeichnete Galton:
 * die Größe der Söhne als *abhängige Variable* (*dependent variable*, **DV**) und 
 * die Größe der Väter als *unabhängige Variable* (*independent variable*, **IV**).
 
-Häufig werden die Variable die vorhergesagt werden soll bei der Regression *Kriterium* ($y_i$)und die Variable(n) die für die Vorhersage eingesetzt wird/werden *Prädiktor(n)* ($x_{1i}$)[^9] genannt. Anhand des Prädiktors wird demzufolge das Kriterium vorhergesagt.
+Häufig werden die Variable die vorhergesagt werden soll bei der Regression *Kriterium* ($y_i$)und die Variable(n) die für die Vorhersage eingesetzt wird/werden *Prädiktor(n)* ($x_{1i}$)[^8] genannt. Anhand des Prädiktors wird demzufolge das Kriterium vorhergesagt.
 
-[^9]: wobei die 1 für den ersten (einzigen) Prädiktor und $i$ als Index für die $i$-te Beobachtung steht.
+[^8]: wobei die 1 für den ersten (einzigen) Prädiktor und $i$ als Index für die $i$-te Beobachtung steht.
 
 Der Schluss, dass die Regression die Kausalität von Zusammenhängen *beweist*, ist damit allerdings nicht (immer) erlaubt. Die Kausalität (Wirkungsrichtung) muss zuvor theoretisch abgeleitet werden, bevor sie empirisch (mit Hilfe der Regression) bewiesen werden kann. So ist die Richtung der Kausalität bei Fragen wie:
 
@@ -118,9 +118,9 @@ nicht zu bestimmen. Manchmal ist die Kausalität jedoch sehr offensichtlich:
 * die Körpergröße hat einen Einfluss auf das Körpergewicht, aber umgekehrt lässt sich dieser Zusammenhang wohl theoretisch kaum herleiten.
 * mit Zunahme des $CO_2$ Gehaltes in der Atmosphäre steigt die durchschnittliche Temperatur, eine umgekehrte Wirkungsrichtung ist aber auszuschließen (da hätten wir in südlichen Ländern ein kleines Problem!).
 
-Die Regression ermöglicht jedenfalls unter bestimmten Umständen[^8] gute, bzw. bestmögliche Vorhersage für eine Variable. Folgernd aus dem eben gesagten, sollte nochmals klargestellt werden, dass im Gegensatz zur Korrelation festgelegt werden muss, welche Variable durch eine andere Variable vorhergesagt werden soll. 
+Die Regression ermöglicht jedenfalls unter bestimmten Umständen[^9] gute, bzw. bestmögliche Vorhersage für eine Variable. Folgernd aus dem eben gesagten, sollte nochmals klargestellt werden, dass im Gegensatz zur Korrelation festgelegt werden muss, welche Variable durch eine andere Variable vorhergesagt werden soll. 
 
-[^8]: intervallskaliertes Kriterium, linearer Zusammenhang zw. Kriterium und Prädiktor(en), Zufallsstichprobe, Normalverteilung der Fehler, Homoskedastizität, Unabhängigkeit der Fehler. Details dazu später.
+[^9]: intervallskaliertes Kriterium, linearer Zusammenhang zw. Kriterium und Prädiktor(en), Zufallsstichprobe, Normalverteilung der Fehler, Homoskedastizität, Unabhängigkeit der Fehler. Details dazu später.
 
 ## Definitionen {-}
 
@@ -191,7 +191,7 @@ Kopiere zur Veranschaulichung folgenden Code in dein R-Script und führe diesen 
     theme_bw()
 ```
 
-<img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell1-1.png" width="672" />
+![](03_Modelle_Mehr_Variablen_files/figure-latex/Modell1-1.pdf)<!-- --> 
 
 ```r
   model_1     <- lm(wage ~ educ, data = CPS85)
@@ -325,7 +325,7 @@ Mit der Residualanalyse kann man auf relativ einfache Weise jene Werte ermitteln
   print(p_Res1, comment = FALSE)
 ```
 
-<img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell1_ResidStat_Graph1-1.png" width="672" />
+![](03_Modelle_Mehr_Variablen_files/figure-latex/Modell1_ResidStat_Graph1-1.pdf)<!-- --> 
 
 # Multiple Regression {-}
 
@@ -366,7 +366,7 @@ Betrachten wir an unseren Beispieldaten folgendes Modell mit zwei Prädiktoren:
   plotPlane(model = model_2, plotx1 = "educ", plotx2 = "exper")
 ```
 
-<img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell2-1.png" width="672" />
+![](03_Modelle_Mehr_Variablen_files/figure-latex/Modell2-1.pdf)<!-- --> 
 
 Dabei entspricht der Koeffizient $b_2$ der Zunahme des Gehaltes $\hat{y}_i$ wenn sich die Erfahrung $x_{2i}$ um eine Einheit erhöht und die Ausbildung $x_{1i}$ konstant gehalten wird. In nachfolgernder Tabelle sind die Werte der Vorhersagen des Modells für den vorliegenden Datensatz auszugsweise dargestellt:
 
@@ -418,7 +418,7 @@ Dabei entspricht der Koeffizient $b_2$ der Zunahme des Gehaltes $\hat{y}_i$ wenn
   print(p, comment = FALSE)
 ```
 
-<img src="03_Modelle_Mehr_Variablen_files/figure-html/Modell2_1-1.png" width="672" />
+![](03_Modelle_Mehr_Variablen_files/figure-latex/Modell2_1-1.pdf)<!-- --> 
 
 ## Modellvergleich {-}
 
@@ -567,12 +567,6 @@ Der Test ($t(531) = 11.37, p< .001$) bestätigt für den Prädiktor *educ*, sowi
 
 [Lösung Aufgabe MLR 1](#aufgabe-mlr-1-lsg)
 
-
-
-
-
-
-
 ## Wahl relevanter Prädiktoren {-}
 
 Eine wichtige Frage bei der Modellerstellung betrifft die Wahl der besten Prädiktoren. Prinzipiell muss bereits im Vorfeld der statistischen Analyse bestimmt werden, welche Merkmale für die Modellierung der abhängigen Variablen am geeignetsten sind. Ausreichende theoretische und praktischen Kenntnisse sind daher unbedingt erforderlich. Die Erfassung von potentiellen Prädiktoren ist stets mit zeitlichen und/oder finanziellen Aufwand verbunden. Prädiktoren sind dann gut geeignet, wenn Sie folgende Eigenschaften erfüllen:
@@ -603,7 +597,7 @@ Bei der sequentiellen Methode unterscheidet man noch unterschiedliche Vorgehensw
 
 1. Schrittweise (STEPWISE): Diese Methode ist ähnlich wie “Vorwärts”-Selektion, es wird aber zusätzlich bei jedem Schritt getestet, ob die am wenigsten “nützliche” Variable entfernt werden soll.
 2. Vorwärts-Selektion (FORWARD): Die Variablen werden sequenziell in das Modell aufgenommen. Diejenige unabhängige Variable, welche am stärksten mit der abhängigen Variable korreliert wird zuerst zum Modell hinzugefügt. Dann wird jene der verbleibenden Variablen hinzugefügt, die die höchste partielle Korrelation mit der abhängigen Variablen aufweist. Dieser Schritt wird wiederholt, bis sich die Modellgüte (R-Quadrat) nicht weiter signifikant erhöht oder alle Variablen ins Modellaufgenommen worden sind.
-3. Rückwärts-Elimination (BACKWARD): Zunächst sind alle Variablen im Regressionsmodell enthalten und werden anschließend sequenziell entfernt. Schrittweise wird immer diejenige unabhängige Variable entfernt, welche die kleinste partielle Korrelation mit der abhängigen Variable aufweist, bis entweder keine Variablen mehr im Modell sind oder keine die verwendeten Ausschlusskriterien erfüllen.
+3. Rückwärts-Elimination (BACKWARD): Zunächst sind alle Variablen im Regressionsmodell enthalten und werden anschließend sequenziell entfernt. Schrittweise wird immer diejenige unabhängige Variable entfernt, welche die kleinste partielle Korrelation mit der abhängigen Variable aufweist, bis entweder keine Variablen mehr im Modell sind oder keine die verwendeten Ausschlusskriterien erfüllen. Im Unterschied zur STEPWISE-Methode wird nicht mehr geprüft, ob die am wenigsten nützliche Variable entfernt werden soll - diese bleibt somit im Modell!
 
 Diese Methoden unterscheiden sich von der sogenannten Einschlussmethode (ENTER), bei der alle Variablen gleichzeitig in das Modell eingefügt werden. Diese Methode wird angewendet, wenn das Modell auf theoretischen Überlegungen basiert. Das heißt, sie eignet sich um Theorien zu testen, während die übrigen Methoden eher im Rahmen explorativer Studien eingesetzt werden.
 
@@ -611,7 +605,7 @@ Diese Methoden unterscheiden sich von der sogenannten Einschlussmethode (ENTER),
 
 Nach einer (explorativen) Analyse der Daten und der Wahl einer passenden Modellklasse, geht es darum das bestmögliche Modell zu den vorliegenden Daten zu finden (siehe FUB). Daher stellt sich die Frage, was “bestmögliches” Modell bedeutet und wie ein solches bestimmt werden kann. In diesem Zusammenhang wird der Gedanke aufgegriffen, dass mit keinem Regressionsmodell die Realität eins zu eins abgebildet werden kann. Nimmt man zu viele erklärende Variablen auf, läuft man in Gefahr das Modell zu “overfitten” (überanpassen). Ein überangepasstes Modell erklärt die zum Schätzen verwendete abhängige Variable meist sehr gut, schneidet jedoch in der Vorhersage von Daten außerhalb der verwendeten Stichprobe häufig schlecht ab. Auf der anderen Seite kann ein Modell auch “underfitted” sein, d.h. die aufgenommenen unabhängigen Variablen können die abhängige Variable nur sehr unzureichend erklären.
 
-Das Thema der Modellselektion ist ein allgegenwärtiges in der Statistik/ Regressionsanalyse. Dennoch gibt es keine absoluten, objektiven Kriterien anhand derer entschieden werden kann, ob das eine oder das andere Modell gewählt werden sollte. Vielmehr existieren viele verschiedene Verfahren, die versuchen zwischen möglichst viel Erklärungsgehalt des Modells und möglichst wenig Komplexität (siehe dazu Ockhams Rasiermesser) abzuwägen.
+Das Thema der Modellselektion ist ein allgegenwärtiges in der Statistik/ Regressionsanalyse. Dennoch gibt es keine absoluten, objektiven Kriterien anhand derer entschieden werden kann, ob das eine oder das andere Modell gewählt werden sollte. Vielmehr existieren viele verschiedene Verfahren, die versuchen zwischen möglichst viel Erklärungsgehalt des Modells und möglichst wenig Komplexität (siehe dazu [Ockhams Rasiermesser](https://de.wikipedia.org/wiki/Ockhams_Rasiermesser)) abzuwägen.
 
 In einem Artikel von [@Yamashita] wurden folgende Methoden:
 
@@ -649,7 +643,7 @@ Bei diesem Beispiel würde man also *mod_3* für weitere Betrachtungen ausschlie
 Man könnte durchaus noch zusätzliche Daten erheben um dadurch eventuell eine klarere Trennung der beiden Modelle (*mod_1*, *mod_2*) zu erkennen. Ist das nicht möglich, könnte man beide Modelle mit der relativen likelihood gewichten und auf eine statistische Signifikanz testen, oder davon ausgehen, dass mit den vorliegenden Daten eine Modellwahl eben nicht eindeutig zu treffen ist.
 
 
-## Modellvergleich durch Kreuzvalidierung {-}
+## Kreuzvalidierung {-}
 
 Betrachten wir im Folgenden ein Modell (*mod_1*) mit den Prädiktoren *sector* (Berufsgruppe), *exper* (Erfahrung), sowie das um den Prädiktor *age* (Alter) erweiterte Model (*mod_2*).
 
@@ -660,20 +654,43 @@ Die Vorhergehensweise bei der Kreuzvalidierung ist relativ simpel:
 3. Berechne die Differenz der beobachteten Daten und der vorhergesagten Daten. Diese Differenz entspricht dem Fehler des Modells ($\rightarrow \epsilon_i$).
 4. Berechne den mittleren quadratischen Fehler der Differenzen.
 
-## Voraussetzungen bei linearer Modellierung {-}
+## Voraussetzungen MLR {-}
 
-Folgende Voraussetzungen müssen/sollten bei der linearen Modellierung mit mehreren Prädiktoren erfüllt sein, damit die Ergebnisse auch sinnvoll interpretiert werden können.:
+Folgende Voraussetzungen müssen/sollten bei der linearen Modellierung mit mehreren Prädiktoren erfüllt sein, damit die Ergebnisse auch sinnvoll interpretiert werden können (Bemerkung: im folgenden sei die abhängige Variable $y$ und die Prädiktoren mit den Zahlen ${1, 2, \cdots, k}$ bezeichnet):
 
-1. Lineare Beziehung zwischen den Variablen.
-2. Keine Multikollinearität.
-3. Keine Ausreißer.
-4. Unabhängigkeit der Residuen (keine Autokorrelation).
-5. Varianzgleichheit der Residuen (Homoskädasdizität).
-6. Normalverteilung der Residuen.
+1. **Lineare Beziehung** zwischen den Variablen (keine Ausreißer): eine einfache Prüfung erfolgt visuell mit Streudiagrammen, wobei alle Beziehungen, also $r_{y\cdot1}, r_{y\cdot2}, \cdots, r_{y\cdot k}, \cdots, r_{1\cdot2}, r_{1\cdot k}, \cdots, r_{(k-1)\cdot k}$ zu betrachten sind!
+2. **Varianzgleichheit der Residuen** (Homoskädasdizität): auch diese Vorausstung kann visuell geprüft werden. Dabei wird ein Streudiagramm der Residuen erstellt, in welchem auf der x-Achse die standardisierten vorhergesagten Werte und auf der y-Achse doe standardisierten Residuen aufgetragen werden. Heteroskedastizität liegt vor, wenn die Punktewolke nicht gleichverteilt um die Gerade liegen!
 
-Eine Verletzung einer/mehrerer dieser Voraussetzungen führt meistens dazu, dass die Genauigkeit der Vorhersage gemindert wird. Relativ einfach zu prüfen sind die ersten drei Voraussetzungen (graphisch, Kennwerte wie Korrelation, etc.). Bei der Überprüfung der restlichen Voraussetzung muss man i.A. auf entsprechende statische Verfahren zurückgreifen, die hier aber nicht näher besprochen werden. Einen Überblick über die Möglichkeiten zur Überprüfung der Voraussetzungen finden Sie z.B. unter [@UZH], oder MR2 - [@Hemmerich].
+<center>
 
-[zurück zur Kapitel](#wahl-relevanter-prädiktoren)
+![**Abbildung 3**: Homoskedastizität vs. Heteroskedastizität](Images/Homoskedastizitaet.JPG){ width=80% }
+
+</center>
+
+Bekannte Verfahren, um die Nullhypothese „Homoskedastizität“ zu überprüfen sind der:
+
+        * Levene-Test
+        * Goldfeld-Quandt-Test
+        * White-Test
+        * Glejser-Test
+        * RESET-Test
+        * Breusch-Pagan-Test
+
+3. **Normalverteilung der Residuen**: mittels Histogramm der Fehler zu prüfen - sollte halbwegs normalverteilt sein mit einem Erwartungswert des Fehlers $E(\varepsilon) = 0$. 
+4. **Unabhängigkeit der Residuen** (keine Autokorrelation): verletzt wird diese Voraussetzung, wenn aufeinanderfolgende Werte abhängig sind (z.B. auf einen hohen Wert folgt ein hoher Wert, etc.). Vor allem bei Längsschnittdaten ein Thema, bei welchen die Prüfung durch die Durbin-Watson-Methode empfohlen wird. Es gilt: $d = \frac{\sum_{i} (e_i - e_{i-1})^2}{\sum_{i} (e_i)^2}$ mit $d \approx 2$, Werte zwischen $1.5 < d < 2.5$ sind noch akzeptabel.
+
+5. **Vollständig spezifizierte Modelle**: werden maßgebliche Prädiktoren nicht im Modell berücksichtigt, wird es auch kaum gelingen, die Varianz des Kriteriums zufriedenstellend zu erklären. Andererseits bewirken Modelle mit vielen Prädiktoren, dass die $\beta$-Gewichte entsprechend klein werden. Bei derartigen Gegebenheiten ist die Stichprobe entsprechend groß zu wählen. 
+6. **Keine Multikollinearität**: Multikollinearität bedeutet, dass Prädiktoren existieren, die hoch miteinander korrelieren (z.B. $r_{1\cdot2} > 0.8$). Damit wird es für das Modell schwer, den jeweiligen Beitrag den Prädiktoren zuzuordnen. Besteht rein das Interesse an maximaler Varianzaufklärung des Kriteriums, ist eine hohe Multikollinearität zu vernachlässigen - die $\beta$-Gewichte der einzelnen Prädiktoren darf man dann allerdings nicht interpretieren. Spielen jedoch gerade diese eine wichtige Rolle, kann man entweder hoch korrelierte Prädiktoren zusammenfassen (eventuell Faktorenanalyse/Clusteranalyse vorher durchführen), oder entsprechende Prädiktoren ausschließen. Allerdings sollte man vor dem Ausschluss von Prädiktoren diese auf eventuelle Suppressionseffekte prüfen.
+
+      * *Negative und reziproke Suppression*: man spricht von Suppressionseffekten, wenn ein Prädiktor aus einem anderen Prädiktor irrelevante Varianz unterdrückt (suppression) und dadurch die Beziehung zwischen diesem Prädiktor und dem Kriterium erhöht. Solche Effekte können durchaus beträchtlich sein und u.U. auch einen Prädiktor, der nichts mit dem Kriterium an sich zu tun hat ($r_{y\cdot k} \approx 0$), als wichtigen Bestandteil des Modells werden lassen. Die Aufnahme des Suppressors in das Regressionsmodell hat somit den Effekt, den anderen Prädiktor von diesen Fehlereinflüssen zu bereinigen. Erkennbar sind Suppressionseffekte einerseits durch Vorzeichenwechsel bei Korrelationen (Nullter Ordnung, also der Produkt-Moment-Korrelation) vs. $\beta$-Gewichten (negative Suppression, bzw. NET-Suppression). D.h., dass für nicht-negative Validitäten[^12] ist der Prädiktor $2$ ein negativer Suppressor, falls seine partielle Steigung negativ ist, d. h., falls $B_2 < 0$. Eine *reziproke Suppression* liegt vor, wenn für nicht-negative Validitäten die Korrelation der Prädiktoren negativ ist, d. h., falls $r_{1\cdot2} < 0$. Weitere Details zu Suppressionseffekten siehe Literatur und Diskriminanzanalyse.
+      
+[^12]: Die Korrelationen des Kriteriums mit den Prädiktorvariablen bezeichnen wir als Validitäten, d. h. die Validität der $j$-ten Prädiktorvariablen ist gleich ihrer Korrelation mit dem Kriterium.
+      
+7. **Hohe Reliabilität der Prädiktoren und des Kriteriums**: Variablen sind hochreliabel, wenn sie weitgehend frei von Zufallsfehlern sind, also bei Messwiederholung ähnliche Ergebnisse liefern.
+8. **Keine Varianzeinschränkung**: eine Einschränkung führt i.A. zu eingeschränkten (niedrigeren) Korrelationen. Z.B.: aus 500 Personen werden 100 augrund eines Aufnahmeverfahrens zu einem Studium zugelassen. Will man die Validität des Aufnahmeverfahrens anhand der Beziehung Studienerfolg und Leistung beim Aufnahmetest prüfen, wird es aufgrund der eingeschränkten Variabilität durch die Aufnahmekriterium zu einer Unterschätzung kommen.
+9. **Unabgängigkeit der Beobachtungseinheiten**: eine Verletzung dieser Voraussetzung, kann zu einer maßgeblichen Reduktion der Teststärke des Modells führen. Z.B. soll die Teamorientierung in einem Unternehmen untersucht werden. Diese wird sicher zwischen den einzelnen Personen variieren, aber darüber hinaus kann diese auch abhängig von der Abteilung sein, in welcher Personen arbeiten. Die Variabilität kann dadurch bei bestimmten Abteilungen stark eingeschränkt sein, was einer Reduktion des Stichprobenumfangs und damit einer Teststärkenreduktion gleichzusetzen ist. In solchen Fällen könnte man eine Multilevel-Analyse (gemischtes hierarchisches Modell) einsetzen!
+
+Zusammenfassend lässt sich festhalten, dass eine Verletzung einer/mehrerer dieser Voraussetzungen meistens dazu führt, dass die Genauigkeit der Vorhersage gemindert wird. Relativ einfach zu prüfen sind die ersten drei Voraussetzungen (graphisch, Kennwerte wie Korrelation, etc.). Bei der Überprüfung der restlichen Voraussetzung muss man i.A. auf entsprechende statische Verfahren zurückgreifen, die hier aber nicht näher besprochen werden. Einen Überblick über die Möglichkeiten zur Überprüfung der Voraussetzungen finden Sie z.B. unter [@UZH], oder MR2 - [@Hemmerich].
 
 
 # Lösungen {-}

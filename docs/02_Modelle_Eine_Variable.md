@@ -15,19 +15,33 @@ Betrachten wir zunächst einen einfachen Datensatz aus dem Projekt MOSAIC Data S
 Diese Datei beinhaltet *N =* ``534`` Beobachtungen und *k =* ``11`` Variablen, deren Namen in folgender Tabelle nochmals separat angeführt sind:
 
 
- LNr  Variablenname 
-----  --------------
-   1  wage          
-   2  educ          
-   3  race          
-   4  sex           
-   5  hispanic      
-   6  south         
-   7  married       
-   8  exper         
-   9  union         
-  10  age           
-  11  sector        
+\begin{tabular}{r|l}
+\hline
+LNr & Variablenname\\
+\hline
+1 & wage\\
+\hline
+2 & educ\\
+\hline
+3 & race\\
+\hline
+4 & sex\\
+\hline
+5 & hispanic\\
+\hline
+6 & south\\
+\hline
+7 & married\\
+\hline
+8 & exper\\
+\hline
+9 & union\\
+\hline
+10 & age\\
+\hline
+11 & sector\\
+\hline
+\end{tabular}
 
 Angenommen Sie müssten auf Basis der vorliegenden Daten für eine Person das durchschnittliche Einkommen (*wage*) schätzen, ohne dabei andere Variablen zu berücksichtigen. Welchen Wert würden Sie wählen?
 

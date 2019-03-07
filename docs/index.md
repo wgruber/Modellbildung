@@ -1,7 +1,7 @@
 ---
 title: "Statistische Modellbildung"
 author: "Walter Gruber"
-date: "2019-01-16"
+date: "2019-03-07"
 description: "Einführung in die statistische Modellbildung"
 cover-image: "Images/Cover.PNG"
 github-repo: wgruber/Modellbildung

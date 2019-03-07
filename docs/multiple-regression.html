@@ -25,7 +25,7 @@
 <meta name="author" content="Walter Gruber">
 
 
-<meta name="date" content="2019-01-16">
+<meta name="date" content="2019-03-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -165,8 +165,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#wahl-relevanter-pradiktoren"><i class="fa fa-check"></i>Wahl relevanter Prädiktoren</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#sequentielle-modellbildung"><i class="fa fa-check"></i>Sequentielle Modellbildung</a></li>
 <li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-aic"><i class="fa fa-check"></i>Modellvergleich durch AIC</a></li>
-<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#modellvergleich-durch-kreuzvalidierung"><i class="fa fa-check"></i>Modellvergleich durch Kreuzvalidierung</a></li>
-<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-bei-linearer-modellierung"><i class="fa fa-check"></i>Voraussetzungen bei linearer Modellierung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#kreuzvalidierung"><i class="fa fa-check"></i>Kreuzvalidierung</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html#voraussetzungen-mlr"><i class="fa fa-check"></i>Voraussetzungen MLR</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="losungen-1.html"><a href="losungen-1.html"><i class="fa fa-check"></i>Lösungen</a><ul>
 <li class="chapter" data-level="" data-path="losungen-1.html"><a href="losungen-1.html#aufgabe-slr-1-lsg"><i class="fa fa-check"></i>Aufgabe SLR 1 Lsg</a></li>
@@ -586,14 +586,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol style="list-style-type: decimal">
 <li>Schrittweise (STEPWISE): Diese Methode ist ähnlich wie “Vorwärts”-Selektion, es wird aber zusätzlich bei jedem Schritt getestet, ob die am wenigsten “nützliche” Variable entfernt werden soll.</li>
 <li>Vorwärts-Selektion (FORWARD): Die Variablen werden sequenziell in das Modell aufgenommen. Diejenige unabhängige Variable, welche am stärksten mit der abhängigen Variable korreliert wird zuerst zum Modell hinzugefügt. Dann wird jene der verbleibenden Variablen hinzugefügt, die die höchste partielle Korrelation mit der abhängigen Variablen aufweist. Dieser Schritt wird wiederholt, bis sich die Modellgüte (R-Quadrat) nicht weiter signifikant erhöht oder alle Variablen ins Modellaufgenommen worden sind.</li>
-<li>Rückwärts-Elimination (BACKWARD): Zunächst sind alle Variablen im Regressionsmodell enthalten und werden anschließend sequenziell entfernt. Schrittweise wird immer diejenige unabhängige Variable entfernt, welche die kleinste partielle Korrelation mit der abhängigen Variable aufweist, bis entweder keine Variablen mehr im Modell sind oder keine die verwendeten Ausschlusskriterien erfüllen.</li>
+<li>Rückwärts-Elimination (BACKWARD): Zunächst sind alle Variablen im Regressionsmodell enthalten und werden anschließend sequenziell entfernt. Schrittweise wird immer diejenige unabhängige Variable entfernt, welche die kleinste partielle Korrelation mit der abhängigen Variable aufweist, bis entweder keine Variablen mehr im Modell sind oder keine die verwendeten Ausschlusskriterien erfüllen. Im Unterschied zur STEPWISE-Methode wird nicht mehr geprüft, ob die am wenigsten nützliche Variable entfernt werden soll - diese bleibt somit im Modell!</li>
 </ol>
 <p>Diese Methoden unterscheiden sich von der sogenannten Einschlussmethode (ENTER), bei der alle Variablen gleichzeitig in das Modell eingefügt werden. Diese Methode wird angewendet, wenn das Modell auf theoretischen Überlegungen basiert. Das heißt, sie eignet sich um Theorien zu testen, während die übrigen Methoden eher im Rahmen explorativer Studien eingesetzt werden.</p>
 </div>
 <div id="modellvergleich-durch-aic" class="section level2 unnumbered">
 <h2>Modellvergleich durch AIC</h2>
 <p>Nach einer (explorativen) Analyse der Daten und der Wahl einer passenden Modellklasse, geht es darum das bestmögliche Modell zu den vorliegenden Daten zu finden (siehe FUB). Daher stellt sich die Frage, was “bestmögliches” Modell bedeutet und wie ein solches bestimmt werden kann. In diesem Zusammenhang wird der Gedanke aufgegriffen, dass mit keinem Regressionsmodell die Realität eins zu eins abgebildet werden kann. Nimmt man zu viele erklärende Variablen auf, läuft man in Gefahr das Modell zu “overfitten” (überanpassen). Ein überangepasstes Modell erklärt die zum Schätzen verwendete abhängige Variable meist sehr gut, schneidet jedoch in der Vorhersage von Daten außerhalb der verwendeten Stichprobe häufig schlecht ab. Auf der anderen Seite kann ein Modell auch “underfitted” sein, d.h. die aufgenommenen unabhängigen Variablen können die abhängige Variable nur sehr unzureichend erklären.</p>
-<p>Das Thema der Modellselektion ist ein allgegenwärtiges in der Statistik/ Regressionsanalyse. Dennoch gibt es keine absoluten, objektiven Kriterien anhand derer entschieden werden kann, ob das eine oder das andere Modell gewählt werden sollte. Vielmehr existieren viele verschiedene Verfahren, die versuchen zwischen möglichst viel Erklärungsgehalt des Modells und möglichst wenig Komplexität (siehe dazu Ockhams Rasiermesser) abzuwägen.</p>
+<p>Das Thema der Modellselektion ist ein allgegenwärtiges in der Statistik/ Regressionsanalyse. Dennoch gibt es keine absoluten, objektiven Kriterien anhand derer entschieden werden kann, ob das eine oder das andere Modell gewählt werden sollte. Vielmehr existieren viele verschiedene Verfahren, die versuchen zwischen möglichst viel Erklärungsgehalt des Modells und möglichst wenig Komplexität (siehe dazu <a href="https://de.wikipedia.org/wiki/Ockhams_Rasiermesser">Ockhams Rasiermesser</a>) abzuwägen.</p>
 <p>In einem Artikel von <span class="citation">(Yamashita <a href="#ref-Yamashita">2007</a>)</span> wurden folgende Methoden:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Partial F</li>
@@ -620,8 +620,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Bei diesem Beispiel würde man also <em>mod_3</em> für weitere Betrachtungen ausschließen. Nachdem aber die Modelle <em>mod_1</em> und <em>mod_2</em> sehr nahe beisammen liegen, ist es mit den vorliegenden Daten nicht möglich, eine klare Entscheidung für eines der beiden Modelle zu treffen.</p>
 <p>Man könnte durchaus noch zusätzliche Daten erheben um dadurch eventuell eine klarere Trennung der beiden Modelle (<em>mod_1</em>, <em>mod_2</em>) zu erkennen. Ist das nicht möglich, könnte man beide Modelle mit der relativen likelihood gewichten und auf eine statistische Signifikanz testen, oder davon ausgehen, dass mit den vorliegenden Daten eine Modellwahl eben nicht eindeutig zu treffen ist.</p>
 </div>
-<div id="modellvergleich-durch-kreuzvalidierung" class="section level2 unnumbered">
-<h2>Modellvergleich durch Kreuzvalidierung</h2>
+<div id="kreuzvalidierung" class="section level2 unnumbered">
+<h2>Kreuzvalidierung</h2>
 <p>Betrachten wir im Folgenden ein Modell (<em>mod_1</em>) mit den Prädiktoren <em>sector</em> (Berufsgruppe), <em>exper</em> (Erfahrung), sowie das um den Prädiktor <em>age</em> (Alter) erweiterte Model (<em>mod_2</em>).</p>
 <p>Die Vorhergehensweise bei der Kreuzvalidierung ist relativ simpel:</p>
 <ol style="list-style-type: decimal">
@@ -631,19 +631,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Berechne den mittleren quadratischen Fehler der Differenzen.</li>
 </ol>
 </div>
-<div id="voraussetzungen-bei-linearer-modellierung" class="section level2 unnumbered">
-<h2>Voraussetzungen bei linearer Modellierung</h2>
-<p>Folgende Voraussetzungen müssen/sollten bei der linearen Modellierung mit mehreren Prädiktoren erfüllt sein, damit die Ergebnisse auch sinnvoll interpretiert werden können.:</p>
+<div id="voraussetzungen-mlr" class="section level2 unnumbered">
+<h2>Voraussetzungen MLR</h2>
+<p>Folgende Voraussetzungen müssen/sollten bei der linearen Modellierung mit mehreren Prädiktoren erfüllt sein, damit die Ergebnisse auch sinnvoll interpretiert werden können (Bemerkung: im folgenden sei die abhängige Variable <span class="math inline">\(y\)</span> und die Prädiktoren mit den Zahlen <span class="math inline">\({1, 2, \cdots, k}\)</span> bezeichnet):</p>
 <ol style="list-style-type: decimal">
-<li>Lineare Beziehung zwischen den Variablen.</li>
-<li>Keine Multikollinearität.</li>
-<li>Keine Ausreißer.</li>
-<li>Unabhängigkeit der Residuen (keine Autokorrelation).</li>
-<li>Varianzgleichheit der Residuen (Homoskädasdizität).</li>
-<li>Normalverteilung der Residuen.</li>
+<li><strong>Lineare Beziehung</strong> zwischen den Variablen (keine Ausreißer): eine einfache Prüfung erfolgt visuell mit Streudiagrammen, wobei alle Beziehungen, also <span class="math inline">\(r_{y\cdot1}, r_{y\cdot2}, \cdots, r_{y\cdot k}, \cdots, r_{1\cdot2}, r_{1\cdot k}, \cdots, r_{(k-1)\cdot k}\)</span> zu betrachten sind!</li>
+<li><strong>Varianzgleichheit der Residuen</strong> (Homoskädasdizität): auch diese Vorausstung kann visuell geprüft werden. Dabei wird ein Streudiagramm der Residuen erstellt, in welchem auf der x-Achse die standardisierten vorhergesagten Werte und auf der y-Achse doe standardisierten Residuen aufgetragen werden. Heteroskedastizität liegt vor, wenn die Punktewolke nicht gleichverteilt um die Gerade liegen!</li>
 </ol>
-<p>Eine Verletzung einer/mehrerer dieser Voraussetzungen führt meistens dazu, dass die Genauigkeit der Vorhersage gemindert wird. Relativ einfach zu prüfen sind die ersten drei Voraussetzungen (graphisch, Kennwerte wie Korrelation, etc.). Bei der Überprüfung der restlichen Voraussetzung muss man i.A. auf entsprechende statische Verfahren zurückgreifen, die hier aber nicht näher besprochen werden. Einen Überblick über die Möglichkeiten zur Überprüfung der Voraussetzungen finden Sie z.B. unter <span class="citation">(UZH <a href="#ref-UZH">2018</a>)</span>, oder MR2 - <span class="citation">(Hemmerich <a href="#ref-Hemmerich">2018</a>)</span>.</p>
-<p><a href="#wahl-relevanter-prädiktoren">zurück zur Kapitel</a></p>
+<center>
+<div class="figure">
+<img src="Images/Homoskedastizitaet.JPG" alt="Abbildung 3: Homoskedastizität vs. Heteroskedastizität" style="width:80.0%" />
+<p class="caption"><strong>Abbildung 3</strong>: Homoskedastizität vs. Heteroskedastizität</p>
+</div>
+</center>
+<p>Bekannte Verfahren, um die Nullhypothese „Homoskedastizität“ zu überprüfen sind der:</p>
+<pre><code>    * Levene-Test
+    * Goldfeld-Quandt-Test
+    * White-Test
+    * Glejser-Test
+    * RESET-Test
+    * Breusch-Pagan-Test</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Normalverteilung der Residuen</strong>: mittels Histogramm der Fehler zu prüfen - sollte halbwegs normalverteilt sein mit einem Erwartungswert des Fehlers <span class="math inline">\(E(\varepsilon) = 0\)</span>.</li>
+<li><p><strong>Unabhängigkeit der Residuen</strong> (keine Autokorrelation): verletzt wird diese Voraussetzung, wenn aufeinanderfolgende Werte abhängig sind (z.B. auf einen hohen Wert folgt ein hoher Wert, etc.). Vor allem bei Längsschnittdaten ein Thema, bei welchen die Prüfung durch die Durbin-Watson-Methode empfohlen wird. Es gilt: <span class="math inline">\(d = \frac{\sum_{i} (e_i - e_{i-1})^2}{\sum_{i} (e_i)^2}\)</span> mit <span class="math inline">\(d \approx 2\)</span>, Werte zwischen <span class="math inline">\(1.5 &lt; d &lt; 2.5\)</span> sind noch akzeptabel.</p></li>
+<li><strong>Vollständig spezifizierte Modelle</strong>: werden maßgebliche Prädiktoren nicht im Modell berücksichtigt, wird es auch kaum gelingen, die Varianz des Kriteriums zufriedenstellend zu erklären. Andererseits bewirken Modelle mit vielen Prädiktoren, dass die <span class="math inline">\(\beta\)</span>-Gewichte entsprechend klein werden. Bei derartigen Gegebenheiten ist die Stichprobe entsprechend groß zu wählen.</li>
+<li><p><strong>Keine Multikollinearität</strong>: Multikollinearität bedeutet, dass Prädiktoren existieren, die hoch miteinander korrelieren (z.B. <span class="math inline">\(r_{1\cdot2} &gt; 0.8\)</span>). Damit wird es für das Modell schwer, den jeweiligen Beitrag den Prädiktoren zuzuordnen. Besteht rein das Interesse an maximaler Varianzaufklärung des Kriteriums, ist eine hohe Multikollinearität zu vernachlässigen - die <span class="math inline">\(\beta\)</span>-Gewichte der einzelnen Prädiktoren darf man dann allerdings nicht interpretieren. Spielen jedoch gerade diese eine wichtige Rolle, kann man entweder hoch korrelierte Prädiktoren zusammenfassen (eventuell Faktorenanalyse/Clusteranalyse vorher durchführen), oder entsprechende Prädiktoren ausschließen. Allerdings sollte man vor dem Ausschluss von Prädiktoren diese auf eventuelle Suppressionseffekte prüfen.</p>
+<ul>
+<li><em>Negative und reziproke Suppression</em>: man spricht von Suppressionseffekten, wenn ein Prädiktor aus einem anderen Prädiktor irrelevante Varianz unterdrückt (suppression) und dadurch die Beziehung zwischen diesem Prädiktor und dem Kriterium erhöht. Solche Effekte können durchaus beträchtlich sein und u.U. auch einen Prädiktor, der nichts mit dem Kriterium an sich zu tun hat (<span class="math inline">\(r_{y\cdot k} \approx 0\)</span>), als wichtigen Bestandteil des Modells werden lassen. Die Aufnahme des Suppressors in das Regressionsmodell hat somit den Effekt, den anderen Prädiktor von diesen Fehlereinflüssen zu bereinigen. Erkennbar sind Suppressionseffekte einerseits durch Vorzeichenwechsel bei Korrelationen (Nullter Ordnung, also der Produkt-Moment-Korrelation) vs. <span class="math inline">\(\beta\)</span>-Gewichten (negative Suppression, bzw. NET-Suppression). D.h., dass für nicht-negative Validitäten<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a> ist der Prädiktor <span class="math inline">\(2\)</span> ein negativer Suppressor, falls seine partielle Steigung negativ ist, d. h., falls <span class="math inline">\(B_2 &lt; 0\)</span>. Eine <em>reziproke Suppression</em> liegt vor, wenn für nicht-negative Validitäten die Korrelation der Prädiktoren negativ ist, d. h., falls <span class="math inline">\(r_{1\cdot2} &lt; 0\)</span>. Weitere Details zu Suppressionseffekten siehe Literatur und Diskriminanzanalyse.</li>
+</ul></li>
+</ol>
+<ol start="7" style="list-style-type: decimal">
+<li><strong>Hohe Reliabilität der Prädiktoren und des Kriteriums</strong>: Variablen sind hochreliabel, wenn sie weitgehend frei von Zufallsfehlern sind, also bei Messwiederholung ähnliche Ergebnisse liefern.</li>
+<li><strong>Keine Varianzeinschränkung</strong>: eine Einschränkung führt i.A. zu eingeschränkten (niedrigeren) Korrelationen. Z.B.: aus 500 Personen werden 100 augrund eines Aufnahmeverfahrens zu einem Studium zugelassen. Will man die Validität des Aufnahmeverfahrens anhand der Beziehung Studienerfolg und Leistung beim Aufnahmetest prüfen, wird es aufgrund der eingeschränkten Variabilität durch die Aufnahmekriterium zu einer Unterschätzung kommen.</li>
+<li><strong>Unabgängigkeit der Beobachtungseinheiten</strong>: eine Verletzung dieser Voraussetzung, kann zu einer maßgeblichen Reduktion der Teststärke des Modells führen. Z.B. soll die Teamorientierung in einem Unternehmen untersucht werden. Diese wird sicher zwischen den einzelnen Personen variieren, aber darüber hinaus kann diese auch abhängig von der Abteilung sein, in welcher Personen arbeiten. Die Variabilität kann dadurch bei bestimmten Abteilungen stark eingeschränkt sein, was einer Reduktion des Stichprobenumfangs und damit einer Teststärkenreduktion gleichzusetzen ist. In solchen Fällen könnte man eine Multilevel-Analyse (gemischtes hierarchisches Modell) einsetzen!</li>
+</ol>
+<p>Zusammenfassend lässt sich festhalten, dass eine Verletzung einer/mehrerer dieser Voraussetzungen meistens dazu führt, dass die Genauigkeit der Vorhersage gemindert wird. Relativ einfach zu prüfen sind die ersten drei Voraussetzungen (graphisch, Kennwerte wie Korrelation, etc.). Bei der Überprüfung der restlichen Voraussetzung muss man i.A. auf entsprechende statische Verfahren zurückgreifen, die hier aber nicht näher besprochen werden. Einen Überblick über die Möglichkeiten zur Überprüfung der Voraussetzungen finden Sie z.B. unter <span class="citation">(UZH <a href="#ref-UZH">2018</a>)</span>, oder MR2 - <span class="citation">(Hemmerich <a href="#ref-Hemmerich">2018</a>)</span>.</p>
 </div>
 </div>
 <h3>References</h3>
@@ -657,6 +679,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="ref-Hemmerich">
 <p>Hemmerich, W.A. 2018. “StatistikGuru Multiple Lineare Regression in Spss, Version 1.96.” <a href="https://statistikguru.de/spss/multiple-lineare-regression/einleitung-2.html" class="uri">https://statistikguru.de/spss/multiple-lineare-regression/einleitung-2.html</a>.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="11">
+<li id="fn11"><p>Die Korrelationen des Kriteriums mit den Prädiktorvariablen bezeichnen wir als Validitäten, d. h. die Validität der <span class="math inline">\(j\)</span>-ten Prädiktorvariablen ist gleich ihrer Korrelation mit dem Kriterium.<a href="multiple-regression.html#fnref11">↩</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -701,7 +729,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["Modellbildung.pdf"],
 "toc": {
 "collapse": "subsection"
 }
